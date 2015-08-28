@@ -5,6 +5,7 @@ if (process.env.BROWSER) {
 }
 
 class About extends Component {
+
   _onClickHandler() {
     console.log('about clicked');
   }
