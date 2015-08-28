@@ -4,7 +4,7 @@ var Webpack = require('webpack'),
 var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     buildPath = path.resolve(__dirname, 'build'),
-    entryPath = path.resolve(__dirname, 'src', 'app.js'),
+    entryPath = path.resolve(__dirname, 'src', 'app.jsx'),
     sourcePath = path.resolve(__dirname, 'src');
 
 var config = {
@@ -13,7 +13,7 @@ var config = {
     entry: {
         app: [
             'webpack/hot/only-dev-server',
-            'webpack-dev-server/client?http://localhost:8080',
+            'webpack-dev-server/client?http://localhost:8085',
             entryPath
         ]
     },

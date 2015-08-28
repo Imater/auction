@@ -1,9 +1,10 @@
+var Webpack = require('webpack');
 var path = require('path');
 
 var outDirectory = (process.env.NODE_ENV === 'production') ?
     'dist' :
     'build';
-const entryPath = path.resolve(__dirname, 'src', 'app.js');
+const entryPath = path.resolve(__dirname, 'src', 'app.jsx');
 
 module.exports = {
     entry: {
@@ -40,4 +41,12 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new Webpack.DefinePlugin({
+            'process.env': {
+                BROWSER: JSON.stringify(true)
+            }
+        }),
+        new Webpack.NoErrorsPlugin()
+    ]
 };

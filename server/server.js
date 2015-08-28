@@ -14,7 +14,7 @@ import cookieParser from 'cookie-parser';
 // Router
 import Router from 'react-router';
 import Location from 'react-router/lib/Location';
-import appRoutes from '../src/routes/appRoutes.js';
+import appRoutes from '../src/routes/appRoutes.jsx';
 import apiRoutes from '../src/routes/apiRoutes';
 
 // Webpack
@@ -47,12 +47,12 @@ if (!isProduction) {
 	webpackDevServer();
 	app.all('/build/*', (req, res) => {
 		proxy.web(req, res, {
-            target: 'http://localhost:8080'
+            target: 'http://localhost:8085'
         });
 	});
 } else {
     console.info('PRODUCTION MODE');
-	app.use('/build', express.static(path.join(__dirname, '..', 'build')));
+	app.use('/build', express.static(path.join(__dirname, '..', 'dist')));
 }
 
 app.use((req, res, next) => {

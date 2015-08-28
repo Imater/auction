@@ -6,8 +6,8 @@ import Todo from '../containers/Todo/Todo';
 import About from '../containers/About/About';
 
 export default (
-	<Route component={App}>
-	    <Route path="/" component={Todo} />
-	    <Route path="/about" component={About} />
-	</Route>
+  <Route component={App}>
+    <Route path="/" component={Todo} />
+    <Route path="/about" component={About} />
+  </Route>
 );

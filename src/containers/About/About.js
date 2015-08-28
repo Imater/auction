@@ -10,11 +10,11 @@ import About from '../../components/About/About';
 // }
 
 class AboutContainer extends Component {
-	render() {
-		return (
-			<About />
-		);
-	}
+  render() {
+    return (
+      <About />
+    );
+  }
 }
 
 export default connect()(AboutContainer);
