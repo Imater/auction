@@ -1,0 +1,27 @@
+.LanguageSwitch {
+  .flag {
+    vertical-align: top;
+    cursor: pointer;
+    img {
+      height: 20px;
+      border: 5px solid #EEE;
+    }
+    span {
+      font-family: 'PT Sans';
+      vertical-align: top;
+      margin: 0 10px 0 5px;
+      display: inline-block;
+      line-height: 30px;
+      height: 30px;
+      color: #999;
+    }
+    &.active{
+      img {
+        border: 5px solid #DDD;
+      }
+      span {
+        color: #000;
+      }
+    }
+  }
+}

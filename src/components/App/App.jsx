@@ -6,6 +6,7 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import { setLanguage, changeLanguage } from '../../stores/i18';
 import MainHeader from '../MainHeader/MainHeader';
+import Top from '../Top/Top';
 
 if (process.env.BROWSER) {
   require('../../../assets/styles/normalize.css');
@@ -34,6 +35,7 @@ class App extends Component {
     return (
       <div className="app-wrapper">
         <MainHeader />
+        <Top />
         <nav className="app-navigation">
           <Link className="nav-item" to="/">Todo List</Link>
           <Link className="nav-item" to="/about">About Me</Link>

@@ -1,0 +1,63 @@
+.Top {
+  background-color: #FFF;
+  min-height: 166px;
+  display: table;
+  width: 100%;
+  .rowWrap {
+    display: table-row;
+    height: 100%;
+    .loginWrap {
+      vertical-align: top;
+      width: 33%;
+      display: table-cell;
+      height: 100%;
+    }
+    .headerWrap {
+      vertical-align: top;
+      width: 33%;
+      display: table-cell;
+      height: 100%;
+      text-align: center;
+      .title1 {
+        margin-top: 15px;
+        font-family: 'PT Sans Caption';
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      .title2 {
+        display: inline-block;
+        font-family: 'PT Sans';
+        letter-spacing: 2px;
+        font-size: 42px;
+        position: relative;
+        margin-bottom: 7px;
+        .info {
+          position: absolute;
+          bottom: 12px;
+          right: -39px;
+          line-height: 42px;
+          cursor: pointer;
+          img {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+      .title3 {
+        font-family: 'PT Sans';
+        font-size: 17px;
+        font-weight: normal;
+        color: #BBB;
+      }
+    }
+    .languageWrap {
+      vertical-align: top;
+      text-align: center;
+      width: 33%;
+      display: table-cell;
+      height: 100%;
+      padding-top: 40px;
+    }
+  }
+}
