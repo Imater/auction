@@ -1,4 +1,6 @@
 import React, { Component, PropTypes, findDOMNode } from 'react';
+import { Link } from 'react-router';
+import ActiveLot from '../ActiveLot/ActiveLot';
 
 if (process.env.BROWSER) {
   require('./_Main.scss');
@@ -43,11 +45,13 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <div>
-          <b>Main page</b>
-          <input ref="todoInput"/>
-          <a onClick={this._onItemAddedHandler.bind(this)}>Add</a>
+        <div className="ActiveLot">
+          <ActiveLot />
         </div>
+        <nav className="app-navigation">
+          <Link className="nav-item" to="/">Все лоты</Link>
+          <Link className="nav-item" to="/active">Только открытые</Link>
+        </nav>
         <ul>
           {this._renderListItem()}
         </ul>

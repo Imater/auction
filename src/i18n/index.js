@@ -13,7 +13,9 @@ const resources = {
       login: {
         email: 'электронная почта',
         password: 'пароль',
-        login: 'вход'
+        login: 'вход',
+        loginText: 'ВХОД',
+        regText: 'РЕГИСТРАЦИЯ'
       }
     }
   },
@@ -30,7 +32,9 @@ const resources = {
       login: {
         email: 'email',
         password: 'password',
-        login: 'login'
+        login: 'login',
+        loginText: 'LOGIN',
+        regText: 'REGISTRATION'
       }
     }
   }

@@ -37,12 +37,7 @@ class App extends Component {
       <div className="app-wrapper" style={style}>
         <MainHeader />
         <Top />
-        <nav className="app-navigation">
-          <Link className="nav-item" to="/">Аукцион</Link>
-          <Link className="nav-item" to="/about">About</Link>
-          <Link className="nav-item" to="/auth">Login</Link>
-          {devtools}
-        </nav>
+        {devtools}
         <main className="app-content">
           {this.props.children}
         </main>

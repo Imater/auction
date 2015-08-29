@@ -5,19 +5,27 @@
   margin: 0 auto;
   font-family: PTSansRegular, 'PT Sans', Verdana;
   .app-navigation {
+    margin-top: 10px;
     box-sizing: border-box;
     padding: 24px;
-    background-color: #E9E9E9;
     min-height: 64px;
+    text-align: center;
     .nav-item {
+      border: 2px solid #EEE;
       display: inline-block;
       color: #888;
       text-decoration: none;
       vertical-align: middle;
-      margin-right: 25px;
-
+      padding: 5px 40px;
       &:hover {
         color: #E7A731;
+      }
+      &:last-child {
+        border-left: none;
+      }
+      &.active {
+        border-color: #5A95BD;
+        color: #5A95BD;
       }
     }
   }

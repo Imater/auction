@@ -11,6 +11,18 @@
       width: 30%;
       display: table-cell;
       height: 100%;
+      padding-top: 20px;
+      .nav-item {
+        margin-left: 100px;
+        display: block;
+        font-size: 13px;
+        padding: 1px;
+        text-decoration: none;
+        color: #AAA;
+        &.active {
+          color: #000;
+        }
+      }
     }
     .headerWrap {
       vertical-align: top;
@@ -19,7 +31,7 @@
       height: 100%;
       text-align: center;
       .title1 {
-        margin-top: 15px;
+        margin-top: 20px;
         font-family: PTSansCaptionRegular, 'PT Sans Caption', Verdana;
         font-weight: bold;
         font-size: 14px;
@@ -55,7 +67,7 @@
       width: 30%;
       display: table-cell;
       height: 100%;
-      padding-top: 40px;
+      padding-top: 35px;
     }
   }
 }

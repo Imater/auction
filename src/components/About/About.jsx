@@ -14,9 +14,7 @@ class About extends Component {
     console.info('render now', i18n.isInitialized());
     return (
       <div className="About" onClick={this._onClickHandler}>
-        <h5>Hello</h5>
-        <h2>{i18n.t('header.charity')}</h2>
-        <h1>{i18n.t('header.auction')}</h1>
+        <h1>Активные лоты</h1>
       </div>
     );
   }

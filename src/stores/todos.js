@@ -4,7 +4,7 @@ export const TODO_CREATE = 'TODO_CREATE';
 export const TODO_COMPLETE = 'TODO_COMPLETE';
 export const TODO_DESTROY = 'TODO_DESTROY';
 
-const defaultState = new List(['hello']);
+const defaultState = new List(['hello', 'again']);
 
 export default function(state = defaultState, action) {
   switch (action.type) {
