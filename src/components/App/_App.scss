@@ -1,9 +1,10 @@
 .app-wrapper {
   min-width: 800px;
   max-width: 1240px;
+  display: block !important;
   margin: 0 auto;
+  font-family: PTSansRegular, 'PT Sans', Verdana;
   .app-navigation {
-    margin-top: 300px;
     box-sizing: border-box;
     padding: 24px;
     background-color: #E9E9E9;

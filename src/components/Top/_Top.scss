@@ -8,26 +8,25 @@
     height: 100%;
     .loginWrap {
       vertical-align: top;
-      width: 33%;
+      width: 30%;
       display: table-cell;
       height: 100%;
     }
     .headerWrap {
       vertical-align: top;
-      width: 33%;
+      width: 40%;
       display: table-cell;
       height: 100%;
       text-align: center;
       .title1 {
         margin-top: 15px;
-        font-family: 'PT Sans Caption';
+        font-family: PTSansCaptionRegular, 'PT Sans Caption', Verdana;
         font-weight: bold;
         font-size: 14px;
         letter-spacing: 1px;
       }
       .title2 {
         display: inline-block;
-        font-family: 'PT Sans';
         letter-spacing: 2px;
         font-size: 42px;
         position: relative;
@@ -45,7 +44,6 @@
         }
       }
       .title3 {
-        font-family: 'PT Sans';
         font-size: 17px;
         font-weight: normal;
         color: #BBB;
@@ -54,7 +52,7 @@
     .languageWrap {
       vertical-align: top;
       text-align: center;
-      width: 33%;
+      width: 30%;
       display: table-cell;
       height: 100%;
       padding-top: 40px;

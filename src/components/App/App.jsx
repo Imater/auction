@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-import { setLanguage, changeLanguage } from '../../stores/i18';
 import MainHeader from '../MainHeader/MainHeader';
 import Top from '../Top/Top';
 
@@ -15,7 +14,6 @@ if (process.env.BROWSER) {
 
 @connect(
   state => ({ i18: state.i18 }),
-    dispatch => bindActionCreators({ changeLanguage }, dispatch)
 )
 class App extends Component {
   static contextTypes = {
@@ -32,19 +30,17 @@ class App extends Component {
       );
     }
     console.info(this.props);
+    const style = {
+      display: 'none'
+    }
     return (
-      <div className="app-wrapper">
+      <div className="app-wrapper" style={style}>
         <MainHeader />
         <Top />
         <nav className="app-navigation">
-          <Link className="nav-item" to="/">Todo List</Link>
-          <Link className="nav-item" to="/about">About Me</Link>
-          <Link className="nav-item" to="/auth">Auth</Link>
-          <span>
-            <a lang="eng" onClick={this.props.changeLanguage.bind(this, 'eng')}>Eng</a>-
-            <a lang="ru" onClick={this.props.changeLanguage.bind(this, 'ru')}>Ru</a>-
-          </span>
-          {this.props.i18.language}
+          <Link className="nav-item" to="/">Main</Link>
+          <Link className="nav-item" to="/about">About</Link>
+          <Link className="nav-item" to="/auth">Login</Link>
           {devtools}
         </nav>
         <main className="app-content">

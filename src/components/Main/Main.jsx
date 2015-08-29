@@ -1,7 +1,7 @@
 import React, { Component, PropTypes, findDOMNode } from 'react';
 
 if (process.env.BROWSER) {
-  require('./_Main');
+  require('./_Main.scss');
 }
 
 class Main extends Component {
