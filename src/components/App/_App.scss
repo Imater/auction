@@ -1,3 +1,6 @@
+body {
+  background: #EEE;
+}
 .app-wrapper {
   min-width: 800px;
   max-width: 1240px;
@@ -30,5 +33,10 @@
     }
   }
   .app-content {
+    background: #FFF;
+  }
+  .footer {
+    height: 600px;
+    background: #F1F6F8;
   }
 }

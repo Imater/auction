@@ -73,6 +73,7 @@ app.use((req, res, next) => {
       </Provider>
     );
     const initialState = JSON.stringify(store.getState());
+    console.info(initialState);
     let resultHtml = indexHtml
     .replace('${initialView}', initialView)
     .replace('${initialState}', initialState);

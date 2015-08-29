@@ -1,6 +1,7 @@
 import React, { Component, PropTypes, findDOMNode } from 'react';
 import { Link } from 'react-router';
 import ActiveLot from '../ActiveLot/ActiveLot';
+import i18n from 'i18next-client';
 
 if (process.env.BROWSER) {
   require('./_Main.scss');
@@ -31,26 +32,47 @@ class Main extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    return listData.map((item, index) => {
+    return listData.map((itemMap, index) => {
+      var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       return (
         <li className='item' key={index}>
-          {item}
-          <a
-            data-id={index}
-            onClick={this._onItemDeleteHandler.bind(this)}>X</a>
+          <div className='itemWrap'>
+            <div className='imageWrap'>
+              <img src={item.image} />
+            </div>
+            <div className="id">
+              {item.id}
+            </div>
+            <div className="title">
+              {item.title}
+            </div>
+            <div className="from">
+              {item.from}
+            </div>
+            <div className="startCost">
+              {item.startCost}
+            </div>
+            <div className="nowCost">
+              {item.nowCost}
+            </div>
+          </div>
         </li>
       );
     });
   }
   render() {
     return (
-      <div>
+      <div className="Main">
         <div className="ActiveLot">
           <ActiveLot />
         </div>
         <nav className="app-navigation">
-          <Link className="nav-item" to="/">Все лоты</Link>
-          <Link className="nav-item" to="/active">Только открытые</Link>
+          <Link className="nav-item" to="/">
+            {i18n.t('lot.all')}
+          </Link>
+          <Link className="nav-item" to="/active">
+            {i18n.t('lot.active')}
+          </Link>
         </nav>
         <ul>
           {this._renderListItem()}

@@ -16,6 +16,10 @@ const resources = {
         login: 'вход',
         loginText: 'ВХОД',
         regText: 'РЕГИСТРАЦИЯ'
+      },
+      lot: {
+        all: 'ВСЕ ЛОТЫ',
+        active: 'ТОЛЬКО АКТИВНЫЕ'
       }
     }
   },
@@ -35,6 +39,10 @@ const resources = {
         login: 'login',
         loginText: 'LOGIN',
         regText: 'REGISTRATION'
+      },
+      lot: {
+        all: 'ALL LOTS',
+        active: 'ACTIVE ONLY'
       }
     }
   }

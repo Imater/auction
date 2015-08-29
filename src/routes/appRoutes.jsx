@@ -11,7 +11,7 @@ export default (
   <Route component={App}>
     <Route path="/" component={Main} />
     <Route path="/todo" component={Todo} />
-    <Route path="/active" component={About} />
+    <Route path="/active" component={Main} />
     <Route path="/auth" component={Auth} />
   </Route>
 );

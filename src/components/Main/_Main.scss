@@ -1,5 +1,56 @@
-.item {
-  a {
-    padding: 10px;
+.Main {
+  text-align: center;
+  ul {
+    margin: 0 50px;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    li.item {
+      display: inline-block;
+      width: 33%;
+      vertical-align: top;
+      .itemWrap {
+        position: relative;
+        max-width: 300px;
+        margin-bottom: 40px;
+        .imageWrap {
+          margin: 0 5px;
+          height: 400px;
+          background: #000;
+          overflow: hidden;
+          text-align: center;
+          img {
+            display: inline-block;
+            vertical-align: middle;
+            height: 400px;
+          }
+        }
+      }
+      .id {
+        margin-top: 5px;
+        color: #BBB;
+        font-size: 13px;
+      }
+      .title {
+        margin-top: 5px;
+        font-size: 18px;
+        font-family: PTSansBold;
+        text-transform: uppercase;
+      }
+      .from {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+      .startCost {
+        margin-top: 5px;
+        color: #BBB;
+        font-size: 14px;
+        text-decoration: line-through;
+      }
+      .nowCost {
+        font-family: PTSansBold;
+        font-size: 23px;
+      }
+    }
   }
 }

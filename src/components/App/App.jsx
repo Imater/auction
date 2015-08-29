@@ -41,6 +41,8 @@ class App extends Component {
         <main className="app-content">
           {this.props.children}
         </main>
+        <div className="footer">
+        </div>
       </div>
     );
   }
