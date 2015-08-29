@@ -10,7 +10,6 @@ import createAppStore from './createStore/createStore';
 import { Provider } from 'react-redux';
 import { fromJS } from 'immutable';
 
-
 let initialState = window.__INITIAL_STATE__;
 
 Object.keys(initialState).forEach((key) => {

@@ -6,7 +6,7 @@ import Todo from '../../components/Todo/Todo';
 import {
   addTodo,
   deleteTodo
-} from '../../actions/todoActions';
+} from '../../stores/todos';
 
 function mapStateToProps(state) {
   return {
@@ -17,7 +17,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onAddHandler: (text) => dispatch(addTodo(text)),
-      onDeleteHandler: (id) => dispatch(deleteTodo(id))
+    onDeleteHandler: (id) => dispatch(deleteTodo(id))
   };
 }
 

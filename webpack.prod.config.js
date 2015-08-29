@@ -44,9 +44,9 @@ module.exports = {
   plugins: [
     new Webpack.DefinePlugin({
       'process.env': {
-        BROWSER: JSON.stringify(true)
-      },
-      __DEVELOPMENT__: JSON.stringify(false)
+        BROWSER: JSON.stringify(true),
+        __DEVELOPMENT__: JSON.stringify(false)
+      }
     }),
     new Webpack.NoErrorsPlugin()
   ]

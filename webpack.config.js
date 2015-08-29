@@ -54,9 +54,9 @@ var config = {
     new Webpack.HotModuleReplacementPlugin(),
     new Webpack.DefinePlugin({
       'process.env': {
-        BROWSER: JSON.stringify(true)
-      },
-      '__DEVELOPMENT__': JSON.stringify(true)
+        BROWSER: JSON.stringify(true),
+        __DEVELOPMENT__: JSON.stringify(true)
+      }
     }),
     new Webpack.NoErrorsPlugin()
   ],

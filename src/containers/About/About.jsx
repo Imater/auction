@@ -9,6 +9,9 @@ import About from '../../components/About/About';
 //     };
 // }
 
+@connect(
+  state => ({ i18: state.i18 })
+)
 class AboutContainer extends Component {
   render() {
     return (

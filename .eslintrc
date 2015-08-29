@@ -22,7 +22,7 @@
     "i18n": false,
     "Cookies": false,
     "Highcharts": false,
-    "__DEV__": false,
+    "__DEVELOPMENT__": false,
     "_": false
   },
   "rules": {

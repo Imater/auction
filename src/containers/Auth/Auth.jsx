@@ -6,7 +6,7 @@ import Auth from '../../components/Auth/Auth';
 // Actions
 import {
   addTodo
-} from '../../actions/todoActions';
+} from '../../stores';
 
 
 // function mapDispatchToProps(dispatch) {
@@ -15,17 +15,10 @@ import {
 //     };
 // }
 
-class AuthContainer extends Component {
-  render() {
-    return (
-      <Auth {...this.props}/>
-    );
-  }
-}
-
 function mapStateToProps(state) {
   return {
-    listData: state.todos.toArray()
+    listData: state.todos.toArray(),
+    i18: state.i18
   };
 }
 
@@ -36,4 +29,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

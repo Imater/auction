@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import i18n from 'i18next-client';
 
 if (process.env.BROWSER) {
   var i = require('./_Auth.scss');
@@ -14,22 +15,23 @@ class Auth extends Component {
   }
 
   _onClickHandler(e) {
+    if(!this) return;
     console.log('auth clicked', this);
     this.props.onAddHandler('login');
-    e.stopPropaganation();
   }
   render() {
-    //console.info('props', this.props);
+    console.info('props', this.props);
     return (
       <div className="auth" onClick={this._onClickHandler}>
         <div>
-          <input placeholder="email" />
+          <input placeholder={i18n.t('login.email')} />
+
         </div>
         <div>
-          <input placeholder="password" type="password"/>
+          <input placeholder={i18n.t('login.password')} type="password"/>
         </div>
         <div>
-          <button onClick={this._onClickHandler.bind(this)}>login</button>
+          <button onClick={this._onClickHandler.bind(this)}>{i18n.t('login.login')}</button>
         </div>
       </div>
     );
