@@ -6,7 +6,7 @@ export const TODO_DESTROY = 'TODO_DESTROY';
 
 const defaultState = new List([
   {
-    image: '/assets/images/IMG_5508.jpg',
+    image: '/assets/images/IMG_5508.JPG',
     id: '28737844',
     title: 'Сувенир с самородком',
     from: 'Предоставлен компанией Восток строй',
