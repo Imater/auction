@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { setLanguage, changeLanguage } from '../../stores/i18';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+
+import { setLanguage, changeLanguage } from '../../stores/i18';
+import MainHeader from '../MainHeader/MainHeader';
 
 if (process.env.BROWSER) {
   require('../../../assets/styles/normalize.css');
@@ -22,7 +23,7 @@ class App extends Component {
 
   render() {
     var devtools;
-    if(true && process.env.__DEVELOPMENT__){
+    if(false && process.env.__DEVELOPMENT__){
       devtools = (
         <DebugPanel top right bottom>
           <DevTools store={this.context.store} monitor={LogMonitor} />
@@ -32,6 +33,7 @@ class App extends Component {
     console.info(this.props);
     return (
       <div className="app-wrapper">
+        <MainHeader />
         <nav className="app-navigation">
           <Link className="nav-item" to="/">Todo List</Link>
           <Link className="nav-item" to="/about">About Me</Link>

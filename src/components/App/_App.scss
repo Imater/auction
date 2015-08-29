@@ -1,12 +1,15 @@
 .app-wrapper {
+  min-width: 800px;
+  max-width: 1240px;
+  margin: 0 auto;
   .app-navigation {
     box-sizing: border-box;
     padding: 24px;
-    background-color: #119221;
+    background-color: #E9E9E9;
     min-height: 64px;
     .nav-item {
       display: inline-block;
-      color: #fff;
+      color: #888;
       text-decoration: none;
       vertical-align: middle;
       margin-right: 25px;
