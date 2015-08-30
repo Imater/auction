@@ -17,7 +17,7 @@ class Top extends Component {
             <Link className="nav-item" to="/auth">
               {i18n.t('login.loginText')}
             </Link>
-            <Link className="nav-item active" to="/auth">
+            <Link className="nav-item" to="/register">
               {i18n.t('login.regText')}
             </Link>
           </div>

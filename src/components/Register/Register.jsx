@@ -5,11 +5,11 @@ import Footer from '../Footer/Footer';
 import Top from '../Top/Top';
 
 if (process.env.BROWSER) {
-  var i = require('./_Auth.scss');
+  var i = require('./_Register.scss');
   console.info('class', i);
 }
 
-class Auth extends Component {
+class Register extends Component {
   static propTypes = {
     onAddHandler: PropTypes.func,
   }
@@ -31,18 +31,31 @@ class Auth extends Component {
         <div className="auth" onClick={this._onClickHandler}>
           <div className='wrapper'>
             <div>
-              <div className="label">{i18n.t('login.email')}</div>
+              <div className="label">{i18n.t('register.fullname')}</div>
               <input />
             </div>
             <div>
-              <div className="label">{i18n.t('login.password')}</div>
-              <input type="password"/>
-              <div className="forgotWrapper">
-                <a className="forgot">{i18n.t('login.forgot')}</a>
-              </div>
+              <div className="label">{i18n.t('register.company')}</div>
+              <input />
             </div>
             <div>
-              <button onClick={this._onClickHandler.bind(this)}>{i18n.t('login.login')}</button>
+              <div className="label">{i18n.t('register.job')}</div>
+              <input />
+            </div>
+            <div>
+              <div className="label">{i18n.t('register.email')}</div>
+              <input />
+            </div>
+            <div>
+              <div className="label">{i18n.t('register.phone')}</div>
+              <input />
+            </div>
+            <div>
+              <div className="label">{i18n.t('register.password')}</div>
+              <input type="password"/>
+            </div>
+            <div>
+              <button onClick={this._onClickHandler.bind(this)}>{i18n.t('register.proceed')}</button>
             </div>
           </div>
         </div>
@@ -52,4 +65,4 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+export default Register;

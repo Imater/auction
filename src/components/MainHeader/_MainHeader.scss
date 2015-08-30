@@ -66,5 +66,25 @@
       }
     }
   }
+  &.mini {
+    .textWrapper {
+      display: none;
+    }
+    width: 100%;
+    text-align: center;
+    min-height: 120px;
+    .logosWrapper {
+      width: 100%;
+      .logo1 {
+        min-height: 120px;
+      }
+      .logo2 {
+        min-height: 120px;
+      }
+      .logo3 {
+        min-height: 120px;
+      }
+    }
+  }
 
 }

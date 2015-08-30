@@ -8,8 +8,9 @@ if (process.env.BROWSER) {
 class MainHeader extends Component {
 
   render() {
+    var className = 'MainHeader ' + (this.props.mini ? 'mini' : '');
     return (
-      <div className="MainHeader">
+      <div className={className}>
         <div className="tableRow">
           <div className="textWrapper">
             <div className="textColumn">

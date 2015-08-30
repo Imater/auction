@@ -14,9 +14,19 @@ const resources = {
       login: {
         email: 'электронная почта',
         password: 'пароль',
-        login: 'вход',
-        loginText: 'ВХОД',
-        regText: 'РЕГИСТРАЦИЯ'
+        login: 'войти',
+        loginText: 'ВОЙТИ',
+        regText: 'РЕГИСТРАЦИЯ',
+        forgot: 'Забыли пароль?'
+      },
+      register: {
+        fullname: 'ФИО',
+        company: 'Название компании',
+        job: 'Должность или статус участника',
+        email: 'Электронная почта',
+        phone: 'Телефон',
+        password: 'Пароль',
+        proceed: 'Продолжить'
       },
       lot: {
         all: 'ВСЕ ЛОТЫ',
@@ -56,7 +66,17 @@ const resources = {
         password: 'password',
         login: 'login',
         loginText: 'LOGIN',
-        regText: 'REGISTRATION'
+        regText: 'REGISTRATION',
+        forgot: 'Forgot password?'
+      },
+      register: {
+        fullname: 'Fullname',
+        company: 'Company name',
+        job: 'Job title',
+        email: 'Email',
+        phone: 'Phone',
+        password: 'Password',
+        proceed: 'Next'
       },
       lot: {
         all: 'ALL LOTS',
