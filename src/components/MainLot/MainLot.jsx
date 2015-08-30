@@ -8,9 +8,11 @@ if (process.env.BROWSER) {
 class MainLot extends Component {
 
   render() {
+    var divStyle = {
+      backgroundImage: 'url(/assets/images/IMG_5508.JPG)'
+    };
     return (
-      <div className="MainLot">
-        <img src="/assets/images/IMG_5508.JPG" />
+      <div className="MainLot" style={divStyle}>
         <div className="textWrapper">
           <h5>
             0054505034
@@ -19,7 +21,7 @@ class MainLot extends Component {
             Сувенир с самородком
           </h2>
           <h6>
-            Лот предсоставлен губернатором ДФО Ю.П.Трутневым
+            Предоставлена Директором Департамента государственной политики и регулирования в области охраны окружающей среды Минприроды России Д.М. Белановичем
           </h6>
         </div>
       </div>

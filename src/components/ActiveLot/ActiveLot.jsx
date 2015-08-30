@@ -9,9 +9,12 @@ if (process.env.BROWSER) {
 class ActiveLot extends Component {
 
   render() {
+    var divStyle = {
+      backgroundImage: 'url(/assets/images/IMG_5508.JPG)'
+    };
     return (
-      <div className="ActiveLot">
-        <img src="/assets/images/IMG_5508.JPG" />
+      <div className="ActiveLot" style={divStyle}>
+        <div className='bg'></div>
       </div>
     );
   }

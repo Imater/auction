@@ -34,7 +34,7 @@ class MainLot extends Component {
               1 135 000 ₽
             </div>
             <div className='name'>
-              И.И. Сечин
+              Участник 34
             </div>
             <div className='time'>
               {this.state.time}
@@ -57,7 +57,7 @@ class MainLot extends Component {
         <div className='bottomRow'>
           <div className='line'>
             <div className='label'>
-              И.И. Сечин
+              И.И. Голованов
             </div>
             <div className='cost'>
               1 035 000 ₽

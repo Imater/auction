@@ -37,11 +37,13 @@ class Main extends Component {
     const { listData } = this.props;
     return listData.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
+      var divStyle = {
+        backgroundImage: 'url('+item.image+')'
+      }
       return (
         <li className='item' key={index}>
           <div className='itemWrap'>
-            <div className='imageWrap'>
-              <img src={item.image} />
+            <div className='imageWrap' style={divStyle}>
             </div>
             <div className="id">
               {item.id}

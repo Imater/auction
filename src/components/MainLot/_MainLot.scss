@@ -4,13 +4,8 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  img {
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
+  background-size: cover;
+  background-position: center;
   .textWrapper {
     position: absolute;
     bottom: 50px;

@@ -22,11 +22,8 @@
           background: #000;
           overflow: hidden;
           text-align: center;
-          img {
-            display: inline-block;
-            vertical-align: middle;
-            height: 400px;
-          }
+          background-size: cover;
+          background-position: center;
         }
       }
       .id {
