@@ -4,7 +4,8 @@
     cursor: pointer;
     img {
       height: 20px;
-      border: 5px solid #EEE;
+      border: 1px solid #DDD;
+      margin: 4px;
     }
     span {
       vertical-align: top;
@@ -17,6 +18,7 @@
     &.active{
       img {
         border: 5px solid #DDD;
+        margin: 0px;
       }
       span {
         color: #000;
