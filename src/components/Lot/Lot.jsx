@@ -66,7 +66,7 @@ class Lot extends Component {
   render() {
     return (
       <div className="Main">
-        <MainHeader />
+        <MainHeader mini={true} />
         <Top />
         <ul className='items'>
           {this._renderItem()}
