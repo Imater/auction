@@ -42,25 +42,27 @@ class Main extends Component {
       }
       return (
         <li className='item' key={index}>
-          <div className='itemWrap'>
-            <div className='imageWrap' style={divStyle}>
+          <Link className="nav-item" to="/lot" query={{index: index}}>
+            <div className='itemWrap'>
+              <div className='imageWrap' style={divStyle}>
+              </div>
+              <div className="id">
+                {item.id}
+              </div>
+              <div className="title">
+                {item.title}
+              </div>
+              <div className="from">
+                {item.from}
+              </div>
+              <div className="startCost">
+                {item.startCost}
+              </div>
+              <div className="nowCost">
+                {item.nowCost}
+              </div>
             </div>
-            <div className="id">
-              {item.id}
-            </div>
-            <div className="title">
-              {item.title}
-            </div>
-            <div className="from">
-              {item.from}
-            </div>
-            <div className="startCost">
-              {item.startCost}
-            </div>
-            <div className="nowCost">
-              {item.nowCost}
-            </div>
-          </div>
+          </Link>
         </li>
       );
     });
@@ -81,7 +83,7 @@ class Main extends Component {
             {i18n.t('lot.active')}
           </Link>
         </nav>
-        <ul>
+        <ul className='items'>
           {this._renderListItem()}
         </ul>
         <Footer />
