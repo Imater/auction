@@ -34,6 +34,41 @@ class Lot extends Component {
     e.preventDefault();
     onDeleteHandler(id);
   }
+  _renderListItem() {
+    const { listData } = this.props;
+    var listDataFiltered = listData.slice(0,3);
+    return listDataFiltered.map((itemMap, index) => {
+      var item = itemMap.toObject ? itemMap.toObject() : itemMap;
+      var divStyle = {
+        backgroundImage: 'url('+item.image+')'
+      }
+      return (
+        <li className='item' key={index}>
+          <Link className="nav-item" to="/lot" query={{index: index}}>
+            <div className='itemWrap'>
+              <div className='imageWrap' style={divStyle}>
+              </div>
+              <div className="id">
+                {item.id}
+              </div>
+              <div className="title">
+                {item.title}
+              </div>
+              <div className="from">
+                {item.from}
+              </div>
+              <div className="startCost">
+                {item.startCost}
+              </div>
+              <div className="nowCost">
+                {item.nowCost}
+              </div>
+            </div>
+          </Link>
+        </li>
+      );
+    });
+  }
   _renderItem() {
     const { listData, location: { query: {index}} } = this.props;
     console.info('LOT', index);
@@ -52,11 +87,17 @@ class Lot extends Component {
             <div className="from">
               {item.from}
             </div>
+            <div className="from">
+              {item.text}
+            </div>
             <div className="startCost">
               {item.startCost}
             </div>
             <div className="nowCost">
               {item.nowCost}
+            </div>
+            <div className="from">
+              {item.name}
             </div>
           </div>
         </li>
@@ -65,11 +106,17 @@ class Lot extends Component {
   }
   render() {
     return (
-      <div className="Main">
+      <div className="Lot">
         <MainHeader mini={true} />
         <Top />
         <ul className='items'>
           {this._renderItem()}
+        </ul>
+        <h4>
+          Прочие лоты
+        </h4>
+        <ul className='items'>
+          {this._renderListItem()}
         </ul>
         <Footer />
       </div>

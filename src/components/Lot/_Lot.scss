@@ -1,8 +1,13 @@
-.Main {
+.Lot {
   min-width: 800px;
   max-width: 1240px;
   margin: 0 auto;
   font-family: PTSansRegular, 'PT Sans', Verdana;
+  h4 {
+    text-transform: uppercase;
+    font-family: PTSansBold, 'PT Sans', Verdana;
+    margin: 5px 55px;
+  }
   ul.items {
     margin: 0 50px;
     list-style: none;
