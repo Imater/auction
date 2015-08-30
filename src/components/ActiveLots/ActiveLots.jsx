@@ -1,16 +1,12 @@
 import React, { Component, PropTypes, findDOMNode } from 'react';
 import { Link } from 'react-router';
-import ActiveLot from '../ActiveLot/ActiveLot';
 import i18n from 'i18next-client';
-import Top from '../Top/Top';
-import Footer from '../Footer/Footer';
-import MainHeader from '../MainHeader/MainHeader';
 
 if (process.env.BROWSER) {
-  require('./_Main.scss');
+  require('./_ActiveLots.scss');
 }
 
-class Main extends Component {
+class ActiveLots extends Component {
   static propTypes = {
     listData: PropTypes.array.isRequired,
     onAddHandler: PropTypes.func,
@@ -35,7 +31,8 @@ class Main extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    return listData.map((itemMap, index) => {
+    var listDataFiltered = listData.slice(1,5);
+    return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       return (
         <li className='item' key={index}>
@@ -43,20 +40,8 @@ class Main extends Component {
             <div className='imageWrap'>
               <img src={item.image} />
             </div>
-            <div className="id">
-              {item.id}
-            </div>
             <div className="title">
               {item.title}
-            </div>
-            <div className="from">
-              {item.from}
-            </div>
-            <div className="startCost">
-              {item.startCost}
-            </div>
-            <div className="nowCost">
-              {item.nowCost}
             </div>
           </div>
         </li>
@@ -65,27 +50,14 @@ class Main extends Component {
   }
   render() {
     return (
-      <div className="Main">
-        <MainHeader />
-        <Top />
-        <div className="ActiveLot">
-          <ActiveLot />
-        </div>
-        <nav className="app-navigation">
-          <Link className="nav-item" to="/">
-            {i18n.t('lot.all')}
-          </Link>
-          <Link className="nav-item" to="/active">
-            {i18n.t('lot.active')}
-          </Link>
-        </nav>
+      <div className="ActiveLots">
+        hello
         <ul>
           {this._renderListItem()}
         </ul>
-        <Footer />
       </div>
     );
   }
 }
 
-export default Main;
+export default ActiveLots;

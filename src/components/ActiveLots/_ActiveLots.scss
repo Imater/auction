@@ -1,59 +1,46 @@
-.Main {
-  min-width: 800px;
-  max-width: 1240px;
+$imageSize: 165px;
+.ActiveLots {
   margin: 0 auto;
   font-family: PTSansRegular, 'PT Sans', Verdana;
   text-align: center;
+  padding: 0 30px;
   ul {
-    margin: 0 50px;
     list-style: none;
     padding: 0;
     text-align: left;
     li.item {
       display: inline-block;
-      width: 33%;
+      width: 25%;
       vertical-align: top;
+      position: relative;
       .itemWrap {
         position: relative;
-        max-width: 300px;
         margin-bottom: 40px;
         .imageWrap {
           margin: 0 5px;
-          height: 400px;
+          height: $imageSize;
+          width: $imageSize;
           background: #000;
           overflow: hidden;
           text-align: center;
           img {
             display: inline-block;
             vertical-align: middle;
-            height: 400px;
+            height: $imageSize;
           }
         }
       }
-      .id {
-        margin-top: 5px;
-        color: #BBB;
-        font-size: 13px;
-      }
       .title {
+        color: #FFF;
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: $imageSize + 20px;
+        right: 20px;
         margin-top: 5px;
-        font-size: 18px;
+        font-size: 20px;
         font-family: PTSansBold;
         text-transform: uppercase;
-      }
-      .from {
-        margin-top: 5px;
-        font-size: 13px;
-      }
-      .startCost {
-        margin-top: 5px;
-        color: #BBB;
-        font-size: 14px;
-        text-decoration: line-through;
-      }
-      .nowCost {
-        font-family: PTSansBold;
-        font-size: 23px;
       }
     }
   }

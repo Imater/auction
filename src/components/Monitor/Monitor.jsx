@@ -1,16 +1,15 @@
 import React, { Component, PropTypes, findDOMNode } from 'react';
 import { Link } from 'react-router';
-import ActiveLot from '../ActiveLot/ActiveLot';
 import i18n from 'i18next-client';
-import Top from '../Top/Top';
-import Footer from '../Footer/Footer';
-import MainHeader from '../MainHeader/MainHeader';
+import MainLot from '../MainLot/MainLot';
+import MainLotInfo from '../MainLotInfo/MainLotInfo';
+import ActiveLots from '../../containers/ActiveLots/ActiveLots';
 
 if (process.env.BROWSER) {
-  require('./_Main.scss');
+  require('./_Monitor.scss');
 }
 
-class Main extends Component {
+class Monitor extends Component {
   static propTypes = {
     listData: PropTypes.array.isRequired,
     onAddHandler: PropTypes.func,
@@ -65,27 +64,21 @@ class Main extends Component {
   }
   render() {
     return (
-      <div className="Main">
-        <MainHeader />
-        <Top />
-        <div className="ActiveLot">
-          <ActiveLot />
+      <div className="Monitor">
+        <div className="monitorWrapper">
+          <div className="left">
+            <MainLot />
+          </div>
+          <div className="right">
+            <MainLotInfo />
+          </div>
+          <div className="bottom">
+            <ActiveLots />
+          </div>
         </div>
-        <nav className="app-navigation">
-          <Link className="nav-item" to="/">
-            {i18n.t('lot.all')}
-          </Link>
-          <Link className="nav-item" to="/active">
-            {i18n.t('lot.active')}
-          </Link>
-        </nav>
-        <ul>
-          {this._renderListItem()}
-        </ul>
-        <Footer />
       </div>
     );
   }
 }
 
-export default Main;
+export default Monitor;

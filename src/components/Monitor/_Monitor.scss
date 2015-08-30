@@ -1,0 +1,41 @@
+$bottomHeight: 235px;
+$rightWidth: 570px;
+.Monitor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  .monitorWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .left {
+      position: absolute;
+      width: auto;
+      top: 0;
+      bottom: $bottomHeight;
+      left: 0;
+      right: $rightWidth;
+      overflow: hidden;
+    }
+    .right {
+      position: absolute;
+      background: #419CDB;
+      width: $rightWidth;
+      bottom: $bottomHeight;
+      top: 0;
+      right: 0;
+    }
+    .bottom {
+      position: absolute;
+      background: #000;
+      height: $bottomHeight;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}

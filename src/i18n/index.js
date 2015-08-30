@@ -34,6 +34,7 @@ const resources = {
         line5: 'Также участие в аукционе будет проходить на специальном сайте, где участникам форума будут представлены ценные предметы искусства и изделия ручной работы с особо охраняемых природных терриротий.',
         line6: 'Участниками благотворительного аукциона станут руководители и топ-менеджеры крупнейших российских и международных компаний, ведущие научные эксперты, представители федеральных и региональных органов власти.',
         line7: 'Участие в благотворительном аукционе – лучшее доказательство ведения успешного и социально ответственного бизнеса, рассчитанного надлительную перспективу, пример неравнодушия к делу охраны редких и исчезающих видов животных!',
+        line8: 'Все собранные средства пойдут на реализацию природоохранных проектов в АНО "амурский тигр" и АНО "дальневосточный леопард".',
         from: 'Восточный Экономический Форум 2015'
       }
     }
@@ -72,6 +73,7 @@ const resources = {
         line5: 'Also participating in the auction will be held on a special website, where participants of the forum will be presented to the valuable works of art and handmade products with protected natural terriroty.',
         line6: 'Participants in the charity auction will be the leaders and top managers of major Russian and international companies, leading scientific experts, representatives of federal and regional authorities.',
         line7: 'Participation in a charity auction - the best evidence of running a successful and socially responsible business, calculated nadlitelnuyu perspective, an example of indifference to the cause of protection of rare and endangered species of animals!',
+        line8: 'All funds raised will be used for the implementation of environmental projects in the ANO "Siberian tiger" and ANO "Far Eastern leopard."',
         from: 'East Economic Forum 2015'
       }
     }

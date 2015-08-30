@@ -6,6 +6,7 @@ import Todo from '../containers/Todo/Todo';
 import About from '../containers/About/About';
 import Auth from '../containers/Auth/Auth';
 import Main from '../containers/Main/Main';
+import Monitor from '../containers/Monitor/Monitor';
 
 export default (
   <Route component={App}>
@@ -13,5 +14,6 @@ export default (
     <Route path="/todo" component={Todo} />
     <Route path="/active" component={Main} />
     <Route path="/auth" component={Auth} />
+    <Route path="/monitor" component={Monitor} />
   </Route>
 );
