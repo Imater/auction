@@ -16,7 +16,7 @@ class ActiveLot extends Component {
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
         <div className='invite'>
-          <a>Принять участие </a>
+          <a>{i18n.t('header.accept')}</a>
         </div>
         <div className='textWrap'>
           <h5>
