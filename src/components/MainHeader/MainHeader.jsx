@@ -23,9 +23,11 @@ class MainHeader extends Component {
             </div>
           </div>
           <div className="logosWrapper">
-            <div className="logo1"></div>
-            <div className="logo2"></div>
-            <div className="logo3"></div>
+            <a href="/">
+              <div className="logo1"></div>
+              <div className="logo2"></div>
+              <div className="logo3"></div>
+            </a>
           </div>
         </div>
       </div>
