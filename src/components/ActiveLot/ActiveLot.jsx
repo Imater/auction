@@ -15,6 +15,23 @@ class ActiveLot extends Component {
     return (
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
+        <div className='invite'>
+          <a>Принять участие </a>
+        </div>
+        <div className='textWrap'>
+          <h5>
+            0023477555
+          </h5>
+          <h2>
+            Сувенир с самородком
+          </h2>
+          <div className='startCost'>
+            95 000 ₽
+          </div>
+          <div className='cost'>
+            135 000 ₽
+          </div>
+        </div>
       </div>
     );
   }

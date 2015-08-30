@@ -2,8 +2,72 @@
   background-color: #000;
   height: 470px;
   width: 100%;
-  text-align: center;
   overflow: hidden;
   background-size: cover;
-  background-position: top;
+  background-position: center;
+  position: relative;
+  .bg {
+    content: '';
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,1e5799+100&amp;0+0,0.6+100 */
+    background: -moz-linear-gradient(top,  rgba(125,185,232,0) 0%, rgba(30,87,153,0.6) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,185,232,0)), color-stop(100%,rgba(30,87,153,0.6))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(30,87,153,0.6) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(30,87,153,0.6) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(30,87,153,0.6) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(125,185,232,0) 0%,rgba(30,87,153,0.6) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#991e5799',GradientType=0 ); /* IE6-9 */
+  }
+  .invite {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 120px;
+    text-align: center;
+    a {
+      color: rgba(255,255,255, 0.97);
+      text-transform: uppercase;
+      font-family: PTSansCaptionRegular, 'PT Sans Caption', Verdana;
+      border: 2px solid rgba(255,255,255, 0.97);
+      padding: 5px 20px;
+      text-shadow: 0 0 4px rgba(0,0,0, 0.9);
+      cursor: pointer;
+      &:hover {
+        color: rgba(255,255,255, 1);
+        border-color: rgba(255,255,255, 1);
+      }
+    }
+  }
+  .textWrap {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 20px;
+    color: #FFF;
+    padding-left: 50px;
+    h5{
+      font-family: PTSansRegular, 'PT Sans Caption', Verdana;
+      font-size: 16px;
+      margin: 0;
+    }
+    h2{
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 15px 0;
+    }
+    .startCost {
+      position: absolute;
+      right: 50px;
+      bottom: 60px;
+      font-size: 16px;
+      font-family: PTSansRegular, 'PT Sans Caption', Verdana;
+      text-decoration: line-through;
+    }
+    .cost{
+      position: absolute;
+      right: 50px;
+      bottom: 20px;
+      font-size: 22px;
+      font-family: PTSansBold, 'PT Sans Caption', Verdana;
+    }
+  }
 }
