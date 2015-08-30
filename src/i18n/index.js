@@ -63,7 +63,7 @@ const resources = {
       footer: {
         phones: 'Phones',
         addressHeader: 'Address',
-        address: '123023, Moscow, Red Presnyia str., 24',
+        address: '123022, Moscow, Red Presnyia str., 24',
         socialHeader: 'Social links',
         header: 'Auction information',
         line1: 'Charity auction to support projects for the protection of endangered and rare species of the Far East is an initiative of the Deputy Chairman of the RF President in the Far Eastern Federal District Yuri Petrovich Trutnev and Russian Ministry of Natural Resources.',
