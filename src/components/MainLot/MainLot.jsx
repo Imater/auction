@@ -8,20 +8,23 @@ if (process.env.BROWSER) {
 class MainLot extends Component {
 
   render() {
+    var index = this.props.index || 0;
+    var item = this.props.listData[index].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
     var divStyle = {
-      backgroundImage: 'url(/assets/images/IMG_5508.JPG)'
+      backgroundImage: 'url('+item.image+')'
     };
+    console.info('item', item);
     return (
       <div className="MainLot" style={divStyle}>
         <div className="textWrapper">
           <h5>
-            0054505034
+            {item.id}
           </h5>
           <h2>
-            Сувенир с самородком
+            {item.title}
           </h2>
           <h6>
-            Предоставлена Директором Департамента государственной политики и регулирования в области охраны окружающей среды Минприроды России Д.М. Белановичем
+            {item.from}
           </h6>
         </div>
       </div>

@@ -31,7 +31,7 @@ class ActiveLots extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = listData.slice(1,5);
+    var listDataFiltered = listData.slice(this.props.index+1,this.props.index+4+1);
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {

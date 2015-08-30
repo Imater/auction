@@ -10,6 +10,10 @@ if (process.env.BROWSER) {
 }
 
 class Monitor extends Component {
+  state = {
+     index: 0
+  };
+
   static propTypes = {
     listData: PropTypes.array.isRequired,
     onAddHandler: PropTypes.func,
@@ -18,6 +22,20 @@ class Monitor extends Component {
   static defaultProps = {
     onAddHandler: () => {},
       onDeleteHandler: () => {}
+  }
+  componentDidMount() {
+    this.interval = setInterval(this.tick.bind(this), 20000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  tick () {
+    if(this.state.index >= 6){
+      return this.setState({index: 0});
+    }
+    this.setState({index: this.state.index + 1});
   }
   _onItemAddedHandler(e) {
     const { onAddHandler } = this.props;
@@ -67,13 +85,13 @@ class Monitor extends Component {
       <div className="Monitor">
         <div className="monitorWrapper">
           <div className="left">
-            <MainLot />
+            <MainLot {...this.props} index={this.state.index}/>
           </div>
           <div className="right">
-            <MainLotInfo />
+            <MainLotInfo {...this.props} index={this.state.index}/>
           </div>
           <div className="bottom">
-            <ActiveLots />
+            <ActiveLots prop={this.props.listData} index={this.state.index}/>
           </div>
         </div>
       </div>
