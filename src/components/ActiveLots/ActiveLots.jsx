@@ -45,6 +45,12 @@ class ActiveLots extends Component {
             <div className="title">
               {item.title}
             </div>
+            <div className="nowCost">
+              {item.nowCost}
+            </div>
+            <div className="name">
+              {item.name}
+            </div>
           </div>
         </li>
       );
