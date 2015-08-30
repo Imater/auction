@@ -36,7 +36,7 @@ class Lot extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = listData.slice(0,3);
+    var listDataFiltered = listData.slice(3,6);
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
@@ -44,7 +44,7 @@ class Lot extends Component {
       }
       return (
         <li className='item' key={index}>
-          <Link className="nav-item" to="/lot" query={{index: index}}>
+          <Link className="nav-item" to="/lot" query={{index: item.index}}>
             <div className='itemWrap'>
               <div className='imageWrap' style={divStyle}>
               </div>
@@ -74,10 +74,10 @@ class Lot extends Component {
     console.info('LOT', index);
     var item = listData[index].toObject ? listData[index].toObject() : listData[index];
     return (
-      <div>
+      <div className="lotDescription">
         <LotImage img={item.image}/>
-        <li className='item' key={index}>
-          <div className='itemWrap'>
+        <div className="description">
+          <div className='leftCol'>
             <div className="id">
               {item.id}
             </div>
@@ -87,20 +87,22 @@ class Lot extends Component {
             <div className="from">
               {item.from}
             </div>
-            <div className="from">
+            <div className="text">
               {item.text}
             </div>
+          </div>
+          <div className="rightCol">
             <div className="startCost">
               {item.startCost}
             </div>
             <div className="nowCost">
               {item.nowCost}
             </div>
-            <div className="from">
+            <div className="name">
               {item.name}
             </div>
           </div>
-        </li>
+        </div>
       </div>
     );
   }

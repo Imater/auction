@@ -42,7 +42,7 @@ class Main extends Component {
       }
       return (
         <li className='item' key={index}>
-          <Link className="nav-item" to="/lot" query={{index: index}}>
+          <Link className="nav-item" to="/lot" query={{index: item.index}}>
             <div className='itemWrap'>
               <div className='imageWrap' style={divStyle}>
               </div>

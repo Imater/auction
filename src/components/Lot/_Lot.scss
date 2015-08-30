@@ -62,4 +62,58 @@
       }
     }
   }
+  $rightColWidth: 400px;
+  .lotDescription {
+    margin-bottom: 50px;
+    .description {
+      position: relative;
+      width: 100%;
+      .leftCol {
+        margin-right: $rightColWidth;
+        .id {
+          margin-top: 5px;
+          color: #BBB;
+          font-size: 13px;
+        }
+        .title {
+          margin-top: 5px;
+          font-size: 18px;
+          font-family: PTSansBold;
+          text-transform: uppercase;
+        }
+        .from {
+          margin-top: 5px;
+          font-size: 13px;
+          color: #BBB;
+        }
+        .text {
+          margin-top: 5px;
+          font-size: 13px;
+          color: #000;
+        }
+      }
+      .rightCol {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: $rightColWidth - 30px;
+        .name {
+          margin-top: 5px;
+          font-size: 13px;
+          color: #000;
+        }
+        .startCost {
+          margin-top: 5px;
+          color: #BBB;
+          font-size: 14px;
+          text-decoration: line-through;
+        }
+        .nowCost {
+          font-family: PTSansBold;
+          font-size: 23px;
+        }
+      }
+    }
+  }
 }

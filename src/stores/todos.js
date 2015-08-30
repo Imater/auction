@@ -9,6 +9,7 @@ const setDate = ()=> {
 };
 const defaultState = new List([
   {
+    index: 0,
     image: '/assets/images/IMG_5508.JPG',
     id: '28737844',
     title: 'Сувенир с самородком',
@@ -20,6 +21,7 @@ const defaultState = new List([
     startTime: setDate('13:00:00')
   },
   {
+    index: 1,
     image: '/assets/images/IMG_1876-1.jpg',
     id: '28737844',
     title: 'А.О.Гаганидзе "Бричка"',
@@ -30,6 +32,7 @@ const defaultState = new List([
     nowCost: '230 000 ₽'
   },
   {
+    index: 2,
     image: '/assets/images/lot-filin.jpg',
     id: '28737844',
     title: 'И.И.Павлишин "Тигр"',
@@ -40,6 +43,7 @@ const defaultState = new List([
     nowCost: '380 000 ₽'
   },
   {
+    index: 3,
     image: '/assets/images/IMG_2913.jpg',
     id: '28737844',
     title: 'И.И.Павлишин "Этнография"',
@@ -50,6 +54,7 @@ const defaultState = new List([
     nowCost: '380 000 ₽'
   },
   {
+    index: 4,
     image: '/assets/images/pavlishin-tigr-winter.jpg',
     id: '28737844',
     title: 'И.И.Павлишин "Тигр на отдыхе"',
@@ -60,6 +65,7 @@ const defaultState = new List([
     nowCost: '380 000 ₽'
   },
   {
+    index: 5,
     image: '/assets/images/lot-2-2.jpg',
     id: '28737844',
     title: 'Эскимосы',
@@ -70,6 +76,7 @@ const defaultState = new List([
     nowCost: '379 000 ₽'
   },
   {
+    index: 6,
     image: '/assets/images/IMG_5508.JPG',
     id: '28737844',
     title: 'Сувенир с самородком',
@@ -81,6 +88,7 @@ const defaultState = new List([
     startTime: setDate('13:00:00')
   },
   {
+    index: 7,
     image: '/assets/images/IMG_1876-1.jpg',
     id: '28737844',
     title: 'А.О.Гаганидзе "Бричка"',
@@ -91,6 +99,7 @@ const defaultState = new List([
     nowCost: '230 000 ₽'
   },
   {
+    index: 8,
     image: '/assets/images/lot-filin.jpg',
     id: '28737844',
     title: 'И.И.Павлишин "Тигр"',
@@ -101,6 +110,7 @@ const defaultState = new List([
     nowCost: '380 000 ₽'
   },
   {
+    index: 9,
     image: '/assets/images/IMG_2913.jpg',
     id: '28737844',
     title: 'И.И.Павлишин "Этнография"',
@@ -111,6 +121,7 @@ const defaultState = new List([
     nowCost: '380 000 ₽'
   },
   {
+    index: 10,
     image: '/assets/images/pavlishin-tigr-winter.jpg',
     id: '28737844',
     title: 'И.И.Павлишин "Тигр на отдыхе"',
@@ -121,6 +132,7 @@ const defaultState = new List([
     nowCost: '380 000 ₽'
   },
   {
+    index: 11,
     image: '/assets/images/lot-2-2.jpg',
     id: '28737844',
     title: 'Сувенир с самородком',
