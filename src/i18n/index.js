@@ -103,8 +103,9 @@ const resources = {
 };
 
 i18n.init({
-  lng: 'ru',
   resStore: resources,
   debug: true,
+  fallbackLng: 'ru',
+  cookieName: 'lang',
   getAsync: false
 });

@@ -24,14 +24,22 @@ import webpackDevServer from './webpackDevServer.js';
 // Redux
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import { List } from 'immutable';
 import * as reducers from '../src/stores';
 import createAppStore from '../src/createStore/createStore';
+import db from './models';
+
 
 const proxy = httpProxy.createProxyServer();
 const isProduction = process.env.NODE_ENV === 'production';
+const isTest = process.env.NODE_ENV === 'test';
 const app = express();
+console.info('NODE_ENV', process.env.NODE_ENV);
 
-process.env.BROWSER = false;
+
+if(!isTest){
+  process.env.BROWSER = false;
+}
 process.env.__DEVELOPMENT__ = !isProduction;
 
 app.use(morgan('dev'));
@@ -40,6 +48,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/assets', express.static(path.join(__dirname, '..', 'assets')));
+app.use('/uploads', express.static(path.join(__dirname, '..', '..', 'uploads')));
 app.use('/locales', express.static(path.join(__dirname, '..', 'assets', 'locales')));
 app.use('/favicon.ico', express.static(path.join(__dirname, '..', 'assets', 'images', 'favicon.ico')));
 
@@ -47,7 +56,7 @@ const indexHtml = fs.readFileSync(path.join(__dirname, '..', 'assets', 'index.ht
 
 app.use('/api', apiRoutes);
 
-if (!isProduction) {
+if (!isProduction && !isTest) {
   webpackDevServer();
   app.all('/build/*', (req, res) => {
     proxy.web(req, res, {
@@ -61,23 +70,30 @@ if (!isProduction) {
 
 app.use((req, res, next) => {
   const location = new Location(req.path, req.query);
-  const store = createAppStore();
 
   Router.run(appRoutes, location, (err, routeState) => {
     if (!routeState) {
       return next();
     }
-    const initialView = React.renderToString(
-      <Provider store={store}>
-      {() => <Router {...routeState} />}
-      </Provider>
-    );
-    const initialState = JSON.stringify(store.getState());
-    console.info(initialState);
-    let resultHtml = indexHtml
-    .replace('${initialView}', initialView)
-    .replace('${initialState}', initialState);
-    res.end(resultHtml);
+    db.models.lot.findAll({}).then(function(lotsFromDb){
+      const store = createAppStore({
+        todos: new List(lotsFromDb),
+        i18: {
+          language: req.cookies.lang || 'ru'
+        }
+      });
+      const initialView = React.renderToString(
+        <Provider store={store}>
+        {() => <Router {...routeState} />}
+        </Provider>
+      );
+      var state = store.getState();
+      const initialState = JSON.stringify(state);
+      let resultHtml = indexHtml
+      .replace('${initialView}', initialView)
+      .replace('${initialState}', initialState);
+      res.end(resultHtml);
+    });
   });
 });
 

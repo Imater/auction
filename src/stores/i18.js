@@ -9,7 +9,6 @@ const defaultState = {
 export default function(state = defaultState, action) {
   switch (action.type) {
     case CHANGE_LANGUAGE:
-      console.info('final set', action.payload.language);
       return { language: action.payload.language };
     default:
       return state;
@@ -22,7 +21,6 @@ export function changeLanguage(language = 'eng') {
     type: CHANGE_LANGUAGE,
     payload: new Promise((resolve, reject) => {
       i18n.setLng(language);
-      console.info('change language', language);
       resolve({language: language});
     })
   };

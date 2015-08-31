@@ -6,7 +6,6 @@ import Top from '../Top/Top';
 
 if (process.env.BROWSER) {
   var i = require('./_Register.scss');
-  console.info('class', i);
 }
 
 class Register extends Component {
@@ -19,11 +18,9 @@ class Register extends Component {
 
   _onClickHandler(e) {
     if(!this) return;
-    console.log('auth clicked', this);
     this.props.onAddHandler('login');
   }
   render() {
-    console.info('props', this.props);
     return (
       <div>
         <MainHeader mini={true} />

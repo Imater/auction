@@ -1,0 +1,74 @@
+.Main {
+  min-width: 800px;
+  max-width: 1240px;
+  margin: 0 auto;
+  font-family: PTSansRegular, 'PT Sans', Verdana;
+  ul.items {
+    margin: 0 50px;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    li.item {
+      .nav-item {
+        text-decoration: none;
+        color: inherit;
+      }
+      display: inline-block;
+      width: 33%;
+      vertical-align: top;
+      .itemWrap {
+        position: relative;
+        max-width: 300px;
+        margin-bottom: 40px;
+        .imageWrap {
+          margin: 0 5px;
+          height: 400px;
+          background: #000;
+          overflow: hidden;
+          text-align: center;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      .id {
+        margin-top: 5px;
+        color: #a3b8c3;
+        font-size: 13px;
+      }
+      .title {
+        margin-top: 5px;
+        font-size: 18px;
+        font-family: PTSansBold;
+        color: #5195CA;
+        text-transform: uppercase;
+      }
+      .from {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+      .startCost {
+        margin-top: 5px;
+        color: #a3b8c3;
+        font-size: 14px;
+        text-decoration: line-through;
+      }
+      .nowCost {
+        font-family: PTSansBold;
+        font-size: 23px;
+      }
+      .accept {
+        margin-top: -20px;
+        margin-bottom: 50px;
+        .nav-item {
+          font-family: PTSansBold;
+          letter-spacing: 1px;
+          border: 3px solid #5195CA;
+          font-size: 14px;
+          padding: 7px 20px;
+          color: #5195CA;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

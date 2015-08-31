@@ -11,7 +11,6 @@ class About extends Component {
     console.log('about clicked');
   }
   render() {
-    console.info('render now', i18n.isInitialized());
     return (
       <div className="About" onClick={this._onClickHandler}>
         <h1>Активные лоты</h1>

@@ -13,7 +13,6 @@ class MainLot extends Component {
     var divStyle = {
       backgroundImage: 'url('+item.image+')'
     };
-    console.info('item', item);
     return (
       <div className="MainLot" style={divStyle}>
         <div className="textWrapper">

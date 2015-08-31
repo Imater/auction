@@ -6,6 +6,7 @@ import i18n from 'i18next-client';
 import Top from '../Top/Top';
 import Footer from '../Footer/Footer';
 import MainHeader from '../MainHeader/MainHeader';
+import LotItem from '../LotItem/LotItem';
 
 if (process.env.BROWSER) {
   require('./_Lot.scss');
@@ -43,40 +44,12 @@ class Lot extends Component {
         backgroundImage: 'url('+item.image+')'
       }
       return (
-        <li className='item' key={index}>
-          <Link className="nav-item" to="/lot" query={{index: item.index}}>
-            <div className='itemWrap'>
-              <div className='imageWrap' style={divStyle}>
-              </div>
-              <div className="id">
-                {item.id}
-              </div>
-              <div className="title">
-                {item.title}
-              </div>
-              <div className="from">
-                {item.from}
-              </div>
-              <div className="startCost">
-                {item.startCost}
-              </div>
-              <div className="nowCost">
-                {item.nowCost}
-              </div>
-            </div>
-          </Link>
-          <div className="accept">
-            <Link className="nav-item" to="/lot" query={{index: item.index}}>
-              {i18n.t('header.accept')}
-            </Link>
-          </div>
-        </li>
+        <LotItem item={item} {...this.props} />
       );
     });
   }
   _renderItem() {
     const { listData, location: { query: {index}} } = this.props;
-    console.info('LOT', index);
     var item = listData[index].toObject ? listData[index].toObject() : listData[index];
     return (
       <div className="lotDescription">

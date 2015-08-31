@@ -27,7 +27,6 @@ if (process.env.BROWSER) {
           </DebugPanel>
         );
       }
-      console.info(this.props);
       const style = {
         display: 'none'
       }

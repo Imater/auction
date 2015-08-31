@@ -8,7 +8,6 @@ if (process.env.BROWSER) {
 class Footer extends Component {
 
   render() {
-    console.info('props', this.props);
     return (
       <div className="Footer">
         <div className="rowWrapper">
