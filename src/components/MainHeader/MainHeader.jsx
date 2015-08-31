@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import i18n from 'i18next-client';
 
 if (process.env.BROWSER) {
@@ -23,11 +24,11 @@ class MainHeader extends Component {
             </div>
           </div>
           <div className="logosWrapper">
-            <a href="/">
+            <Link className="nav-item" to="/">
               <div className="logo1"></div>
               <div className="logo2"></div>
               <div className="logo3"></div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
