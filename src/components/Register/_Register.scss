@@ -27,11 +27,13 @@
     }
     button {
       margin: 15px;
+      font: PTSansBold;
+      letter-spacing: 1 px;
       background: #FFF;
       padding: 5px 35px;
       width: 200px;
       color: #419CDB;
-      border: 2px solid #419CDB;
+      border: 3px solid #419CDB;
       text-transform: uppercase;
     }
   }
