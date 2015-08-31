@@ -39,8 +39,8 @@
       }
       .title2 {
         display: inline-block;
-        letter-spacing: 2px;
-        font-size: 42px;
+        <!--letter-spacing: 2px;-->
+        font-size: 48px;
         position: relative;
         margin-bottom: 7px;
         .info {
@@ -56,9 +56,10 @@
         }
       }
       .title3 {
-        font-size: 17px;
+        font-family: 'PTSansNarrowRegular', Verdana;
+        font-size: 21px;
         font-weight: normal;
-        color: #BBB;
+        color: #a3b8c3;
       }
     }
     .languageWrap {
