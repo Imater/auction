@@ -24,8 +24,9 @@
     left: 0;
     top: 120px;
     text-align: center;
-    a {
+    .nav-item {
       color: rgba(255,255,255, 0.97);
+      text-decoration: none;
       text-transform: uppercase;
       font-family: PTSansCaptionRegular, 'PT Sans Caption', Verdana;
       border: 2px solid rgba(255,255,255, 0.97);

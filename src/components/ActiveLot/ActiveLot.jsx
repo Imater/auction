@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import i18n from 'i18next-client';
 
 if (process.env.BROWSER) {
@@ -15,7 +16,9 @@ class ActiveLot extends Component {
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
         <div className='invite'>
-          <a>{i18n.t('header.accept')}</a>
+          <Link className="nav-item" to="/lot" query={{index: 0}}>
+            {i18n.t('header.accept')}
+          </Link>
         </div>
         <div className='textWrap'>
           <h5>
