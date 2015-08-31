@@ -60,6 +60,17 @@
         font-family: PTSansBold;
         font-size: 23px;
       }
+      .accept {
+        margin-top: 20px;
+        .nav-item {
+          font-family: PTSansCaptionRegular;
+          border: 2px solid #5195CA;
+          font-size: 14px;
+          padding: 7px 20px;
+          color: #5195CA;
+          text-transform: uppercase;
+        }
+      }
     }
   }
   $rightColWidth: 400px;

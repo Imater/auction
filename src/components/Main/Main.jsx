@@ -61,6 +61,11 @@ class Main extends Component {
               <div className="nowCost">
                 {item.nowCost}
               </div>
+              <div className="accept">
+                <Link className="nav-item" to="/lot" query={{index: item.index}}>
+                  {i18n.t('header.accept')}
+                </Link>
+              </div>
             </div>
           </Link>
         </li>
