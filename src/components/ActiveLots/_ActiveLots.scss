@@ -50,6 +50,19 @@ $imageSize: 165px;
         font-family: PTSansBold;
         text-transform: uppercase;
       }
+     .time {
+        color: #3187D5;
+        display: block;
+        position: absolute;
+        bottom: 45px;
+        left: $imageSize + 20px;
+        right: 25px;
+        margin-top: 5px;
+        font-size: 17px;
+        font-family: PTSansRegular;
+        text-transform: uppercase;
+      }
+
       .name {
         color: #BBB;
         display: block;
