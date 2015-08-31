@@ -32,7 +32,7 @@
       }
       .id {
         margin-top: 5px;
-        color: #BBB;
+        color: #a3b8c3;
         font-size: 13px;
       }
       .title {
@@ -48,7 +48,7 @@
       }
       .startCost {
         margin-top: 5px;
-        color: #BBB;
+        color: #a3b8c3;
         font-size: 14px;
         text-decoration: line-through;
       }
@@ -60,8 +60,9 @@
         margin-top: -20px;
         margin-bottom: 50px;
         .nav-item {
-          font-family: PTSansCaptionRegular;
-          border: 2px solid #5195CA;
+          font-family: PTSansBold;
+          letter-spacing: 1px;
+          border: 3px solid #5195CA;
           font-size: 14px;
           padding: 7px 20px;
           color: #5195CA;
