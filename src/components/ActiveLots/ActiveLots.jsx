@@ -45,6 +45,9 @@ class ActiveLots extends Component {
             <div className="title">
               {item.title}
             </div>
+            <div className="time">
+              {index*2+4} мин.назад
+            </div>            
             <div className="nowCost">
               {item.nowCost}
             </div>
