@@ -108,5 +108,32 @@ api.saveBid = function(body){
   });
 };
 
+api.createUser = function(body){
+  return new Promise((request, reject) => {
+    console.info('GOI');
+    db.models.user.create(body).then(function(user){
+      request(user.toJSON());
+    }).catch(function(err){
+      console.error(err);
+    });
+  });
+};
+
+api.userInfo = function(body){
+  return new Promise((request, reject) => {
+    db.models.user.findOne({
+      where: {
+        email: body.email,
+        password: body.password,
+        visible: 1
+      }
+    }).then(function(user){
+      request(user);
+    }).catch(function(err){
+      console.error(err);
+    });
+  });
+};
+
 export default api;
 

@@ -39,7 +39,15 @@
         display: inline-block;
         padding-top: 5px;
         margin-right: 10px;
+        &.vk {
+          display: none;
+        }
       }
+    }
+    .about {
+      margin-top: 30px;
+      color: #888;
+      font-size: 12px;
     }
   }
 }

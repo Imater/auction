@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes, findDOMNode } from 'react';
 import i18n from 'i18next-client';
 import MainHeader from '../MainHeader/MainHeader';
 import Footer from '../Footer/Footer';
 import Top from '../Top/Top';
+import { Router } from 'react-router';
 
 if (process.env.BROWSER) {
   var i = require('./_Auth.scss');
@@ -11,6 +12,10 @@ if (process.env.BROWSER) {
 class Auth extends Component {
   static propTypes = {
     onAddHandler: PropTypes.func,
+    user: PropTypes.object.isRequired,
+  }
+  static contextTypes = {
+    router: PropTypes.object
   }
   static defaultProps = {
     onAddHandler: () => {}
@@ -18,7 +23,14 @@ class Auth extends Component {
 
   _onClickHandler(e) {
     if(!this) return;
-    this.props.onAddHandler('login');
+    e.stopPropagation();
+    const email = findDOMNode(this.refs.emailInput).value;
+    const password = findDOMNode(this.refs.passwordInput).value;
+    this.props.onUserInfo({
+      email: email,
+      password: password
+    });
+    this.context.router.transitionTo('/');
   }
   render() {
     return (
@@ -29,11 +41,11 @@ class Auth extends Component {
           <div className='wrapper'>
             <div>
               <div className="label">{i18n.t('login.email')}</div>
-              <input />
+              <input ref="emailInput" />
             </div>
             <div>
               <div className="label">{i18n.t('login.password')}</div>
-              <input type="password"/>
+              <input ref="passwordInput" type="password"/>
               <div className="forgotWrapper">
                 <a className="forgot">{i18n.t('login.forgot')}</a>
               </div>

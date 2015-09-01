@@ -67,12 +67,16 @@ class Footer extends Component {
             <h5>
               {i18n.t('footer.socialHeader')}
             </h5>
-            <a className='social' href="http://facebook.com">
+            <a className='social' href="https://www.facebook.com/forumvostok">
               <img src="/assets/images/facebook_filled.png" />
             </a>
-            <a className='social' href="http://vk.com">
+            <a className='social vk' href="http://vk.com">
               <img src="/assets/images/vkontakte_filled.png" />
             </a>
+            <div className="about">
+              {i18n.t('about.text')}<span> </span>
+              <a href={i18n.t('about.link')} target="_blank">{i18n.t('about.linkName')}</a>
+            </div>
           </div>
         </div>
       </div>

@@ -10,16 +10,31 @@ if (process.env.BROWSER) {
 class Top extends Component {
 
   render() {
+    var login = (<div></div>);
+    if(!this.props.user || !this.props.user.lastname) {
+      login = (
+        <div>
+          <Link className="nav-item" to="/auth">
+            {i18n.t('login.loginText')}
+          </Link>
+          <Link className="nav-item" to="/register">
+            {i18n.t('login.regText')}
+          </Link>
+        </div>
+      );
+    } else {
+      console.info(this.props.user.lastname);
+      login = (
+        <div>
+          {this.props.user.lastname}
+        </div>
+      );
+    }
     return (
       <div className="Top">
         <div className="rowWrap">
           <div className="loginWrap">
-            <Link className="nav-item" to="/auth">
-              {i18n.t('login.loginText')}
-            </Link>
-            <Link className="nav-item" to="/register">
-              {i18n.t('login.regText')}
-            </Link>
+            {login}
           </div>
           <div className="headerWrap">
             <div className="title1">

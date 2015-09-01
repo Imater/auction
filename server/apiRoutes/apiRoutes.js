@@ -30,4 +30,20 @@ apiRoutes.get('/bid', (req, res) => {
   });
 });
 
+apiRoutes.post('/user', (req, res) => {
+  api.createUser(req.body).then(function(result){
+    res.status(200).send(result);
+  }).catch(function(err){
+    res.status(400).send(err);
+  });
+});
+
+apiRoutes.put('/user', (req, res) => {
+  api.userInfo(req.body).then(function(result){
+    res.status(200).send(result);
+  }).catch(function(err){
+    res.status(400).send(err);
+  });
+});
+
 export default apiRoutes;

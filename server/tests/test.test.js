@@ -32,4 +32,32 @@ describe('Test', function() {
       done();
     });
   });
+  it('create user', function(done) {
+    request(global.url)
+    .post('api/user')
+    .send({
+      email: 'eu@eu.ru',
+      lastname: 'lastname',
+      password: '123',
+      userGroup: 1
+    })
+    .end(function(err, res) {
+      console.info(err, res);
+      res.status.should.equal(200);
+      done();
+    });
+  });
+  it.only('login user', function(done) {
+    request(global.url)
+    .put('api/user')
+    .send({
+      email: 'eu@eu.ru',
+      password: '123'
+    })
+    .end(function(err, res) {
+      console.info(err, res);
+      res.status.should.equal(200);
+      done();
+    });
+  });
 });

@@ -15,6 +15,7 @@ class Main extends Component {
   static propTypes = {
     listData: PropTypes.array.isRequired,
     language: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
     onAddHandler: PropTypes.func,
     onDeleteHandler: PropTypes.func
   }
@@ -57,6 +58,7 @@ class Main extends Component {
     });
   }
   render() {
+    var user = (this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
     var mainIndex = 0;
     var allLinkClass = 'nav-item';
     if(this.props.route.path === '/'){
@@ -64,8 +66,8 @@ class Main extends Component {
     }
     return (
       <div className="Main">
-        <MainHeader />
-        <Top />
+        <MainHeader/>
+        <Top user={user} />
         <div className="ActiveLot">
           <ActiveLot index={mainIndex} {...this.props}/>
         </div>

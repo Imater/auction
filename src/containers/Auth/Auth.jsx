@@ -7,6 +7,11 @@ import Auth from '../../components/Auth/Auth';
 import {
   addTodo
 } from '../../stores';
+//
+// Actions
+import {
+  userInfo
+} from '../../stores/user';
 
 
 // function mapDispatchToProps(dispatch) {
@@ -18,14 +23,16 @@ import {
 function mapStateToProps(state) {
   return {
     listData: state.todos.toArray(),
-    i18: state.i18
+    i18: state.i18,
+    user: state.user.toObject ? state.user.toObject() : state.user
   };
 }
 
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAddHandler: (text) => dispatch(addTodo(text))
+    onAddHandler: (text) => dispatch(addTodo(text)),
+    onUserInfo: (body) => dispatch(userInfo(body))
   };
 }
 

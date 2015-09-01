@@ -52,6 +52,11 @@ const resources = {
         line7: 'Участие в благотворительном аукционе – лучшее доказательство ведения успешного и социально ответственного бизнеса, рассчитанного надлительную перспективу, пример неравнодушия к делу охраны редких и исчезающих видов животных!',
         line8: 'Все собранные средства пойдут на реализацию природоохранных проектов в АНО "амурский тигр" и АНО "дальневосточный леопард".',
         from: 'Восточный Экономический Форум 2015'
+      },
+      about: {
+        text: 'Технологическая платформа аукциона спроектирована, разработана и поддерживается компанией Лоои',
+        link: 'http://looi.ru',
+        linkName: 'looi.ru'
       }
     }
   },
@@ -107,6 +112,11 @@ const resources = {
         line7: 'Participation in a charity auction - the best evidence of running a successful and socially responsible business, calculated nadlitelnuyu perspective, an example of indifference to the cause of protection of rare and endangered species of animals!',
         line8: 'All funds raised will be used for the implementation of environmental projects in the ANO "Siberian tiger" and ANO "Far Eastern leopard."',
         from: 'East Economic Forum 2015'
+      },
+      about: {
+        text: 'Auction technology platform designed, developed and maintained by Looi',
+        link: 'http://looi.co',
+        linkName: 'looi.co'
       }
     }
   }

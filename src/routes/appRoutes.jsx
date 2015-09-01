@@ -15,7 +15,7 @@ export default (
     <Route path="/" component={Main} />
     <Route path="/todo" component={Todo} />
     <Route path="/active" component={Main} />
-    <Route path="/auth" component={Auth} />
+    <Route path="/auth" ro={Route} component={Auth} />
     <Route path="/register" component={Register} />
     <Route path="/monitor" component={Monitor} />
     <Route path="/lot" component={Lot} />
