@@ -9,7 +9,9 @@ const resources = {
         introAuthor: 'Заместитель председателя Правительства Российской Федерации – полномочный представитель Президента Российской Федерации в Дальневосточном федеральном округе Юрий Трутнев',
         about1: 'В ПОДДЕРЖКУ ИСЧЕЗАЮЩИХ И РЕДКИХ',
         about2: 'ВИДОВ ЖИВОТНЫХ ДАЛЬНЕГО ВОСТОКА',
-        accept: 'Принять участие'
+        accept: 'Принять участие',
+        sold: 'Продано',
+        winner: 'Победитель'
       },
       login: {
         email: 'электронная почта',
@@ -59,7 +61,9 @@ const resources = {
         introAuthor: 'Deputy Chairman of the Government of the Russian Federation - Plenipotentiary Representative of RF President in the Far Eastern Federal District Yuri Trutnev',
         about1: 'SUPPORT ENDANGERED AND RARE',
         about2: 'ANIMAL SPECIES THE FAR EAST',
-        accept: 'Participate'
+        accept: 'Participate',
+        sold: 'Sold',
+        winner: 'Winner'
       },
       login: {
         email: 'email',
@@ -104,7 +108,7 @@ const resources = {
 
 i18n.init({
   resStore: resources,
-  debug: true,
+  debug: false,
   fallbackLng: 'ru',
   cookieName: 'lang',
   getAsync: false

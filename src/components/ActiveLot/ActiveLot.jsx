@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import i18n from 'i18next-client';
+import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
   require('./_ActiveLot.scss');
@@ -9,29 +10,31 @@ if (process.env.BROWSER) {
 class ActiveLot extends Component {
 
   render() {
+    var index = this.props.index || 0;
+    var item = this.props.listData[index].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
     var divStyle = {
-      backgroundImage: 'url(/assets/images/IMG_5508.JPG)'
+      backgroundImage: 'url(/uploads/'+item.cover+')'
     };
     return (
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
         <div className='invite'>
-          <Link className="nav-item" to="/lot" query={{index: 0}}>
+          <Link className="nav-item" to="/lot" query={{index: index}}>
             {i18n.t('header.accept')}
           </Link>
         </div>
         <div className='textWrap'>
           <h5>
-            0023477555
+            {item.id}
           </h5>
           <h2>
-            Сувенир с самородком
+            {item['title_'+this.props.language]}
           </h2>
           <div className='startCost'>
-            95 000 ₽
+            {utils.rub(item.askPrice)}
           </div>
           <div className='cost'>
-            135 000 ₽
+            {utils.rub(item.lastPrice)}
           </div>
         </div>
       </div>

@@ -52,6 +52,11 @@ Object.keys(db).forEach(function(modelName) {
     }
 });
 
+sequelize.sync().complete(function() {
+    logger.trace('sync tables finished');
+});
+
+
 export default _.extend({
     sequelize: sequelize,
     Sequelize: Sequelize,

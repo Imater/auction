@@ -43,17 +43,18 @@ class Main extends Component {
         backgroundImage: 'url(/uploads/'+item.cover+')'
       }
       return (
-        <LotItem item={item} {...this.props} />
+        <LotItem key={index} item={item} {...this.props} />
       );
     });
   }
   render() {
+    var mainIndex = 1;
     return (
       <div className="Main">
         <MainHeader />
         <Top />
         <div className="ActiveLot">
-          <ActiveLot />
+          <ActiveLot index={mainIndex} {...this.props}/>
         </div>
         <nav className="app-navigation">
           <Link className="nav-item" to="/">

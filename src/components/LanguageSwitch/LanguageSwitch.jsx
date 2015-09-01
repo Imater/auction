@@ -17,7 +17,6 @@ class LanguageSwitch extends Component {
   render() {
     var ruClass = 'flag';
     var engClass = 'flag';
-    console.info('LANGUAGE', this.props.i18.language);
     if(this.props.i18.language === 'eng'){
       engClass += ' active';
     } else {

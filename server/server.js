@@ -27,7 +27,7 @@ import { Provider } from 'react-redux';
 import { List } from 'immutable';
 import * as reducers from '../src/stores';
 import createAppStore from '../src/createStore/createStore';
-import db from './models';
+import api from './api';
 
 
 const proxy = httpProxy.createProxyServer();
@@ -75,7 +75,7 @@ app.use((req, res, next) => {
     if (!routeState) {
       return next();
     }
-    db.models.lot.findAll({}).then(function(lotsFromDb){
+    api.getAllLots().then(function(lotsFromDb){
       const store = createAppStore({
         todos: new List(lotsFromDb),
         i18: {

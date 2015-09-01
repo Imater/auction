@@ -9,7 +9,7 @@ class LotImage extends Component {
 
   render() {
     var divStyle = {
-      backgroundImage: 'url('+this.props.img+')'
+      backgroundImage: 'url(/uploads/'+this.props.img+')'
     };
     return (
       <div className="LotImage" style={divStyle}>

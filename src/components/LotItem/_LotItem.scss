@@ -1,73 +1,127 @@
-.Main {
-  min-width: 800px;
-  max-width: 1240px;
-  margin: 0 auto;
-  font-family: PTSansRegular, 'PT Sans', Verdana;
-  ul.items {
-    margin: 0 50px;
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    li.item {
-      .nav-item {
-        text-decoration: none;
-        color: inherit;
-      }
+.LotItem {
+  .nav-item {
+    text-decoration: none;
+    color: inherit;
+  }
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
+  margin-bottom: 30px;
+  .itemWrap {
+    position: relative;
+    max-width: 300px;
+    .imageWrap {
+      margin: 0 5px;
+      height: 400px;
+      background: #000;
+      overflow: hidden;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .id {
+    margin-top: 5px;
+    color: #a3b8c3;
+    font-size: 13px;
+  }
+  .title {
+    margin-top: 5px;
+    font-size: 18px;
+    font-family: PTSansBold;
+    color: #5195CA;
+    text-transform: uppercase;
+  }
+  .from {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+  .startCost {
+    margin: 5px 0;
+    color: #a3b8c3;
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+  .nowCost {
+    margin: 5px 0;
+    font-family: PTSansBold;
+    font-size: 23px;
+  }
+  .accept {
+    margin: 20px 0;
+    .nav-item {
+      font-family: PTSansBold;
+      letter-spacing: 1px;
+      border: 3px solid #5195CA;
+      font-size: 14px;
+      padding: 7px 20px;
+      color: #5195CA;
+      text-transform: uppercase;
+    }
+  }
+  .openTime {
+    margin: 15px 0;
+    font-family: PTSansRegular;
+    font-size: 14px;
+    color: #000;
+    &:before {
+      content: '';
       display: inline-block;
-      width: 33%;
+      margin-right: 6px;
+      background-image: url('/assets/images/clock.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 35px;
+      background-size: 17px;
+      width: 20px;
+      height: 20px;
+      margin-top: -6px;
+      vertical-align: middle;
+    }
+  }
+  .sold {
+    margin: 10px 0;
+    position: relative;
+    .winner {
+      display: inline-block;
+      font-family: PTSansBold;
+      margin-left: 30px;
       vertical-align: top;
-      .itemWrap {
-        position: relative;
-        max-width: 300px;
-        margin-bottom: 40px;
-        .imageWrap {
-          margin: 0 5px;
-          height: 400px;
-          background: #000;
-          overflow: hidden;
-          text-align: center;
-          background-size: cover;
-          background-position: center;
-        }
+      font-size: 14px;
+    }
+    .nav-item {
+      margin-left: 10px;
+      display: inline-block;
+      background-image: url(/assets/images/sale_center.jpg);
+      background-repeat: repeat-x;
+      background-position: top;
+      height: 36px;
+      font-family: PTSansBold;
+      letter-spacing: 1px;
+      font-size: 14px;
+      padding: 10px 20px;
+      color: #000;
+      text-transform: uppercase;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: -10px;
+        height: 36px;
+        width: 10px;
+        display: block;
+        background-image: url(/assets/images/sale_left.jpg);
       }
-      .id {
-        margin-top: 5px;
-        color: #a3b8c3;
-        font-size: 13px;
-      }
-      .title {
-        margin-top: 5px;
-        font-size: 18px;
-        font-family: PTSansBold;
-        color: #5195CA;
-        text-transform: uppercase;
-      }
-      .from {
-        margin-top: 5px;
-        font-size: 13px;
-      }
-      .startCost {
-        margin-top: 5px;
-        color: #a3b8c3;
-        font-size: 14px;
-        text-decoration: line-through;
-      }
-      .nowCost {
-        font-family: PTSansBold;
-        font-size: 23px;
-      }
-      .accept {
-        margin-top: -20px;
-        margin-bottom: 50px;
-        .nav-item {
-          font-family: PTSansBold;
-          letter-spacing: 1px;
-          border: 3px solid #5195CA;
-          font-size: 14px;
-          padding: 7px 20px;
-          color: #5195CA;
-          text-transform: uppercase;
-        }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: -12px;
+        height: 36px;
+        width: 12px;
+        display: block;
+        background-image: url(/assets/images/sale_right.jpg);
       }
     }
   }

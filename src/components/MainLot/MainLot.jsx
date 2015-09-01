@@ -11,7 +11,7 @@ class MainLot extends Component {
     var index = this.props.index || 0;
     var item = this.props.listData[index].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
     var divStyle = {
-      backgroundImage: 'url('+item.image+')'
+      backgroundImage: 'url(/uploads/'+item.cover+')'
     };
     return (
       <div className="MainLot" style={divStyle}>
@@ -20,10 +20,10 @@ class MainLot extends Component {
             {item.id}
           </h5>
           <h2>
-            {item.title}
+            {item['title_'+this.props.language]}
           </h2>
           <h6>
-            {item.from}
+            {item['lotFrom_'+this.props.language]}
           </h6>
         </div>
       </div>

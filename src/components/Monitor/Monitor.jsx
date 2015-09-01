@@ -16,6 +16,7 @@ class Monitor extends Component {
 
   static propTypes = {
     listData: PropTypes.array.isRequired,
+    language: PropTypes.string.isRequired,
     onAddHandler: PropTypes.func,
     onDeleteHandler: PropTypes.func
   }
@@ -24,11 +25,11 @@ class Monitor extends Component {
       onDeleteHandler: () => {}
   }
   componentDidMount() {
-    this.interval = setInterval(this.tick.bind(this), 20000);
+    //this.interval = setInterval(this.tick.bind(this), 20000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    //clearInterval(this.interval);
   }
 
   tick () {
@@ -91,7 +92,7 @@ class Monitor extends Component {
             <MainLotInfo {...this.props} index={this.state.index}/>
           </div>
           <div className="bottom">
-            <ActiveLots prop={this.props.listData} index={this.state.index}/>
+            <ActiveLots {...this.props} prop={this.props.listData} index={this.state.index}/>
           </div>
         </div>
       </div>

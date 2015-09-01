@@ -4,5 +4,8 @@ module.exports = {
     url: 'http://kc.looi.ru/',
     server: {
         address: '127.0.0.1'
+    },
+    db: {
+        name: 'Auction'
     }
 };

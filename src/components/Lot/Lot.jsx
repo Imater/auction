@@ -7,6 +7,7 @@ import Top from '../Top/Top';
 import Footer from '../Footer/Footer';
 import MainHeader from '../MainHeader/MainHeader';
 import LotItem from '../LotItem/LotItem';
+import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
   require('./_Lot.scss');
@@ -15,6 +16,7 @@ if (process.env.BROWSER) {
 class Lot extends Component {
   static propTypes = {
     listData: PropTypes.array.isRequired,
+    language: PropTypes.string.isRequired,
     onAddHandler: PropTypes.func,
     onDeleteHandler: PropTypes.func
   }
@@ -37,47 +39,58 @@ class Lot extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = listData.slice(3,6);
+    var listDataFiltered = listData.slice(1,4);
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
         backgroundImage: 'url('+item.image+')'
       }
       return (
-        <LotItem item={item} {...this.props} />
+        <LotItem key={index} item={item} {...this.props} />
       );
     });
   }
   _renderItem() {
     const { listData, location: { query: {index}} } = this.props;
-    var item = listData[index].toObject ? listData[index].toObject() : listData[index];
+    var item = {};
+    listData.filter(function(itemList){
+      var foundItem = itemList.toObject ? itemList.toObject() : itemList;
+      if(foundItem.id == index){
+        item = foundItem;
+      }
+    })
     return (
       <div className="lotDescription">
-        <LotImage img={item.image}/>
+        <LotImage img={item.cover}/>
         <div className="description">
           <div className='leftCol'>
             <div className="id">
               {item.id}
             </div>
             <div className="title">
-              {item.title}
+              {item['title_'+this.props.language]}
             </div>
             <div className="from">
-              {item.from}
+              {item['lotFrom_'+this.props.language]}
             </div>
             <div className="text">
-              {item.text}
+              {item['lotText_'+this.props.language]}
             </div>
           </div>
           <div className="rightCol">
             <div className="startCost">
-              {item.startCost}
+              {utils.rub(item.askPrice)}
             </div>
             <div className="nowCost">
-              {item.nowCost}
+              {utils.rub(item.lastPrice)}
             </div>
             <div className="name">
-              {item.name}
+              {utils.shortFullName(item.name)}
+            </div>
+            <div className="endTimeWrap">
+              <div className="endTime">
+                {utils.endTime(item.endDateTime)}
+              </div>
             </div>
           </div>
         </div>
