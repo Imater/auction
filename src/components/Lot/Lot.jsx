@@ -59,9 +59,40 @@ class Lot extends Component {
         item = foundItem;
       }
     })
+    var bid = (<div></div>);
+    if(item.status === 'active'){
+      var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
+      bid = (
+        <div className="bidMain">
+          <div className="bid">
+            <div className="bidWrap">
+              <div className="text">
+                {i18n.t('lot.rules')}
+                <a>
+                  {i18n.t('lot.rulesLink')}
+                </a>
+              </div>
+              <div className="inputWrap">
+                <input value={value}/>
+              </div>
+              <div className="rub">
+                ₽
+              </div>
+              <div className='button'>
+                <a>
+                  {i18n.t('lot.bid')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+
+    }
     return (
       <div className="lotDescription">
         <LotImage img={item.cover}/>
+        {bid}
         <div className="description">
           <div className='leftCol'>
             <div className="id">
@@ -79,10 +110,10 @@ class Lot extends Component {
           </div>
           <div className="rightCol">
             <div className="startCost">
-              {utils.rub(item.askPrice)}
+              {item.lastPrice ? utils.rub(item.askPrice) : ''}
             </div>
             <div className="nowCost">
-              {utils.rub(item.lastPrice)}
+              {utils.rub(item.lastPrice || item.askPrice)}
             </div>
             <div className="name">
               {utils.shortFullName(item.name)}

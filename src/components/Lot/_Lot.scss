@@ -78,6 +78,62 @@
   $rightColWidth: 400px;
   .lotDescription {
     margin-bottom: 50px;
+    .bidMain {
+      border: 3px solid #5195CA;
+      padding: 20px 20px;
+      margin: 20px;
+      .bid {
+        display: table;
+        .bidWrap {
+          display: table-row;
+          padding: 20px;
+          position: relative;
+          .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 15px;
+            color: #888;
+            width: 40%;
+          }
+          .inputWrap {
+            display: table-cell;
+            vertical-align: middle;
+            width: 40%;
+            padding-left: 50px;
+            input {
+              width: 100%;
+              padding: 5px 10px;
+              border: 3px solid #5195CA;
+              text-align: right;
+              font-family: 'PTSansBold';
+              font-size: 20px;
+            }
+          }
+          .rub {
+            display: table-cell;
+            text-align: left;
+            width: 30px;
+            vertical-align: middle;
+            padding-left: 5px;
+            font-family: 'PTSansBold';
+            font-size: 20px;
+          }
+          .button {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            width: 40%;
+            a {
+              text-transform: uppercase;
+              border: 3px solid #5195CA;
+              color: #5195CA;
+              padding: 5px 10px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
     .description {
       position: relative;
       width: 100%;

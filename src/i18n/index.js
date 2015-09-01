@@ -32,7 +32,10 @@ const resources = {
       },
       lot: {
         all: 'ВСЕ ЛОТЫ',
-        active: 'ТОЛЬКО АКТИВНЫЕ'
+        active: 'ТОЛЬКО АКТИВНЫЕ',
+        bid: 'Сделать ставку',
+        rules: 'Ставка должна минимум на 10% превышать текущую цену. Делая ставку, вы обязуетесь выкупить лот по указанной цене.',
+        rulesLink: 'Условия участия в аукционе'
       },
       footer: {
         phones: 'Телефоны',
@@ -84,7 +87,10 @@ const resources = {
       },
       lot: {
         all: 'ALL LOTS',
-        active: 'ACTIVE ONLY'
+        active: 'ACTIVE ONLY',
+        bid: 'Place bet',
+        rules: 'The rate must be at least 10% higher than the current price. By bidding, you agree to redeem the item at a specified price.',
+        rulesLink: 'Conditions for participation in the auction'
       },
       footer: {
         phones: 'Phones',
