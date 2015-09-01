@@ -24,12 +24,14 @@ if (process.env.BROWSER) {
     };
 
     componentWillMount() {
-      if (process.env.BROWSER && this.needStart !== false) {
+      if (typeof window !== 'undefined') {
         this.needStart = false;
         var socket = io();
         var self = this;
         socket.on('refresh', function(data){
-          self.context.store.dispatch(refreshLot(data));
+          if(data && data.id){
+            self.context.store.dispatch(refreshLot(data));
+          }
           console.info('socket', data);
         });
       }
