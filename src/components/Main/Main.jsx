@@ -37,7 +37,16 @@ class Main extends Component {
   }
   _renderListItem() {
     const { listData, language } = this.props;
-    return listData.map((itemMap, index) => {
+    var filteredData = [];
+    if(this.props.route.path === '/active'){
+      filteredData = listData.filter(function(item){
+        var theItem = item.toJS ? item.toJS() : item;
+        return theItem.status === 'active';
+      });
+    } else {
+      filteredData = listData;
+    }
+    return filteredData.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
         backgroundImage: 'url(/uploads/'+item.cover+')'
@@ -49,6 +58,10 @@ class Main extends Component {
   }
   render() {
     var mainIndex = 1;
+    var allLinkClass = 'nav-item';
+    if(this.props.route.path === '/'){
+      var allLinkClass = 'nav-item active';
+    }
     return (
       <div className="Main">
         <MainHeader />
@@ -57,10 +70,10 @@ class Main extends Component {
           <ActiveLot index={mainIndex} {...this.props}/>
         </div>
         <nav className="app-navigation">
-          <Link className="nav-item" to="/">
+          <Link className={allLinkClass} to="/" activeClassName='act'>
             {i18n.t('lot.all')}
           </Link>
-          <Link className="nav-item" to="/active">
+          <Link className='nav-item' to="/active">
             {i18n.t('lot.active')}
           </Link>
         </nav>

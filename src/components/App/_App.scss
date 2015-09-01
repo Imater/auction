@@ -24,6 +24,19 @@ body, html {
       }
       &:last-child {
         border-left: none;
+        &.active {
+          border: 2px solid;
+          border-color: #5A95BD;
+          color: #5A95BD;
+        }
+      }
+      &:first-child {
+        border-right: none;
+        &.active {
+          border: 2px solid;
+          border-color: #5A95BD;
+          color: #5A95BD;
+        }
       }
       &.active {
         border-color: #5A95BD;
