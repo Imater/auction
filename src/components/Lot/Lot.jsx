@@ -18,18 +18,22 @@ class Lot extends Component {
     listData: PropTypes.array.isRequired,
     language: PropTypes.string.isRequired,
     onAddHandler: PropTypes.func,
+    onAddBid: PropTypes.func,
     onDeleteHandler: PropTypes.func
   }
   static defaultProps = {
     onAddHandler: () => {},
-      onDeleteHandler: () => {}
+      onDeleteHandler: () => {},
   }
-  _onItemAddedHandler(e) {
-    const { onAddHandler } = this.props;
-    const newText = findDOMNode(this.refs.todoInput).value;
+  _onAddBid(e) {
+    const { onAddBid } = this.props;
+    const newPrice = findDOMNode(this.refs.todoInput).value;
     e.preventDefault();
-    findDOMNode(this.refs.todoInput).value = '';
-    onAddHandler(newText);
+    onAddBid({
+      userId: 2,
+      lotId: e.target.dataset.id,
+      price: newPrice
+    })
   }
   _onItemDeleteHandler(e) {
     const { onDeleteHandler } = this.props;
@@ -73,13 +77,13 @@ class Lot extends Component {
                 </a>
               </div>
               <div className="inputWrap">
-                <input value={value}/>
+                <input ref="todoInput" value={value}/>
               </div>
               <div className="rub">
                 ₽
               </div>
               <div className='button'>
-                <a>
+                <a data-id={item.id} onClick={this._onAddBid.bind(this)}>
                   {i18n.t('lot.bid')}
                 </a>
               </div>

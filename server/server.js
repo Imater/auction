@@ -15,7 +15,7 @@ import cookieParser from 'cookie-parser';
 import Router from 'react-router';
 import Location from 'react-router/lib/Location';
 import appRoutes from '../src/routes/appRoutes.jsx';
-import apiRoutes from '../src/routes/apiRoutes';
+import apiRoutes from './apiRoutes/apiRoutes.js';
 
 // Webpack
 import httpProxy from 'http-proxy';

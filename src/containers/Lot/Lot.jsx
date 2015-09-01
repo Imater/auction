@@ -5,7 +5,8 @@ import Lot from '../../components/Lot/Lot';
 // Actions
 import {
   addTodo,
-  deleteTodo
+  deleteTodo,
+  addBid
 } from '../../stores/todos';
 
 function mapStateToProps(state) {
@@ -18,6 +19,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onAddHandler: (text) => dispatch(addTodo(text)),
+    onAddBid: (body) => dispatch(addBid(body)),
     onDeleteHandler: (id) => dispatch(deleteTodo(id))
   };
 }
