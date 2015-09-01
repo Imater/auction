@@ -41,6 +41,10 @@ class Lot extends Component {
     e.preventDefault();
     onDeleteHandler(id);
   }
+  _onChange(e) {
+    this.setState({value: e.target.value});
+    e.preventDefault();
+  }
   _renderListItem() {
     const { listData } = this.props;
     var listDataFiltered = listData.slice(1,4);
@@ -77,7 +81,7 @@ class Lot extends Component {
                 </a>
               </div>
               <div className="inputWrap">
-                <input ref="todoInput" value={value}/>
+                <input type="text" ref="todoInput" defaultValue={value}/>
               </div>
               <div className="rub">
                 ₽
