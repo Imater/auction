@@ -20,14 +20,7 @@ export default function(state = defaultState, action) {
     case TODO_DESTROY:
       return state.delete(action.payload.id);
     case ADD_BID:
-      console.info('bid added', action);
-      var body = action.payload.body;
-      return state.map(function(item){
-        if(item.toObject().id == body.id){
-          return Immutable.fromJS(body);
-        }
-        return item;
-      });
+      return state;
     case REFRESH_LOT:
       console.info('bid added by socket', action);
       var body = action.payload.body;

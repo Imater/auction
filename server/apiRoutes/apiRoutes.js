@@ -14,7 +14,16 @@ apiRoutes.get('/hello', (req, res) => {
 
 apiRoutes.post('/bid', (req, res) => {
   api.saveBid(req.body).then(function(result){
+    console.info('socket', result);
     socketIo.io.emit('refresh', result);
+    res.status(200).send(result);
+  }).catch(function(err){
+    res.status(400).send(err);
+  });
+});
+
+apiRoutes.get('/bid', (req, res) => {
+  api.getLotById(1).then(function(result){
     res.status(200).send(result);
   }).catch(function(err){
     res.status(400).send(err);

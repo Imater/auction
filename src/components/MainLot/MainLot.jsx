@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import i18n from 'i18next-client';
+import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
   require('./_MainLot.scss');
@@ -9,7 +10,8 @@ class MainLot extends Component {
 
   render() {
     var index = this.props.index || 0;
-    var item = this.props.listData[index].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
+    var listDataFiltered = utils.sortByLastTime(this.props.listData).slice(this.props.index,this.props.index+1);
+    var item = listDataFiltered[0].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
     var divStyle = {
       backgroundImage: 'url(/uploads/'+item.cover+')'
     };

@@ -55,6 +55,9 @@ api.getAllLots = function(id){
 api.getLotById = function(id){
   return new Promise((request, reject) => {
     db.models.lot.findOne({
+      where: {
+        id: id
+      },
       include: [{
         model: db.models.bid,
         attributes: [
@@ -88,12 +91,13 @@ api.getLotById = function(id){
 
 api.saveBid = function(body){
   return new Promise((request, reject) => {
+    console.info('GOI')
     db.models.bid.create({
       userId: body.userId,
       lotId: body.lotId,
       price: body.price
     }).then(function(bid){
-      api.getLotById(bid.id).then(
+      api.getLotById(body.lotId).then(
         function(res){
           request(res);
         }

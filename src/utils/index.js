@@ -50,3 +50,16 @@ export function lastTime(lastTime) {
   }
   return '4 мин.назад';
 }
+
+export function sortByLastTime(listData) {
+    var now = Date.now();
+    var orderedList = listData.sortBy(function(a){
+      var a1 = a.toJS ? a.toJS().lastTime : a.lastTime;
+      var diff = now - Date.parse(a1);
+      if(isNaN(diff)) {
+        diff = 3300000000000000000;
+      }
+      return diff;
+    });
+    return orderedList;
+}

@@ -19,7 +19,7 @@ class ActiveLot extends Component {
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
         <div className='invite'>
-          <Link className="nav-item" to="/lot" query={{index: index}}>
+          <Link className="nav-item" to="/lot" query={{index: item.id}}>
             {i18n.t('header.accept')}
           </Link>
         </div>

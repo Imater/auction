@@ -29,6 +29,7 @@ class Lot extends Component {
     const { onAddBid } = this.props;
     const newPrice = findDOMNode(this.refs.todoInput).value;
     e.preventDefault();
+    console.info('id = ', e.target.dataset.id);
     onAddBid({
       userId: 2,
       lotId: e.target.dataset.id,
