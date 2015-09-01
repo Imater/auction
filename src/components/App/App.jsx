@@ -24,17 +24,17 @@ if (process.env.BROWSER) {
     };
 
     componentWillMount() {
-      if (typeof window !== 'undefined') {
-        this.needStart = false;
-        var socket = io();
-        var self = this;
-        socket.on('refresh', function(data){
-          if(data && data.id){
-            self.context.store.dispatch(refreshLot(data));
-          }
-          console.info('socket', data);
-        });
-      }
+      //if (typeof window !== 'undefined') {
+      //  this.needStart = false;
+      //  var socket = io();
+      //  var self = this;
+      //  socket.on('refresh', function(data){
+      //    if(data && data.id){
+      //      self.context.store.dispatch(refreshLot(data));
+      //    }
+      //    console.info('socket', data);
+      //  });
+      //}
     }
 
     render() {
