@@ -57,7 +57,7 @@ class Main extends Component {
     });
   }
   render() {
-    var mainIndex = 1;
+    var mainIndex = 0;
     var allLinkClass = 'nav-item';
     if(this.props.route.path === '/'){
       var allLinkClass = 'nav-item active';

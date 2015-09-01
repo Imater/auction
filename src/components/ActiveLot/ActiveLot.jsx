@@ -11,7 +11,14 @@ class ActiveLot extends Component {
 
   render() {
     var index = this.props.index || 0;
+    var filteredData = this.props.listData.filter(function(item){
+      var theItem = item.toJS ? item.toJS() : item;
+      return theItem.status === 'active';
+    });
     var item = this.props.listData[index].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
+    if (filteredData.length){
+      item = filteredData[index].toObject ? filteredData[index].toObject() : filteredData;
+    }
     var divStyle = {
       backgroundImage: 'url(/uploads/'+item.cover+')'
     };
