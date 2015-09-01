@@ -28,7 +28,6 @@ describe('Test', function() {
       price: 100000
     })
     .end(function(err, res) {
-      console.info('BODY', res.body);
       res.status.should.equal(200);
       done();
     });

@@ -29,7 +29,6 @@ import * as reducers from '../src/stores';
 import createAppStore from '../src/createStore/createStore';
 import api from './api';
 
-
 const proxy = httpProxy.createProxyServer();
 const isProduction = process.env.NODE_ENV === 'production';
 const isTest = process.env.NODE_ENV === 'test';

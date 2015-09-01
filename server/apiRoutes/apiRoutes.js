@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import api from '../api';
+import socketIo from '../socketIo.js';
 
 const apiRoutes = Router();
 
@@ -13,6 +14,7 @@ apiRoutes.get('/hello', (req, res) => {
 
 apiRoutes.post('/bid', (req, res) => {
   api.saveBid(req.body).then(function(result){
+    socketIo.io.emit('refresh', result);
     res.status(200).send(result);
   }).catch(function(err){
     res.status(400).send(err);

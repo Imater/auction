@@ -6,6 +6,7 @@ export const TODO_CREATE = 'TODO_CREATE';
 export const TODO_COMPLETE = 'TODO_COMPLETE';
 export const TODO_DESTROY = 'TODO_DESTROY';
 export const ADD_BID = 'ADD_BID';
+export const REFRESH_LOT = 'REFRESH_LOT';
 
 const setDate = ()=> {
   return new Date(Date.parse('2015/09/30 13:00:00'));
@@ -20,6 +21,15 @@ export default function(state = defaultState, action) {
       return state.delete(action.payload.id);
     case ADD_BID:
       console.info('bid added', action);
+      var body = action.payload.body;
+      return state.map(function(item){
+        if(item.toObject().id == body.id){
+          return Immutable.fromJS(body);
+        }
+        return item;
+      });
+    case REFRESH_LOT:
+      console.info('bid added by socket', action);
       var body = action.payload.body;
       return state.map(function(item){
         if(item.toObject().id == body.id){
@@ -68,3 +78,14 @@ export function addBid(body) {
     })
   };
 }
+
+export function refreshLot(body) {
+  console.info('save bid = ', body);
+  return {
+    type: REFRESH_LOT,
+    payload: {
+      body: body
+    }
+  };
+}
+

@@ -1,8 +1,14 @@
 import app from './server/server.js';
+import http from 'http';
+import socketIo from './server/socketIo.js';
+
+var server = http.createServer(app);
+socketIo.init(server);
 
 const PORT = process.env.PORT || 3000;
 
-var server = app.listen(PORT, function() {
+
+server.listen(PORT, function() {
     console.log('Server listening on', PORT);
 });
 

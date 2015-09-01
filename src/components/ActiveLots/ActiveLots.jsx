@@ -51,7 +51,7 @@ class ActiveLots extends Component {
               {utils.lastTime(item.lastTime)}
             </div>
             <div className="nowCost">
-              {utils.rub(item.lastCost)}
+              {utils.rub(item.lastPrice)}
             </div>
             <div className="name">
               {utils.shortFullName(item.name)}
