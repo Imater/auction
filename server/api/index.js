@@ -44,7 +44,7 @@ api.getAllLots = function(id){
             'lastname',
             'middlename'
           ],
-          required: true
+          required: false
         }]
       }],
       order: [[{model: db.models.bid}, 'createdAt', 'DESC']]
@@ -85,7 +85,7 @@ api.getLotById = function(id){
             'lastname',
             'middlename'
           ],
-          required: true
+          required: false
         }]
       }],
       order: [[{model: db.models.bid}, 'createdAt', 'DESC']]

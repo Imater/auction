@@ -32,6 +32,24 @@ if (process.env.BROWSER) {
 })();
 
 class ActiveLots extends Component {
+  state = {
+     time: '12:52'
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.tick.bind(this), 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  tick () {
+    var time = new Date(Date.now());
+    var tm = ("0" + time.getMinutes()).slice(-2) + ":" +
+    ("0" + time.getSeconds()).slice(-2);
+    this.setState({time: tm});
+  }
   static propTypes = {
     listData: PropTypes.array.isRequired,
     language: PropTypes.string.isRequired,
@@ -57,7 +75,7 @@ class ActiveLots extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = utils.sortByLastTime(listData).slice(this.props.index+1,this.props.index+5);
+    var listDataFiltered = utils.sortByLastTime(listData).slice(this.props.index+1,this.props.index+9);
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
@@ -87,7 +105,7 @@ class ActiveLots extends Component {
   }
   render() {
     return (
-      <div className="ActiveLots">
+      <div className="ActiveLots" time={this.state.time}>
         <ul>
           {this._renderListItem()}
         </ul>

@@ -12,7 +12,22 @@ $textHeight: 570px;
       text-align: center;
       vertical-align: middle;
       font-family: PTSansRegular, 'PT Sans', Verdana;
+      .header {
+        position: absolute;
+        top: 0;
+        height: 50px;
+        font-size: 30px;
+        text-transform: uppercase;
+        line-height: 50px;
+        left: 0px;
+        right: 0px;
+        background: #FFF;
+        color: #000;
+        text-align: center;
+        font-family: PTSansCaptionRegular;
+      }
       .nowCost {
+        margin-top: 65px;
         font-size: 50px;
         font-family: PTSansBold, 'PT Sans', Verdana;
       }
@@ -22,22 +37,11 @@ $textHeight: 570px;
         text-transform: uppercase;
       }
       .time {
-        margin-top: 95px;
-        font-size: 45px;
+        margin-top: 35px;
+        font-size: 35px;
         line-height: 45px;
-        &:before {
-          content: '';
-          display: inline-block;
-          margin-right: 18px;
-          background-image: url('/assets/images/clock_1.png');
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 35px;
-          width: 35px;
-          height: 35px;
-          margin-top: -6px;
-          vertical-align: middle;
-        }
+        text-transform: uppercase;
+        color: #A0CEF2;
       }
     }
   }

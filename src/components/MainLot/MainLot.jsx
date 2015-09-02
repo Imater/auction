@@ -15,8 +15,12 @@ class MainLot extends Component {
     var divStyle = {
       backgroundImage: 'url(/uploads/'+item.cover+')'
     };
+    console.info(item);
     return (
       <div className="MainLot" style={divStyle}>
+        <div className='header'>
+          Благотворительный аукцион
+        </div>
         <div className="textWrapper">
           <h5>
             {item.id}
