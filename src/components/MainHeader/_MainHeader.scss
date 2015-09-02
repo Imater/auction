@@ -11,8 +11,8 @@
     height: 100%;
     background: #fff;
     background: rgba(255,255,255,0.96);
-    font-size: 28px;
-    line-height: 38px;
+    font-size: 21px;
+    line-height: 30px;
     z-index: 100;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -42,6 +42,7 @@
   .popup-constraint {
     width: 1068px;
     margin: 0 auto;
+    padding-top: 30px;
   }
   .toMain {
     border: 3px solid #5195CA;

@@ -12,7 +12,8 @@ const resources = {
         accept: 'Принять участие',
         sold: 'Продано',
         winner: 'Победитель',
-        home: 'На главную'
+        home: 'На главную',
+
       },
       login: {
         email: 'электронная почта',
@@ -73,6 +74,18 @@ const resources = {
         text: 'Технологическая платформа аукциона спроектирована, разработана и поддерживается компанией Лоои',
         link: 'http://looi.ru',
         linkName: 'looi.ru'
+      },
+      conditions: {
+          conditions1: 'Условия участия',
+          conditions2: 'Регистрируясь Вы подтверждаете достоверность вводимой персональной информации, соглашаетесь принять участие в аукционе, гарантируете оплату выбранных лотов и соглашаетесь на то, что Ваша ставка, в том числе победившая в аукционе, а также Ваши фамилия, имя и отчество, становятся видимы прочим участникам аукциона. Ваш адрес электронной почты и номер Вашего телефона могут быть использованы организаторами для осуществления формальностей, связанных с аукционом, но при этом не становятся публичными.',
+          conditions3: 'Настоящим Вы также даете согласие на предоставление Ваших персональных данных (адрес электронной почты, номер телефона, место работы и должность, фамилия, имя, отчество) и по собственной воле даете согласие на их обработку в целях использования для информирования прочих участников аукциона о сделанных ставках, информирования организаторов аукциона об участниках аукциона, передачи данных для последующей организации сделки в случае выбора определенного лота, а также подтверждаете что Ваш возраст превышает 18 лет.',
+          conditions4: 'Время проведения аукциона: в период работы Восточного экономического форума, с 10:00 03.09.2015 по 12:00 05.09.2015 г. Шаг аукциона не может составлять менее 10% от стоимости лота.',
+          conditions5: 'В определенные часы организаторы могут отдельно объявлять о возможности одномоментного выкупа определенного лота (группы лотов) с одновременным условием повышения ставки на существенный процент (до 100%).',
+          conditions6: 'Вы обязуетесь внимательно ознакомиться со всем содержимым объявления, прежде чем делать ставку. Вы согласны принимать звонки и сообщения от организаторов на любые номера телефонов, адреса электронной почты, которые вы предоставили организаторам или которые были получены другими способами.',
+          conditions7: 'Поскольку Вам станет известна информация о другом участнике (его ставке и ФИО), вы обязуетесь не раскрывать, не продавать, не распространять и не передавать информацию публично о другом пользователе третьим лицам для целей, не связанных с оказанием помощи в реализации  проектов по сохранению указанных выше видов животных.',
+          conditions8: 'Обращаем Ваше внимание что настоящий сайт является лишь инструментом для информирования участников аукциона об имеющихся лотах и сбора информации от участников. Сайт не является площадкой для заключения сделок или иных финансовых операций.  Для осуществления сделок по приобретению понравившихся лотов необходимо обратиться на специальный стенд аукциона (выставка «Дикая природа Дальнего Востока», 3-й уровень, корпус А) либо по телефонам организаторов. Сделка по приобретения лота осуществляется между участником и организатором аукциона (Фонд содействия охране окружающей среды "Природа") в соответствии с законодательством Российской Федерации. При этом организатор обязуется обеспечить оформление сделки с участником в течение 30 дней с момента завершения аукциона. Допускается, что по отдельным сделкам сторонами могут выступать также иные юридические и физические лица.',
+          conditions9: 'Средства, вырученные от продажи лотов аукциона, будут направлены организатором аукциона в АНО «Центр «Амурский тигр» и АНО «Дальневосточные леопарды» для реализации проектов по сохранению соответствующих уникальных видов животных. Подробнее о проектах по сохранению популяций амурского тигра и дальневосточного леопарда вы можете узнать на сайтах: ',
+          and: 'и'
       }
     }
   },
@@ -88,7 +101,8 @@ const resources = {
         accept: 'Participate',
         sold: 'Sold',
         winner: 'Winner',
-        home: 'Home'
+        home: 'Home',
+
       },
       login: {
         email: 'email',
@@ -145,6 +159,18 @@ const resources = {
         text: 'Auction technology platform designed, developed and maintained by Looi',
         link: 'http://looi.co',
         linkName: 'looi.co'
+      },
+      conditions: {
+          conditions1: 'Conditions of participation',
+          conditions2: 'By registering You confirm the reliability of input personal information, agree to participate in theauction, warrant payment of selected lots and agree that Your bet, including winning the auction, as well as Your surname, name and patronymic are visible to other auction participants. Your email address and Your phone number can be used by the organizers for the implementation of the formalities associated with the auction, but did not become public.',
+          conditions3: 'You hereby also consent to our providing Your personal data (email address, telephone number, place ofwork and position, surname, name, patronymic) and voluntarily consent to their processing in order to inform other bidders bets, inform the organizers of the auction on auction participants, data for the subsequent organization of a transaction if you select a certain item, as well as confirm that Your age is over 18 years.',
+          conditions4: 'Time of auction: during the work of the Eastern economic forum, from 10:00 03.09.2015 in 12:00 05.09.2015 G. auction Step cannot be less than 10% of the value of the lot.',
+          conditions5: 'At certain hours the organizers can announce the possibility of simultaneous foreclosure of a certain lot (groups of lots) with simultaneous to raising rates on a significant percentage (up to 100%).',
+          conditions6: 'You agree to carefully read the full item listing before making a bid. You agree to receive calls and messages from the organizers on any phone numbers, email addresses you have provided to the organizers or which have been obtained by other methods.',
+          conditions7: 'As You become aware of information about the other party (his bet and FIO), you agree not to disclose,sell, distribute or pass the information publicly about another user to any third party for purposes unrelated to the provision of assistance in the implementation of projects for the conservation of the above species.',
+          conditions8: 'Please note that this site is only a tool to inform the bidders about available lots and collectinginformation from the participants. The site is not a platform for transactions or other financial transactions. For transactions for the purchase of lots must apply to the special bench of the auction (exhibition "wildlife of the Far East", 3rd level, building А) for the organizers. The deal for the acquisition of the lot is between the participant and the organizer of the auction (Fund for the protection of the environment "Nature") in accordance with the legislation of the Russian Federation. In this case the organizer is obliged to ensure the registration of the transaction with the participant within 30 days after the close of the auction. Accepted that for certain transactions the parties may also be other legal and physical persons.',
+          conditions9: 'Proceeds from the sale of auction items will be sent by the auction organizer in ANO "Center "Amurtiger" and ANO "far Eastern leopards" for projects relevant for the conservation of unique species of animals. Read more about projects on the conservation of populations of the Amur tiger and far Eastern leopard you can read on the websites: ',
+          and: 'and'
       }
     }
   }
