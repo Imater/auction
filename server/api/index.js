@@ -25,6 +25,7 @@ api.getAllLots = function(id){
         model: db.models.bid,
         attributes: [
           'id',
+          'userId',
           'price',
           'createdAt'
         ],
