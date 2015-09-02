@@ -13,7 +13,12 @@ const resources = {
         sold: 'Продано',
         winner: 'Победитель',
         home: 'На главную',
-
+        quote1: '«Мы все живем в ритме XXI века.',
+        quote2: 'Жизнь подчинена жесткому графику: творчество, общение, работа и отдых. При этом мы редко задумываемся о том, что являемся частью биосферы, нашего дома-планеты Земля. Просто представителем того вида, которому повезло иметь разум. Мы забываем о том, что вокруг нас живут младшие братья: звери, птицы и рыбы. Но разум должен рождать ответственность и заботу о младших.',
+        quote3: 'Мы предлагаем Вам сегодня помочь сохранению на Земле прекрасных животных - тигров и леопардов. На Дальнем Востоке сохранилось до 540 особей амурских тигров и до 70 особей дальневосточных леопардов.',
+        quote4: 'Купите понравившийся лот аукциона. Помогите грациозным диким кошкам сохраниться на Земле».',
+        quote5: 'Заместитель председателя Правительства Российской Федерации — полномочный представитель Президента Российской Федерации в Дальневосточном федеральном округе',
+        quote6: 'Ю.П. Трутнев',
       },
       login: {
         email: 'электронная почта',
@@ -102,7 +107,12 @@ const resources = {
         sold: 'Sold',
         winner: 'Winner',
         home: 'Home',
-
+        quote1: '"We all live in the rhythm of the XXI century.',
+        quote2: 'Life is subordinated to a rigid schedule: creativity, communication, work and leisure. However, we rarely think about the fact that we are part of the biosphere, our home, planet Earth. Just the kind of representative, who was lucky to have a reason. We forget that we live around the younger brothers: animals, birds and fish. But the mind must give rise to the responsibility and care of the younger ones.',
+        quote3: 'We offer you today to help preserve the world of wonderful animals - tigers and leopards. In the Far East it remained up to 540 individuals tigers and 70 leopards individuals.',
+        quote4: 'Buy desired item auction. Help graceful wild cats survive on Earth. "',
+        quote5: 'Deputy Chairman of the Government of the Russian Federation - Plenipotentiary Representative of RF President in the Far Eastern Federal District',
+        quote6: 'Yuri  Trutnev',
       },
       login: {
         email: 'email',
