@@ -17,6 +17,7 @@ class Lot extends Component {
   static propTypes = {
     listData: PropTypes.array.isRequired,
     language: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
     onAddHandler: PropTypes.func,
     onAddBid: PropTypes.func,
     onDeleteHandler: PropTypes.func
@@ -26,12 +27,13 @@ class Lot extends Component {
       onDeleteHandler: () => {},
   }
   _onAddBid(e) {
+    console.info(this.prod);
     const { onAddBid } = this.props;
     const newPrice = findDOMNode(this.refs.todoInput).value;
     e.preventDefault();
-    console.info('id = ', e.target.dataset.id);
+    console.info('id = ', e.target.dataset.userId);
     onAddBid({
-      userId: 2,
+      userId: e.target.dataset.userId,
       lotId: e.target.dataset.id,
       price: newPrice
     })
@@ -67,6 +69,7 @@ class Lot extends Component {
     var bid = (<div></div>);
     if(item.status === 'active'){
       var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
+      var user = (this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
       bid = (
         <div className="bidMain">
           <div className="bid">
@@ -84,7 +87,7 @@ class Lot extends Component {
                 ₽
               </div>
               <div className='button'>
-                <a data-id={item.id} onClick={this._onAddBid.bind(this)}>
+                <a data-id={item.id} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
                   {i18n.t('lot.bid')}
                 </a>
               </div>
@@ -134,10 +137,11 @@ class Lot extends Component {
     );
   }
   render() {
+    var user = (this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
     return (
       <div className="Lot">
         <MainHeader mini={true} />
-        <Top />
+        <Top user={user} />
         <ul className='items'>
           {this._renderItem()}
         </ul>

@@ -15,7 +15,7 @@ apiRoutes.get('/hello', (req, res) => {
 apiRoutes.post('/bid', (req, res) => {
   api.saveBid(req.body).then(function(result){
     console.info('socket', result);
-    //socketIo.io.emit('refresh', result);
+    socketIo.io.emit('refresh', result);
     res.status(200).send(result);
   }).catch(function(err){
     res.status(400).send(err);

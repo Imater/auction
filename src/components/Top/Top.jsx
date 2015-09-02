@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import i18n from 'i18next-client';
 import { Link } from 'react-router';
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch';
+import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
   require('./_Top.scss');
@@ -25,8 +26,8 @@ class Top extends Component {
     } else {
       console.info(this.props.user.lastname);
       login = (
-        <div>
-          {this.props.user.lastname}
+        <div className="loginName">
+          {utils.shortFullName(this.props.user)}
         </div>
       );
     }

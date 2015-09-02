@@ -3,7 +3,7 @@ import http from 'http';
 import socketIo from './server/socketIo.js';
 
 var server = http.createServer(app);
-//socketIo.init(server);
+socketIo.init(server);
 
 const PORT = process.env.PORT || 3000;
 
