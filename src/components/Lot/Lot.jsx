@@ -34,7 +34,7 @@ class Lot extends Component {
     console.info('id = ', e.target.dataset.userId);
     onAddBid({
       userId: e.target.dataset.userId,
-      lotId: e.target.dataset.id,
+      lotId: e.target.dataset.id || 1,
       price: newPrice
     })
   }
