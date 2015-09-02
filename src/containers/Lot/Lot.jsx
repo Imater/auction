@@ -8,6 +8,10 @@ import {
   deleteTodo,
   addBid
 } from '../../stores/todos';
+// Actions
+import {
+  userExit
+} from '../../stores/user';
 
 function mapStateToProps(state) {
   return {
@@ -21,7 +25,8 @@ function mapDispatchToProps(dispatch) {
   return {
     onAddHandler: (text) => dispatch(addTodo(text)),
     onAddBid: (body) => dispatch(addBid(body)),
-    onDeleteHandler: (id) => dispatch(deleteTodo(id))
+    onDeleteHandler: (id) => dispatch(deleteTodo(id)),
+    onUserExit: (data) => dispatch(userExit(data))
   };
 }
 

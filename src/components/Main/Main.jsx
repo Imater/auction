@@ -58,7 +58,7 @@ class Main extends Component {
     });
   }
   render() {
-    var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
+    var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user;
     var mainIndex = 0;
     var allLinkClass = 'nav-item';
     if(this.props.route.path === '/'){

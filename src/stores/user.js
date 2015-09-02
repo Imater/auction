@@ -13,6 +13,8 @@ export default function(state = defaultState, action) {
     case USER_INFO:
       return Immutable.fromJS(action.payload);
     case USER_EXIT:
+      localStorage.clear('email');
+      localStorage.clear('password');
       return Immutable.fromJS(defaultState);
     default:
       return state;
@@ -40,6 +42,13 @@ export function createUser(body) {
   };
 }
 
+function saveLocalStorage(body){
+  if(body.email && body.password){
+    localStorage.setItem('email', body.email);
+    localStorage.setItem('password', body.password);
+  }
+}
+
 export function userInfo(body) {
   return {
     type: USER_INFO,
@@ -52,8 +61,9 @@ export function userInfo(body) {
           return reject(err);
         }
         if (!res.body && alert){
-          alert('Неверный логин/пароль');
+          return alert('Неверный логин/пароль');
         }
+        saveLocalStorage(res.body);
         resolve({body: res.body});
       });
     })

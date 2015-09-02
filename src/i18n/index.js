@@ -19,7 +19,8 @@ const resources = {
         login: 'войти',
         loginText: 'ВОЙТИ',
         regText: 'РЕГИСТРАЦИЯ',
-        forgot: 'Забыли пароль?'
+        forgot: 'Забыли пароль?',
+        exit: 'Выход'
       },
       register: {
         fullname: 'ФИО',
@@ -87,7 +88,8 @@ const resources = {
         login: 'login',
         loginText: 'LOGIN',
         regText: 'REGISTRATION',
-        forgot: 'Forgot password?'
+        forgot: 'Forgot password?',
+        exit: 'Logout'
       },
       register: {
         fullname: 'Fullname',

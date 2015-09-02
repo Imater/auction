@@ -10,6 +10,10 @@ import {
   refreshLot
 } from '../../stores/todos';
 
+import {
+  userInfo
+} from '../../stores/user';
+
 if (process.env.BROWSER) {
   require('../../../assets/styles/normalize.css');
   require('./_App.scss');
@@ -35,6 +39,15 @@ if (process.env.BROWSER) {
           console.info('socket', data);
         });
       }
+      if(localStorage && localStorage.getItem('email') && localStorage.getItem('password')){
+        setTimeout(function(){
+          self.context.store.dispatch(userInfo({
+            email: localStorage.getItem('email'),
+            password: localStorage.getItem('password')
+          }));
+        }, 500)
+      }
+
     }
 
     render() {

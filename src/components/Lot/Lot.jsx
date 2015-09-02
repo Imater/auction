@@ -69,7 +69,7 @@ class Lot extends Component {
     var bid = (<div></div>);
     if(item.status === 'active'){
       var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
-      var user = (this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
+      var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
       bid = (
         <div className="bidMain">
           <div className="bid">
@@ -137,14 +137,8 @@ class Lot extends Component {
     );
   }
   render() {
-    var user = (this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
-    return (
-      <div className="Lot">
-        <MainHeader mini={true} />
-        <Top user={user} />
-        <ul className='items'>
-          {this._renderItem()}
-        </ul>
+    var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : { body: {}};
+    var slider = (
         <div className='slider'>
           <div className='slider-viewport'>
             <div className='slider-arrow slider-arrow--prev'></div>
@@ -179,6 +173,14 @@ class Lot extends Component {
             </div>
           </div>
         </div>
+    );
+    return (
+      <div className="Lot">
+        <MainHeader mini={true} />
+        <Top user={user}  onUserExit={this.props.onUserExit}/>
+        <ul className='items'>
+          {this._renderItem()}
+        </ul>
         <div className="social-likes" data-counters="no">
           <div className="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
           <div className="twitter" title="Поделиться ссылкой в Твиттере">Twitter</div>

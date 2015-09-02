@@ -27,7 +27,9 @@ class Top extends Component {
       login = (
         <div className="loginName">
           {utils.shortFullName(this.props.user)}
-          <a>Exit</a>
+          <a className="exit" onClick={this.props.onUserExit.bind(this)}>
+            {i18n.t('login.exit')}
+          </a>
         </div>
       );
     }
