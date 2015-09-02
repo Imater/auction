@@ -44,7 +44,6 @@ class Register extends Component {
     this.context.router.transitionTo('/auth');
   }
   render() {
-    console.info(this.props);
     return (
       <div>
         <MainHeader mini={true} />

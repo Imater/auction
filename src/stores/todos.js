@@ -54,7 +54,6 @@ export function deleteTodo(id) {
 }
 
 export function addBid(body) {
-  console.info('save bid = ', body);
   return {
     type: ADD_BID,
     payload: new Promise((resolve, reject) => {
@@ -65,7 +64,6 @@ export function addBid(body) {
         if(err){
           return reject(err);
         }
-        console.info('resolve', {body: res.body});
         resolve({body: res.body});
       });
     })
@@ -73,7 +71,6 @@ export function addBid(body) {
 }
 
 export function refreshLot(body) {
-  console.info('save bid = ', body);
   return {
     type: REFRESH_LOT,
     payload: {

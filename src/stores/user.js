@@ -13,8 +13,6 @@ export default function(state = defaultState, action) {
     case USER_INFO:
       return Immutable.fromJS(action.payload);
     case USER_EXIT:
-      localStorage.clear('email');
-      localStorage.clear('password');
       return Immutable.fromJS(defaultState);
     default:
       return state;
@@ -22,7 +20,6 @@ export default function(state = defaultState, action) {
 }
 
 export function createUser(body) {
-  console.info('createuser');
   return {
     type: CREATE_USER,
     payload: new Promise((resolve, reject) => {
@@ -36,6 +33,7 @@ export function createUser(body) {
         if (!res.body && alert){
           alert('Недостаточно данных');
         }
+        saveLocalStorage(res.body);
         resolve({body: res.body});
       });
     })
@@ -71,6 +69,8 @@ export function userInfo(body) {
 }
 
 export function userExit(body) {
+  localStorage.removeItem('email');
+  localStorage.removeItem('password');
   return {
     type: USER_INFO,
     payload: {

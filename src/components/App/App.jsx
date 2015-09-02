@@ -38,14 +38,14 @@ if (process.env.BROWSER) {
           }
           console.info('socket', data);
         });
-      }
-      if(localStorage && localStorage.getItem('email') && localStorage.getItem('password')){
-        setTimeout(function(){
-          self.context.store.dispatch(userInfo({
-            email: localStorage.getItem('email'),
-            password: localStorage.getItem('password')
-          }));
-        }, 500)
+        if(localStorage && localStorage.getItem('email') && localStorage.getItem('password')){
+          setTimeout(function(){
+            self.context.store.dispatch(userInfo({
+              email: localStorage.getItem('email'),
+              password: localStorage.getItem('password')
+            }));
+          }, 5)
+        }
       }
 
     }

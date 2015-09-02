@@ -25,6 +25,7 @@ api.getAllLots = function(id){
         model: db.models.bid,
         attributes: [
           'id',
+          'userId',
           'price',
           'createdAt'
         ],
@@ -65,11 +66,15 @@ api.getLotById = function(id){
         model: db.models.bid,
         attributes: [
           'id',
+          'userId',
           'price',
           'createdAt'
         ],
         where: {
-          visible: 1
+          visible: 1,
+          userId: {
+            $ne: null
+          }
         },
         required: false,
         include: [{

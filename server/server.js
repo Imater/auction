@@ -41,7 +41,7 @@ if(!isTest){
 }
 process.env.__DEVELOPMENT__ = !isProduction;
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -81,11 +81,13 @@ app.use((req, res, next) => {
           language: req.cookies.lang || 'ru'
         }
       });
+      console.info('startRender');
       const initialView = React.renderToString(
         <Provider store={store}>
         {() => <Router {...routeState} />}
         </Provider>
       );
+      console.info('finishRender');
       var state = store.getState();
       const initialState = JSON.stringify(state);
       let resultHtml = indexHtml

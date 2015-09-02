@@ -1,5 +1,5 @@
 export function shortFullName(userInput) {
-  if (typeof userInput === 'undefined') {
+  if (typeof userInput === 'undefined' || userInput === null) {
     return '';
   }
   var user = userInput.toObject ? userInput.toObject() : userInput;
@@ -49,7 +49,11 @@ export function lastTime(lastTime) {
   if (typeof lastTime === 'undefined') {
      return;
   }
-  return '4 мин.назад';
+  var diff = parseInt((Date.now() - Date.parse(lastTime))/(60*1000));
+  if (diff > 999){
+    return '';
+  }
+  return diff+' мин.назад';
 }
 
 export function sortByLastTime(listData) {

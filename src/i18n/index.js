@@ -20,6 +20,7 @@ const resources = {
         loginText: 'ВОЙТИ',
         regText: 'РЕГИСТРАЦИЯ',
         forgot: 'Забыли пароль?',
+        loginToBid: 'Войдите, чтобы сделать ставку',
         exit: 'Выход'
       },
       register: {
@@ -89,6 +90,7 @@ const resources = {
         loginText: 'LOGIN',
         regText: 'REGISTRATION',
         forgot: 'Forgot password?',
+        loginToBid: 'Login to place bet',
         exit: 'Logout'
       },
       register: {
