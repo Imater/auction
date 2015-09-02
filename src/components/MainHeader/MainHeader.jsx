@@ -34,7 +34,7 @@ class MainHeader extends Component {
     var className = 'MainHeader ' + (this.props.mini ? 'mini' : '');
 
     return (
-      <div className={className}>
+      <div className={className} id="top">
         <div className="popup is-hidden">
           <div className="popup-constraint">
             <p>Мы живем все в ритме 21 века.</p>

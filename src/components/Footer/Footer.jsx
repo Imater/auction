@@ -74,6 +74,7 @@ class Footer extends Component {
               {i18n.t('about.text')}<span> </span>
               <a href={i18n.t('about.link')} target="_blank">{i18n.t('about.linkName')}</a>
             </div>
+            <a href="#top" className="toTop">Наверх</a>
           </div>
         </div>
       </div>

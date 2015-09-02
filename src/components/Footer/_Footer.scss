@@ -2,6 +2,20 @@
   height: 600px;
   background: #F1F6F8;
   display: table;
+  .toTop {
+    display: block;
+    position: absolute;
+    border: 3px solid #5195CA;
+    color: #5195CA;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 78px;
+    // left: 53px;
+    // top: 40px;
+  }
   h5 {
     text-transform: uppercase;
     padding-top: 20px;
