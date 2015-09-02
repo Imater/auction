@@ -2,7 +2,34 @@
   background-color: #3F9CF9;
   display: table;
   min-height: 166px;
-  position: relative;
+  // position: relative;
+  .popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background: rgba(255,255,255,0.96);
+    font-size: 28px;
+    line-height: 38px;
+    z-index: 100;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    visibility: visible;
+    opacity: 1;
+    &.is-hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+  .popup-constraint {
+    width: 1068px;
+    margin: 0 auto;
+  }
   .toMain {
     border: 3px solid #5195CA;
     color: #5195CA;
@@ -13,9 +40,14 @@
     text-decoration: none;
     left: 53px;
     top: 40px;
+    display: none
+  }
+  &.mini .toMain {
+    display: block
   }
   .tableRow {
     display: table-row;
+    position: relative;
     .textWrapper {
       display: table-cell;
       white-space: no-wrap;
@@ -43,6 +75,7 @@
         background-position: right bottom;
         background-size: 186px;
         min-height: 166px;
+        cursor: pointer;
       }
     }
     .logosWrapper {
@@ -52,6 +85,7 @@
       height: 100%;
       background-color: #EDEFF0;
       vertical-align: middle;
+      position: relative;
       .logo1 {
         display: inline-block;
         background-image: url('/assets/images/logo_rus_transparent.png');
