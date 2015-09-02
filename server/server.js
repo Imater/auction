@@ -81,7 +81,7 @@ app.use((req, res, next) => {
           language: req.cookies.lang || 'ru'
         }
       });
-      console.info('startRender', store.getState(), routeState);
+      console.info('startRender');
       const initialView = React.renderToString(
         <Provider store={store}>
         {() => <Router {...routeState} />}
@@ -90,7 +90,6 @@ app.use((req, res, next) => {
       console.info('finishRender');
       var state = store.getState();
       const initialState = JSON.stringify(state);
-      console.info('init state', initialState);
       let resultHtml = indexHtml
       .replace('${initialView}', initialView)
       .replace('${initialState}', initialState);

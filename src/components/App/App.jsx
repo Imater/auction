@@ -44,7 +44,7 @@ if (process.env.BROWSER) {
               email: localStorage.getItem('email'),
               password: localStorage.getItem('password')
             }));
-          }, 500)
+          }, 5)
         }
       }
 

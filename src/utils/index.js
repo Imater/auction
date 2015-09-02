@@ -2,7 +2,6 @@ export function shortFullName(userInput) {
   if (typeof userInput === 'undefined' || userInput === null) {
     return '';
   }
-  console.info('usetrInput', userInput);
   var user = userInput.toObject ? userInput.toObject() : userInput;
   var result = '';
   if (user.firstname){

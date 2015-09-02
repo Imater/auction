@@ -70,7 +70,7 @@ class Lot extends Component {
     if(item.status === 'active'){
       var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
       var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
-      if(localStorage.getItem('email')){
+      if(typeof localStorage !== 'undefined' && localStorage.getItem('email')){
         bid = (
           <div className="bidMain">
             <div className="bid">
