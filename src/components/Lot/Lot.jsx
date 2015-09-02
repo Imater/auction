@@ -145,6 +145,40 @@ class Lot extends Component {
         <ul className='items'>
           {this._renderItem()}
         </ul>
+        <div className='slider'>
+          <div className='slider-viewport'>
+            <div className='slider-arrow slider-arrow--prev'></div>
+            <div className='slider-arrow slider-arrow--next'></div>
+            <div className='slider-dots'>
+              <div className='slider-dot is-active'></div>
+              <div className='slider-dot'></div>
+              <div className='slider-dot'></div>
+              <div className='slider-dot'></div>
+              <div className='slider-dot'></div>
+              <div className='slider-dot'></div>
+            </div>
+            <div className='slider-area'>
+              <div className='slider-item' style={{backgroundImage: 'url(/uploads/01.jpg)'}}>
+                <div className='slider-overlay'></div>
+                <div className='slider-title'>
+                  Самый крупный и представительный медведь Долины гейзеров, который еще в 90-е годы, подобно российским воротилам бизнеса, приватизировал лучшие участки. На пастбищах Долины этот косолапый «авторитет» держится с большим достоинством, никого не боится, и вынуждает соперников ходить по струнке.
+                </div>
+              </div>
+              <div className='slider-item' style={{backgroundImage: 'url(/uploads/02.jpg)'}}>
+                <div className='slider-overlay'></div>
+                <div className='slider-title'>
+                  Самый крупный и представительный медведь Долины гейзеров, который еще в 90-е годы, подобно российским воротилам бизнеса, приватизировал лучшие участки. На пастбищах Долины этот косолапый «авторитет» держится с большим достоинством, никого не боится, и вынуждает соперников ходить по струнке.
+                </div>
+              </div>
+              <div className='slider-item' style={{backgroundImage: 'url(/uploads/03.jpg)'}}>
+                <div className='slider-overlay'></div>
+                <div className='slider-title'>
+                  Самый крупный и представительный медведь Долины гейзеров, который еще в 90-е годы, подобно российским воротилам бизнеса, приватизировал лучшие участки. На пастбищах Долины этот косолапый «авторитет» держится с большим достоинством, никого не боится, и вынуждает соперников ходить по струнке.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <h4>
           Прочие лоты
         </h4>
