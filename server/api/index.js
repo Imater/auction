@@ -153,17 +153,19 @@ api.saveBid = function(body){
           console.error(err);
         });
       }
-    )
+    );
   });
 };
 
-api.createUser = function(body){
+api.createUser = function(body, withoutEmail){
   return new Promise((request, reject) => {
     console.info('GOI');
     db.models.user.create(body).then(function(user){
-      api.sendMail(user.toJSON(), function(err, info){
-        console.info(err, info);
-      });
+      if(!withoutEmail){
+        api.sendMail(user.toJSON(), function(err, info){
+          console.info(err, info);
+        });
+      }
       request(user.toJSON());
     }).catch(function(err){
       console.error(err);
@@ -241,5 +243,36 @@ api.sendMail = function(body, cbEmail = ()=>{}) {
     cbEmail(err, info);
   });
 };
+
+
+api.soldBid = function(body){
+  return new Promise((request, reject) => {
+    console.info('SOLD BID');
+    db.models.lot.findOne({
+      where: {
+        id: body.lotId
+      }
+    }).then(
+      function(oldLot){
+        var status = 'sold';
+        if(oldLot.status === 'sold'){
+          status = 'active';
+        }
+        oldLot.updateAttributes({
+          status: status
+        }).then(function(updated){
+          api.getLotById(body.lotId).then(
+            function(res){
+              request(res);
+            }
+          );
+        }).catch(function(err){
+          reject(err);
+        });
+      }
+    );
+  });
+};
+
 export default api;
 

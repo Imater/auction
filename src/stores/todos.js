@@ -70,6 +70,41 @@ export function addBid(body) {
   };
 }
 
+export function addBidAdmin(body) {
+  return {
+    type: ADD_BID,
+    payload: new Promise((resolve, reject) => {
+      request
+      .put('api/bid')
+      .send(body)
+      .end(function(err, res) {
+        if(err){
+          return reject(err);
+        }
+        resolve({body: res.body});
+      });
+    })
+  };
+}
+
+export function sold(body) {
+  return {
+    type: ADD_BID,
+    payload: new Promise((resolve, reject) => {
+      request
+      .put('api/bid/sold')
+      .send(body)
+      .end(function(err, res) {
+        if(err){
+          return reject(err);
+        }
+        resolve({body: res.body});
+      });
+    })
+  };
+}
+
+
 export function refreshLot(body) {
   return {
     type: REFRESH_LOT,

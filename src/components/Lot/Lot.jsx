@@ -39,23 +39,50 @@ class Lot extends Component {
     user: PropTypes.object.isRequired,
     onAddHandler: PropTypes.func,
     onAddBid: PropTypes.func,
+    onSold: PropTypes.func,
+    onAddBidAdmin: PropTypes.func,
     onDeleteHandler: PropTypes.func
   }
   static defaultProps = {
     onAddHandler: () => {},
       onDeleteHandler: () => {},
   }
+  _onSold(e) {
+    console.info(this.prod);
+    const { onSold } = this.props;
+    e.preventDefault();
+    if(this.userAdmin === true){
+      onSold({
+        lotId: e.target.dataset.id || 1
+      });
+    }
+  }
   _onAddBid(e) {
     console.info(this.prod);
-    const { onAddBid } = this.props;
+    const { onAddBid, onAddBidAdmin } = this.props;
     const newPrice = findDOMNode(this.refs.todoInput).value;
+    const lastname = findDOMNode(this.refs.lastnameInput).value;
     e.preventDefault();
     console.info('id = ', e.target.dataset.userId);
-    onAddBid({
-      userId: e.target.dataset.userId,
-      lotId: e.target.dataset.id || 1,
-      price: newPrice
-    })
+    if(this.userAdmin === true){
+      if(!lastname || !lastname.length){
+        if(typeof alert === 'function'){
+          return alert('Сначала введите имя участника');
+        }
+      }
+      onAddBidAdmin({
+        userId: e.target.dataset.userId,
+        lastname: lastname,
+        lotId: e.target.dataset.id || 1,
+        price: newPrice
+      });
+    } else {
+      onAddBid({
+        userId: e.target.dataset.userId,
+        lotId: e.target.dataset.id || 1,
+        price: newPrice
+      });
+    };
   }
   _onItemDeleteHandler(e) {
     const { onDeleteHandler } = this.props;
@@ -86,27 +113,30 @@ class Lot extends Component {
       }
     })
     var bid = (<div></div>);
+    var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
+    var admin = (<div></div>);
     if(item.status === 'active'){
       var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
-      var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
       if(typeof localStorage !== 'undefined' && localStorage.getItem('email')){
         bid = (
-          <div className="bidMain">
-            <div className="bid">
-              <div className="bidWrap">
-                <div className="text">
-                  {i18n.t('lot.rules')} <a href="/conditions" target="_blank">{i18n.t('lot.rulesLink')}</a>
-                </div>
-                <div className="inputWrap">
-                  <input type="text" defaultValue={value} ref="todoInput"/>
-                </div>
-                <div className="rub">
-                  ₽
-                </div>
-                <div className='button'>
-                  <a data-id={item.id} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
-                    {i18n.t('lot.bid')}
-                  </a>
+          <div>
+            <div className="bidMain">
+              <div className="bid">
+                <div className="bidWrap">
+                  <div className="text">
+                    {i18n.t('lot.rules')} <a href="/conditions" target="_blank">{i18n.t('lot.rulesLink')}</a>
+                  </div>
+                  <div className="inputWrap">
+                    <input type="text" defaultValue={value} ref="todoInput"/>
+                  </div>
+                  <div className="rub">
+                    ₽
+                  </div>
+                  <div className='button'>
+                    <a data-id={item.id} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
+                      {i18n.t('lot.bid')}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,10 +162,34 @@ class Lot extends Component {
       }
 
     }
+    this.userAdmin = user.userGroup === 1;
+    if(user.userGroup === 1){
+      var admin = (
+        <div className="bidMain red">
+          <h2>Панель Администратора</h2>
+          <div className="bid">
+            <div className="bidWrap">
+              <div className="text">
+                Введите произвольное имя участника, и нажмите "Сделать ставку", затем нажмите "Продан досрочно"
+              </div>
+              <div className="inputWrap">
+                <input type="text" placeholder="Имя участника" ref="lastnameInput"/>
+              </div>
+              <div className='button'>
+                <a data-id={item.id} data-user-id={user.id} onClick={this._onSold.bind(this)}>
+                  {item.status !== 'sold' ? 'Продать досрочно' : 'Запустить торги'}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    };
     return (
       <div className="lotDescription">
         <LotImage img={item.cover}/>
         {bid}
+        {admin}
         <div className="description">
           <div className="row">
             <div className='leftCol'>

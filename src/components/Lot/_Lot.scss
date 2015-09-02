@@ -88,6 +88,27 @@
     margin-bottom: 50px;
     .bidMain {
       border: 3px solid #5195CA;
+      &.red {
+        border: 3px solid red;
+        background: #F8FFA8;
+        input {
+          border-color: red!important;
+        }
+        .button {
+          a, .nav-item {
+            background: #FFA7A0 !important;
+            border-color: red !important;
+            color: red !important;
+          }
+        }
+        h2 {
+          color: red;
+          text-align: center;
+          margin: 25px 0;
+          margin-top: 0;
+          padding: 0;
+        }
+      }
       padding: 20px 20px;
       margin: 20px;
       .bid {

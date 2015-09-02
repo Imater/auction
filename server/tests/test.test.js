@@ -47,7 +47,7 @@ describe('Test', function() {
       done();
     });
   });
-  it.only('login user', function(done) {
+  it('login user', function(done) {
     request(global.url)
     .put('api/user')
     .send({
@@ -56,6 +56,20 @@ describe('Test', function() {
     })
     .end(function(err, res) {
       console.info(err, res);
+      res.status.should.equal(200);
+      done();
+    });
+  });
+  it.only('lot sold', function(done) {
+    request(global.url)
+    .put('api/bid')
+    .send({
+      userId: 1,
+      lotId: 1,
+      lastname: 'Участник №1',
+      price: 200000
+    })
+    .end(function(err, res) {
       res.status.should.equal(200);
       done();
     });

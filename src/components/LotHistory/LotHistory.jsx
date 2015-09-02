@@ -44,7 +44,7 @@ class LotHistory extends Component {
                   </div>
                   <div className="cell">
                     <div className='cost'>
-                      {utils.rub(bids[1] ? bid.price : '')}
+                      {utils.rub(bid.price)}
                     </div>
                     <div className='time'>
                       {utils.lastTime(bid.createdAt)}
