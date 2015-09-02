@@ -126,7 +126,7 @@ class Lot extends Component {
         <div className="description">
           <div className='leftCol'>
             <div className="id">
-              {item.id}
+              {i18n.t('lot.lotNumber')}{item.id}
             </div>
             <div className="title">
               {item['title_'+this.props.language]}

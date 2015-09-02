@@ -63,7 +63,7 @@ class LotItem extends Component {
             <div className='imageWrap' style={divStyle}>
             </div>
             <div className="id">
-              {item.id}
+              {i18n.t('lot.lotNumber')}{item.id}
             </div>
             <div className="title">
               {item['title_'+language]}

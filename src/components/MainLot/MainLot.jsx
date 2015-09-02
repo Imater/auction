@@ -23,7 +23,7 @@ class MainLot extends Component {
         </div>
         <div className="textWrapper">
           <h5>
-            {item.id}
+            Лот №{item.id}
           </h5>
           <h2>
             {item['title_'+this.props.language]}

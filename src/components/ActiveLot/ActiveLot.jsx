@@ -32,7 +32,7 @@ class ActiveLot extends Component {
         </div>
         <div className='textWrap'>
           <h5>
-            {item.id}
+            {i18n.t('lot.lotNumber')}{item.id}
           </h5>
           <h2>
             {item['title_'+this.props.language]}
