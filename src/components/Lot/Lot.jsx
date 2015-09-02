@@ -61,10 +61,10 @@ class Lot extends Component {
     console.info(this.prod);
     const { onAddBid, onAddBidAdmin } = this.props;
     const newPrice = findDOMNode(this.refs.todoInput).value;
-    const lastname = findDOMNode(this.refs.lastnameInput).value;
     e.preventDefault();
     console.info('id = ', e.target.dataset.userId);
     if(this.userAdmin === true){
+      const lastname = findDOMNode(this.refs.lastnameInput).value;
       if(!lastname || !lastname.length){
         if(typeof alert === 'function'){
           return alert('Сначала введите имя участника');
@@ -77,11 +77,14 @@ class Lot extends Component {
         price: newPrice
       });
     } else {
-      onAddBid({
-        userId: e.target.dataset.userId,
-        lotId: e.target.dataset.id || 1,
-        price: newPrice
-      });
+      if(confirm('Делая ставку, вы обязуетесь выкупить лот по указанной Вами цене. Вы готовы оплатить '+newPrice+' руб?')){
+        onAddBid({
+          userId: e.target.dataset.userId,
+          lotId: e.target.dataset.id || 1,
+          price: newPrice
+        });
+        location.reload();
+      }
     };
   }
   _onItemDeleteHandler(e) {
