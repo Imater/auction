@@ -13,17 +13,19 @@ class MainHeader extends Component {
       setTimeout(function(){
         var $header = $(".MainHeader"),
             $quote = $header.find(".textColumn"),
-            $quote = $("#quote"),
+            $popup = $header.find(".popup"),
             $popupClose = $header.find(".popup-close");
 
+            console.log(this);
         $quote.on("click", function(){
+          console.log("asdfasdf");
           $popup.removeClass("is-hidden");
-        });
+        })
 
         $popupClose.on("click", function(){
           $popup.addClass("is-hidden");
-        });
-      }, 500);
+        })
+      }, 500)
 
     }
   }
