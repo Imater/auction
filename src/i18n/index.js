@@ -74,8 +74,8 @@ const resources = {
         auction: 'Auction',
         introText: 'We rarely think that we are part of the biosphere of our home-planet Earth. We offer you today to help preserve the world of wonderful animals - tigers and leopards. In the Far East it remained about 540 species of Amur tigers and 70 leopards individuals. Buy desired item auction. Help graceful wild cats survive on Earth.',
         introAuthor: 'Deputy Chairman of the Government of the Russian Federation - Plenipotentiary Representative of RF President in the Far Eastern Federal District Yuri Trutnev',
-        about1: 'SUPPORT ENDANGERED AND RARE',
-        about2: 'ANIMAL SPECIES THE FAR EAST',
+        about1: 'SUPPORT THE FAR EASTER ENDANGERD ',
+        about2: 'AND RARE ANIMAL SPECIEES',
         accept: 'Participate',
         sold: 'Sold',
         winner: 'Winner'
