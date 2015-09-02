@@ -4,6 +4,7 @@ import Immutable from 'immutable';
 
 export const CREATE_USER = 'CREATE_USER';
 export const USER_INFO = 'USER_INFO';
+export const USER_EXIT = 'USER_EXIT';
 
 const defaultState = {body: {}};
 
@@ -11,6 +12,8 @@ export default function(state = defaultState, action) {
   switch (action.type) {
     case USER_INFO:
       return Immutable.fromJS(action.payload);
+    case USER_EXIT:
+      return Immutable.fromJS(defaultState);
     default:
       return state;
   }
@@ -54,6 +57,15 @@ export function userInfo(body) {
         resolve({body: res.body});
       });
     })
+  };
+}
+
+export function userExit(body) {
+  return {
+    type: USER_INFO,
+    payload: {
+      body: body
+    }
   };
 }
 

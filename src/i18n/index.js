@@ -38,7 +38,7 @@ const resources = {
         active: 'ТОЛЬКО АКТИВНЫЕ',
         bid: 'Сделать ставку',
         rules: 'Ставка должна минимум на 10% превышать текущую цену. Делая ставку, вы обязуетесь выкупить лот по указанной цене.',
-        rulesLink: 'Условия участия в аукционе'
+        rulesLink: 'Условия участия в аукционе',
         other: 'ДРУГИЕ ЛОТЫ',
       },
       footer: {
@@ -106,7 +106,7 @@ const resources = {
         active: 'ACTIVE ONLY',
         bid: 'Place bet',
         rules: 'The rate must be at least 10% higher than the current price. By bidding, you agree to redeem the item at a specified price.',
-        rulesLink: 'Conditions for participation in the auction'
+        rulesLink: 'Conditions for participation in the auction',
         other: 'OTHER LOTS',
       },
       footer: {

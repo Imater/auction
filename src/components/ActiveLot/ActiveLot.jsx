@@ -20,7 +20,7 @@ class ActiveLot extends Component {
       item = filteredData[index].toObject ? filteredData[index].toObject() : filteredData;
     }
     var divStyle = {
-      backgroundImage: 'url(/uploads/'+item.cover+')'
+      backgroundImage: 'url(/uploads/'+(item.cover || '')+')'
     };
     return (
       <div className="ActiveLot" style={divStyle}>

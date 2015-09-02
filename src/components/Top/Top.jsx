@@ -24,10 +24,10 @@ class Top extends Component {
         </div>
       );
     } else {
-      console.info(this.props.user.lastname);
       login = (
         <div className="loginName">
           {utils.shortFullName(this.props.user)}
+          <a>Exit</a>
         </div>
       );
     }
