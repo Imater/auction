@@ -20,10 +20,11 @@ export function timeRest(dateTime, language) {
   if (typeof dateTime === 'undefined') {
      return;
   }
+
   if(language === 'eng'){
-    return 'Will be started today at 17:00';
+    return 'Will be started 3.09 at 9:00 (GMT+10)';
   }
-  return 'Откроется сегодня в 17:00';
+  return 'Откроется 3.09 в 9:00 (GMT+10)';
 }
 
 function numberWithSpaces(x) {
