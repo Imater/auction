@@ -65,6 +65,7 @@ export function userInfo(body) {
           return alert('Неверный логин/пароль');
         }
         saveLocalStorage(res.body);
+        body.cb();
         resolve({body: res.body});
       });
     })

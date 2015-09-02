@@ -28,11 +28,18 @@ class Auth extends Component {
     e.stopPropagation();
     const email = findDOMNode(this.refs.emailInput).value;
     const password = findDOMNode(this.refs.passwordInput).value;
-    this.props.onUserInfo({
-      email: email,
-      password: password
-    });
-    this.context.router.transitionTo('/');
+    var self = this;
+    if(email && email.length && password && password.length) {
+      this.props.onUserInfo({
+        email: email,
+        password: password,
+        cb: function(){
+          self.context.router.transitionTo('/');
+        }
+      });
+    } else {
+      alert('Введите логин/пароль');
+    }
   }
 
   _onClickRestoreHandler(e) {
