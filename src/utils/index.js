@@ -52,7 +52,7 @@ String.prototype.toHHMMSS = function () {
 }
 
 export function endTime(endDateTime) {
-  if (typeof endDateTime === 'undefined') {
+  if (typeof endDateTime === 'undefined' || endDateTime == null) {
      return;
   }
   var diff = parseInt((Date.parse(endDateTime) - Date.now())/(1000));
@@ -82,6 +82,14 @@ export function sortByLastTime(listData) {
         diff = 3300000000000000000;
       }
       return diff;
+    });
+    return orderedList;
+}
+
+export function sortByNumber(listData) {
+    var orderedList = listData.sortBy(function(a){
+      var a1 = a.toJS ? a.toJS().lotNumber : a.lotNumber;
+      return -a1;
     });
     return orderedList;
 }

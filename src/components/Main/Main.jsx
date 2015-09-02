@@ -6,6 +6,7 @@ import Top from '../Top/Top';
 import Footer from '../Footer/Footer';
 import MainHeader from '../MainHeader/MainHeader';
 import LotItem from '../LotItem/LotItem';
+import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
   require('./_Main.scss');
@@ -47,11 +48,7 @@ class Main extends Component {
     } else {
       filteredData = listData;
     }
-    return filteredData.sortBy(function(item1, item2){
-      var item1 = item1.toJS ? item1.toJS() : item1;
-      var item2 = item2.toJS ? item2.toJS() : item2;
-      return (item1.lotNumber || 0) <= (item2.lotNumber || 0);
-    }).map((itemMap, index) => {
+    return utils.sortByNumber(filteredData).map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
         backgroundImage: 'url(/uploads/'+item.cover+')'

@@ -214,7 +214,7 @@ api.userInfo = function(body){
 api.sendMail = function(body, cbEmail = ()=>{}) {
   var transporter;
   var from = 'helptoprotect@ya.ru';
-  if(true){
+  if(false){
     transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -234,9 +234,11 @@ api.sendMail = function(body, cbEmail = ()=>{}) {
         pass: 'See990990you'
       }
     });
-  } else if (false){
+  } else if (true){
+    var from = 'info@helptoprotect.ru';
     var options = {
       host: 'mail.helptoprotect.ru',
+      ignoreTLS: true,
       port: 25,
       auth: {
         user: 'info@helptoprotect.ru ',
@@ -254,6 +256,12 @@ api.sendMail = function(body, cbEmail = ()=>{}) {
     cbEmail(err, info);
   });
 };
+
+api.sendMail({
+  email: 'eugene.leonar@gmail.com'
+}, function(err, info){
+  console.info(err, info);
+});
 
 
 api.soldBid = function(body){
