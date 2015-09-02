@@ -29,7 +29,10 @@ api.getAllLots = function(id){
           'createdAt'
         ],
         where: {
-          visible: 1
+          visible: 1,
+          userId: {
+            $ne: null
+          }
         },
         required: false,
         include: [{
