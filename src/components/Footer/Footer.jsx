@@ -9,7 +9,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="Footer">
+      <div className="Footer" id="footer">
         <div className="rowWrapper">
           <div className="text">
             <h5>

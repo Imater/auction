@@ -45,7 +45,7 @@ class Top extends Component {
               <span>
                 {i18n.t('header.auction')}
               </span>
-              <a className="info">
+              <a className="info" href="#footer">
                 <img src='/assets/images/info.png' />
               </a>
             </div>
