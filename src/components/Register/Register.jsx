@@ -85,6 +85,9 @@ class Register extends Component {
             <div>
               <button onClick={this._onClickHandler.bind(this)}>{i18n.t('register.proceed')}</button>
             </div>
+            <div>
+              <p className="condition">Нажимая на кнопку вы подтверждаете <a href="/conditions" target="_blank">условия проведения аукциона</a>.</p> 
+            </div>
           </div>
         </div>
         <Footer />

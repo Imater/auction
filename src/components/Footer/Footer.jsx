@@ -43,24 +43,19 @@ class Footer extends Component {
             <p className="from">
               {i18n.t('footer.from')}
             </p>
+            <a href="#top" className="toTop">{i18n.t('footer.toTop')}</a>
           </div>
           <div className="contacts">
-            <h5>Организационный комитет:</h5>
+            <h5>{i18n.t('footer.committee')}:</h5>
             <div className='line'>+7 919 761 91 17</div>
             <div className='email'><a href="mailto:info@helptoprotect.ru">info@helptoprotect.ru</a></div>
 
-            <h5>Техническая поддержка:</h5>
+            <h5>{i18n.t('footer.support')}:</h5>
             <div className='line'>+7 915 001 32 58</div>
             <div className='email'><a href="mailto:support@helptoprotect.ru">support@helptoprotect.ru</a></div>
 
 
 
-            <h5>
-              {i18n.t('footer.addressHeader')}
-            </h5>
-            <div className='line'>
-              {i18n.t('footer.address')}
-            </div>
             <h5>
               {i18n.t('footer.socialHeader')}
             </h5>
@@ -74,7 +69,6 @@ class Footer extends Component {
               {i18n.t('about.text')}<span> </span>
               <a href={i18n.t('about.link')} target="_blank">{i18n.t('about.linkName')}</a>
             </div>
-            <a href="#top" className="toTop">Наверх</a>
           </div>
         </div>
       </div>

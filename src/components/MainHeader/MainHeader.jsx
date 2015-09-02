@@ -13,12 +13,10 @@ class MainHeader extends Component {
       setTimeout(function(){
         var $header = $(".MainHeader"),
             $quote = $header.find(".textColumn"),
-            $popup = $header.find(".popup"),
+            $quote = $("#quote"),
             $popupClose = $header.find(".popup-close");
 
-            console.log(this);
         $quote.on("click", function(){
-          console.log("asdfasdf");
           $popup.removeClass("is-hidden");
         })
 
@@ -35,7 +33,7 @@ class MainHeader extends Component {
 
     return (
       <div className={className} id="top">
-        <div className="popup is-hidden">
+        <div className="popup is-hidden" id="quote">
           <div className="popup-constraint">
             <p>Мы живем все в ритме 21 века.</p>
             <p>Жизнь подчинена жесткому графику: творчество, общение, работа и отдых. Приэтом мы редко задумываемся о том, что являемся частью биосферы, нашего дома-планеты Земля. Просто представителем того вида, которому повезло иметь разум. Мы забываем о том, что вокруг нас живут младшие братья: звери, птицы и рыбы. Но разум должен рождать отвественность и заботу о младших.</p>
@@ -56,7 +54,7 @@ class MainHeader extends Component {
             </div>
           </div>
           <div className="logosWrapper">
-            <Link className="toMain" to="/">На главную</Link>
+            <Link className="toMain" to="/">{i18n.t('header.home')}</Link>
             <div className="nav-item">
               <a href="http://www.forumvostok.ru" className="logo1"></a>
               <a href="http://www.mnr.gov.ru" className="logo2"></a>

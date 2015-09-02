@@ -2,6 +2,15 @@
   height: 600px;
   background: #F1F6F8;
   display: table;
+  
+  a {
+    color: #348DC9;
+  }
+
+  a:hover {
+    color: #e52727;
+  }
+
   .toTop {
     display: block;
     position: absolute;
@@ -12,7 +21,7 @@
     position: absolute;
     text-transform: uppercase;
     text-decoration: none;
-    margin-top: 78px;
+    margin-top: 30px;
     // left: 53px;
     // top: 40px;
   }
@@ -59,9 +68,26 @@
       }
     }
     .about {
-      margin-top: 30px;
+      margin-top: 120px;
       color: #888;
       font-size: 12px;
+      line-height: 18px;
+      margin-right: 10px;
+      padding-left: 70px;
+      position: relative;
+    }
+
+    .about a:before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 33px;
+      background: url(/assets/images/looi.svg);
+      background-size: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
     }
   }
 }

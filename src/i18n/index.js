@@ -11,7 +11,8 @@ const resources = {
         about2: 'ВИДОВ ЖИВОТНЫХ ДАЛЬНЕГО ВОСТОКА',
         accept: 'Принять участие',
         sold: 'Продано',
-        winner: 'Победитель'
+        winner: 'Победитель',
+        home: 'На главную'
       },
       login: {
         email: 'электронная почта',
@@ -44,6 +45,9 @@ const resources = {
         other: 'ДРУГИЕ ЛОТЫ',
       },
       footer: {
+        toTop: 'Наверх',
+        support: 'Техническая поддержка',
+        committee: 'Организационный комитет',
         phones: 'Телефоны',
         addressHeader: 'Адрес',
         address: '123022, г.Москва, ул.Красная Пресня, д.24',
@@ -81,7 +85,8 @@ const resources = {
         about2: 'AND RARE ANIMAL SPECIEES',
         accept: 'Participate',
         sold: 'Sold',
-        winner: 'Winner'
+        winner: 'Winner',
+        home: 'Home'
       },
       login: {
         email: 'email',
@@ -114,6 +119,9 @@ const resources = {
         other: 'OTHER LOTS',
       },
       footer: {
+        toTop: 'Top',
+        support: 'Support',
+        committee: 'Organizing committee',
         phones: 'Phones',
         addressHeader: 'Address',
         address: '123022, Moscow, Red Presnyia str., 24',
@@ -130,7 +138,7 @@ const resources = {
         from: 'East Economic Forum 2015'
       },
       about: {
-        text: 'Auction technology platform designed, developed and maintained by Looi',
+        text: 'Auction technology platform designed, developed and maintained by Looi',
         link: 'http://looi.co',
         linkName: 'looi.co'
       }
