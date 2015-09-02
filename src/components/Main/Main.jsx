@@ -47,7 +47,11 @@ class Main extends Component {
     } else {
       filteredData = listData;
     }
-    return filteredData.map((itemMap, index) => {
+    return filteredData.sortBy(function(item1, item2){
+      var item1 = item1.toJS ? item1.toJS() : item1;
+      var item2 = item2.toJS ? item2.toJS() : item2;
+      return (item1.lotNumber || 0) <= (item2.lotNumber || 0);
+    }).map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
         backgroundImage: 'url(/uploads/'+item.cover+')'
