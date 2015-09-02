@@ -21,6 +21,18 @@
     transition: all 0.3s ease;
     visibility: visible;
     opacity: 1;
+    .popup-close {
+      display: block;
+      width: 300px;
+      margin: 30px auto 0;
+      line-height: 76px;
+      border-radius: 100px;
+      border: 2px solid #9B9B9B;
+      font-size: 24px;
+      color: #ADAEB2;
+      text-decoration: none;
+      text-align: center;
+    }
     &.is-hidden {
       visibility: hidden;
       opacity: 0;
