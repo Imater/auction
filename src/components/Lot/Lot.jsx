@@ -69,32 +69,54 @@ class Lot extends Component {
     var bid = (<div></div>);
     if(item.status === 'active'){
       var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
-      var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body
-      bid = (
-        <div className="bidMain">
-          <div className="bid">
-            <div className="bidWrap">
-              <div className="text">
-                {i18n.t('lot.rules')}
-                <a>
-                  {i18n.t('lot.rulesLink')}
-                </a>
-              </div>
-              <div className="inputWrap">
-                <input type="text" defaultValue={value} ref="todoInput"/>
-              </div>
-              <div className="rub">
-                ₽
-              </div>
-              <div className='button'>
-                <a data-id={item.id} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
-                  {i18n.t('lot.bid')}
-                </a>
+      var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
+      if(localStorage.getItem('email')){
+        bid = (
+          <div className="bidMain">
+            <div className="bid">
+              <div className="bidWrap">
+                <div className="text">
+                  {i18n.t('lot.rules')}
+                  <a>
+                    {i18n.t('lot.rulesLink')}
+                  </a>
+                </div>
+                <div className="inputWrap">
+                  <input type="text" defaultValue={value} ref="todoInput"/>
+                </div>
+                <div className="rub">
+                  ₽
+                </div>
+                <div className='button'>
+                  <a data-id={item.id} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
+                    {i18n.t('lot.bid')}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        bid = (
+          <div className="bidMain">
+            <div className="bid">
+              <div className="bidWrap">
+                <div className="text">
+                  {i18n.t('lot.rules')}
+                  <a>
+                    {i18n.t('lot.rulesLink')}
+                  </a>
+                </div>
+                <div className='button'>
+                  <Link className="nav-item" to="/auth">
+                    {i18n.t('login.loginToBid')}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
 
     }
     return (

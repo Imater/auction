@@ -13,8 +13,7 @@ export default function(state = defaultState, action) {
     case USER_INFO:
       return Immutable.fromJS(action.payload);
     case USER_EXIT:
-      localStorage.clear('email');
-      localStorage.clear('password');
+      console.info('clear');
       return Immutable.fromJS(defaultState);
     default:
       return state;
@@ -71,6 +70,8 @@ export function userInfo(body) {
 }
 
 export function userExit(body) {
+  localStorage.removeItem('email');
+  localStorage.removeItem('password');
   return {
     type: USER_INFO,
     payload: {
