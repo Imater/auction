@@ -24,11 +24,13 @@ class MainHeader extends Component {
             </div>
           </div>
           <div className="logosWrapper">
-            <Link className="nav-item" to="/">
-              <div className="logo1"></div>
-              <div className="logo2"></div>
-              <div className="logo3"></div>
-            </Link>
+            <Link className="toMain" to="/">На главную</Link>
+            <div className="nav-item">
+              <a href="http://www.forumvostok.ru" className="logo1"></a>
+              <a href="http://www.mnr.gov.ru" className="logo2"></a>
+              <a href="http://www.naturefund.ru" className="logo3"></a>
+            </div>
+
           </div>
         </div>
       </div>

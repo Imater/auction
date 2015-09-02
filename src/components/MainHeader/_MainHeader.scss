@@ -2,6 +2,18 @@
   background-color: #3F9CF9;
   display: table;
   min-height: 166px;
+  position: relative;
+  .toMain {
+    border: 3px solid #5195CA;
+    color: #5195CA;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    text-transform: uppercase;
+    text-decoration: none;
+    left: 53px;
+    top: 40px;
+  }
   .tableRow {
     display: table-row;
     .textWrapper {
@@ -9,6 +21,9 @@
       white-space: no-wrap;
       height: 100%;
       width: auto;
+      z-index: 2;
+      background-color: #3F9CF9;
+      position: relative;
       .textColumn {
         .text {
           color: #FFF;
