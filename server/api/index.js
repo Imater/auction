@@ -107,19 +107,53 @@ api.getLotById = function(id){
 api.saveBid = function(body){
   return new Promise((request, reject) => {
     console.info('GOI');
-    db.models.bid.create({
-      userId: body.userId,
-      lotId: body.lotId,
-      price: body.price
-    }).then(function(bid){
-      api.getLotById(body.lotId).then(
-        function(res){
-          request(res);
+    api.getLotById(body.lotId).then(
+      function(oldLot){
+        var oldPrice = oldLot.lastPrice;
+        var askPrice = oldLot.askPrice;
+        console.info(askPrice);
+        if(!oldPrice || askPrice > oldPrice){
+          oldPrice = askPrice;
         }
-      );
-    }).catch(function(err){
-      console.error(err);
-    });
+        var newPrice = parseInt(body.price);
+        if (oldPrice*1.09 > newPrice){
+          console.info('BAD old, new', oldPrice, newPrice);
+          return reject({
+            error: 'price_too_low',
+            oldPrice: oldPrice
+          });
+        }
+        if (isNaN(newPrice)){
+          console.info('BAD value', oldPrice, newPrice);
+          return reject({
+            error: 'price_bad',
+            oldPrice: oldPrice
+          });
+        }
+        if (oldPrice*10 < newPrice){
+          console.info('BAD old, new', oldPrice, newPrice);
+          return reject({
+            error: 'price_too_high',
+            oldPrice: oldPrice
+          });
+        }
+        console.info('was', oldLot.lastPrice);
+        console.info('now', body);
+        db.models.bid.create({
+          userId: body.userId,
+          lotId: body.lotId,
+          price: body.price
+        }).then(function(bid){
+          api.getLotById(body.lotId).then(
+            function(res){
+              request(res);
+            }
+          );
+        }).catch(function(err){
+          console.error(err);
+        });
+      }
+    )
   });
 };
 
@@ -177,7 +211,7 @@ api.userInfo = function(body){
 api.sendMail = function(body, cbEmail = ()=>{}) {
   var transporter;
   var from = 'helptoprotect@ya.ru';
-  if(false){
+  if(true){
     transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
