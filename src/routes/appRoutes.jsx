@@ -8,6 +8,7 @@ import Auth from '../containers/Auth/Auth';
 import Register from '../containers/Register/Register';
 import Main from '../containers/Main/Main';
 import Monitor from '../containers/Monitor/Monitor';
+import Monitor2 from '../containers/Monitor2/Monitor2';
 import Lot from '../containers/Lot/Lot';
 
 export default (
@@ -18,6 +19,7 @@ export default (
     <Route path="/auth" ro={Route} component={Auth} />
     <Route path="/register" component={Register} />
     <Route path="/monitor" component={Monitor} />
+    <Route path="/monitor2" component={Monitor2} />
     <Route path="/lot" component={Lot} />
   </Route>
 );

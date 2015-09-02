@@ -4,13 +4,13 @@ export function shortFullName(userInput) {
   }
   var user = userInput.toObject ? userInput.toObject() : userInput;
   var result = '';
-  if (user.firstname){
+  if (user.firstname && user.firstname.length){
     result += user.firstname[0] + '. ';
   }
-  if (user.middlename){
+  if (user.middlename && user.middlename.length){
     result += user.middlename[0] + '. ';
   }
-  if (user.lastname){
+  if (user.lastname && user.lastname.length){
     result += user.lastname;
   }
   return result;

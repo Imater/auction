@@ -1,0 +1,81 @@
+$imageSize: 165px;
+.ActiveLots2 {
+  margin: 0 auto;
+  font-family: PTSansRegular, 'PT Sans', Verdana;
+  text-align: center;
+  padding: 0 30px;
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    li.item {
+      display: inline-block;
+      height: 19%;
+      width: 25%;
+      vertical-align: top;
+      position: relative;
+      .itemWrap {
+        position: relative;
+        margin-bottom: 40px;
+        .imageWrap {
+          margin: 0 5px;
+          height: $imageSize;
+          width: $imageSize;
+          background: #000;
+          overflow: hidden;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      .title {
+        color: #FFF;
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: $imageSize + 20px;
+        right: 20px;
+        margin-top: 5px;
+        font-size: 16px;
+        font-family: PTSansBold;
+        text-transform: uppercase;
+      }
+      .nowCost {
+        color: #FFF;
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        left: $imageSize + 20px;
+        right: 20px;
+        margin-top: 5px;
+        font-size: 16px;
+        font-family: PTSansBold;
+        text-transform: uppercase;
+      }
+      .time {
+        color: #3187D5;
+        display: block;
+        position: absolute;
+        bottom: 45px;
+        left: $imageSize + 20px;
+        right: 25px;
+        margin-top: 5px;
+        font-size: 17px;
+        font-family: PTSansRegular;
+        text-transform: uppercase;
+      }
+
+      .name {
+        color: #BBB;
+        display: block;
+        position: absolute;
+        bottom: 25px;
+        left: $imageSize + 20px;
+        right: 25px;
+        margin-top: 5px;
+        font-size: 15px;
+        font-family: PTSansRegular;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

@@ -99,7 +99,7 @@ api.getLotById = function(id){
 
 api.saveBid = function(body){
   return new Promise((request, reject) => {
-    console.info('GOI')
+    console.info('GOI');
     db.models.bid.create({
       userId: body.userId,
       lotId: body.lotId,
