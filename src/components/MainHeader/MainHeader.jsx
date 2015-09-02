@@ -8,8 +8,31 @@ if (process.env.BROWSER) {
 
 class MainHeader extends Component {
 
+  componentWillMount() {
+    if (typeof window !== 'undefined') {
+      setTimeout(function(){
+        var $header = $(".MainHeader"),
+            $quote = $header.find(".textColumn"),
+            $popup = $header.find(".popup"),
+            $popupClose = $header.find(".popup-close");
+
+            console.log(this);
+        $quote.on("click", function(){
+          console.log("asdfasdf");
+          $popup.removeClass("is-hidden");
+        })
+
+        $popupClose.on("click", function(){
+          $popup.addClass("is-hidden");
+        })
+      }, 500)
+
+    }
+  }
+
   render() {
     var className = 'MainHeader ' + (this.props.mini ? 'mini' : '');
+
     return (
       <div className={className}>
         <div className="popup is-hidden">
