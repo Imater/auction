@@ -39,6 +39,7 @@ const resources = {
         bid: 'Сделать ставку',
         rules: 'Ставка должна минимум на 10% превышать текущую цену. Делая ставку, вы обязуетесь выкупить лот по указанной цене.',
         rulesLink: 'Условия участия в аукционе'
+        other: 'ДРУГИЕ ЛОТЫ',
       },
       footer: {
         phones: 'Телефоны',
@@ -74,7 +75,7 @@ const resources = {
         auction: 'Auction',
         introText: 'We rarely think that we are part of the biosphere of our home-planet Earth. We offer you today to help preserve the world of wonderful animals - tigers and leopards. In the Far East it remained about 540 species of Amur tigers and 70 leopards individuals. Buy desired item auction. Help graceful wild cats survive on Earth.',
         introAuthor: 'Deputy Chairman of the Government of the Russian Federation - Plenipotentiary Representative of RF President in the Far Eastern Federal District Yuri Trutnev',
-        about1: 'SUPPORT THE FAR EASTER ENDANGERD ',
+        about1: 'SUPPORT THE FAR EASTER ENDANGERD',
         about2: 'AND RARE ANIMAL SPECIEES',
         accept: 'Participate',
         sold: 'Sold',
@@ -106,6 +107,7 @@ const resources = {
         bid: 'Place bet',
         rules: 'The rate must be at least 10% higher than the current price. By bidding, you agree to redeem the item at a specified price.',
         rulesLink: 'Conditions for participation in the auction'
+        other: 'OTHER LOTS',
       },
       footer: {
         phones: 'Phones',
