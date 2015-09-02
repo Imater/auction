@@ -28,7 +28,10 @@ const resources = {
         email: 'Электронная почта',
         phone: 'Телефон',
         password: 'Пароль',
-        proceed: 'Продолжить'
+        proceed: 'Продолжить',
+        lastname: 'Фамилия',
+        firstname: 'Имя',
+        middlename: 'Отчество'
       },
       lot: {
         all: 'ВСЕ ЛОТЫ',
@@ -88,7 +91,10 @@ const resources = {
         email: 'Email',
         phone: 'Phone',
         password: 'Password',
-        proceed: 'Next'
+        proceed: 'Next',
+        lastname: 'Lastname',
+        firstname: 'Firstname',
+        middlename: 'Middlename'
       },
       lot: {
         all: 'ALL LOTS',

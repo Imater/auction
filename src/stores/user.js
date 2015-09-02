@@ -17,11 +17,23 @@ export default function(state = defaultState, action) {
 }
 
 export function createUser(body) {
+  console.info('createuser');
   return {
     type: CREATE_USER,
-    payload: {
-      body: body
-    }
+    payload: new Promise((resolve, reject) => {
+      request
+      .post('api/user')
+      .send(body)
+      .end(function(err, res) {
+        if (err){
+          return reject(err);
+        }
+        if (!res.body && alert){
+          alert('Недостаточно данных');
+        }
+        resolve({body: res.body});
+      });
+    })
   };
 }
 

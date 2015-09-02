@@ -5,8 +5,8 @@ import Register from '../../components/Register/Register';
 
 // Actions
 import {
-  addTodo
-} from '../../stores';
+  createUser
+} from '../../stores/user';
 
 
 // function mapDispatchToProps(dispatch) {
@@ -25,7 +25,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAddHandler: (text) => dispatch(addTodo(text))
+    onCreateUser: (body) => dispatch(createUser(body))
   };
 }
 

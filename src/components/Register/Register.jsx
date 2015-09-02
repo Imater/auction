@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes, findDOMNode  } from 'react';
 import i18n from 'i18next-client';
 import MainHeader from '../MainHeader/MainHeader';
 import Footer from '../Footer/Footer';
 import Top from '../Top/Top';
+import { Router } from 'react-router';
 
 if (process.env.BROWSER) {
   var i = require('./_Register.scss');
@@ -10,17 +11,40 @@ if (process.env.BROWSER) {
 
 class Register extends Component {
   static propTypes = {
-    onAddHandler: PropTypes.func,
+    onCreateUser: PropTypes.func,
+  }
+  static contextTypes = {
+    router: PropTypes.object
   }
   static defaultProps = {
-    onAddHandler: () => {}
+    onCreateUser: () => {}
   }
 
   _onClickHandler(e) {
     if(!this) return;
-    this.props.onAddHandler('login');
+    e.stopPropagation();
+    const lastname = findDOMNode(this.refs.lastname).value;
+    const firstname = findDOMNode(this.refs.firstname).value;
+    const middlename = findDOMNode(this.refs.middlename).value;
+    const company = findDOMNode(this.refs.company).value;
+    const job = findDOMNode(this.refs.job).value;
+    const email = findDOMNode(this.refs.email).value;
+    const phone = findDOMNode(this.refs.phone).value;
+    const password = findDOMNode(this.refs.password).value;
+    this.props.onCreateUser({
+      lastname: lastname,
+      firstname: firstname,
+      middlename: middlename,
+      company: company,
+      job: job,
+      email: email,
+      phone: phone,
+      password: password
+    });
+    this.context.router.transitionTo('/auth');
   }
   render() {
+    console.info(this.props);
     return (
       <div>
         <MainHeader mini={true} />
@@ -28,28 +52,36 @@ class Register extends Component {
         <div className="auth" onClick={this._onClickHandler}>
           <div className='wrapper'>
             <div>
-              <div className="label">{i18n.t('register.fullname')}</div>
-              <input />
+              <div className="label">{i18n.t('register.lastname')}</div>
+              <input ref="lastname" />
+            </div>
+            <div>
+              <div className="label">{i18n.t('register.firstname')}</div>
+              <input ref="firstname" />
+            </div>
+            <div>
+              <div className="label">{i18n.t('register.middlename')}</div>
+              <input ref="middlename" />
             </div>
             <div>
               <div className="label">{i18n.t('register.company')}</div>
-              <input />
+              <input ref="company" />
             </div>
             <div>
               <div className="label">{i18n.t('register.job')}</div>
-              <input />
+              <input ref="job" />
             </div>
             <div>
               <div className="label">{i18n.t('register.email')}</div>
-              <input />
+              <input ref="email" />
             </div>
             <div>
               <div className="label">{i18n.t('register.phone')}</div>
-              <input />
+              <input ref="phone" />
             </div>
             <div>
               <div className="label">{i18n.t('register.password')}</div>
-              <input type="password"/>
+              <input type="password" ref="password"/>
             </div>
             <div>
               <button onClick={this._onClickHandler.bind(this)}>{i18n.t('register.proceed')}</button>
