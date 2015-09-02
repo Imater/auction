@@ -1,5 +1,7 @@
 import async from 'async';
 import db from '../models';
+import nodemailer from 'nodemailer';
+
 
 var api = {};
 
@@ -60,7 +62,8 @@ api.getLotById = function(id){
   return new Promise((request, reject) => {
     db.models.lot.findOne({
       where: {
-        id: id
+        id: id,
+        visible: 1
       },
       include: [{
         model: db.models.bid,
@@ -120,12 +123,35 @@ api.createUser = function(body){
   return new Promise((request, reject) => {
     console.info('GOI');
     db.models.user.create(body).then(function(user){
+      api.sendMail(user.toJSON(), function(err, info){
+        console.info(err, info);
+      });
       request(user.toJSON());
+    }).catch(function(err){
+      console.error(err);
+      reject(err);
+    });
+  });
+};
+
+api.restorePassword = function(body){
+  return new Promise((request, reject) => {
+    db.models.user.findOne({
+      where: {
+        email: body.email,
+        visible: 1
+      }
+    }).then(function(user){
+      api.sendMail(user.toJSON(), function(err, info){
+        console.info(err, info);
+      });
+      request(user);
     }).catch(function(err){
       console.error(err);
     });
   });
 };
+
 
 api.userInfo = function(body){
   return new Promise((request, reject) => {
@@ -143,5 +169,39 @@ api.userInfo = function(body){
   });
 };
 
+
+api.sendMail = function(body, cbEmail = ()=>{}) {
+  var transporter;
+  var from = 'helptoprotect@ya.ru';
+  if(false){
+    transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'goblind.outbox@gmail.com',
+        pass: 'See6thoh'
+      }
+    });
+    from = 'info@helptoprotect.ru';
+  } else if (false) {
+    transporter = nodemailer.createTransport();
+    from = 'info@helptoprotect.ru';
+  } else {
+    transporter = nodemailer.createTransport({
+      service: 'Yandex',
+      auth: {
+        user: 'helptoprotect@ya.ru',
+        pass: 'See990990you'
+      }
+    });
+  }
+  transporter.sendMail({
+    from: from,
+    to: body.email,
+    subject: 'Your account info for helptoprotect.ru',
+    text: 'http://helptoprotect.ru\nEmail: '+body.email+' \nPassword: '+body.password
+  }, function(err, info) {
+    cbEmail(err, info);
+  });
+};
 export default api;
 

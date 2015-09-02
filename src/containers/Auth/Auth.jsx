@@ -10,7 +10,8 @@ import {
 //
 // Actions
 import {
-  userInfo
+  userInfo,
+  restorePassword
 } from '../../stores/user';
 
 
@@ -32,7 +33,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onAddHandler: (text) => dispatch(addTodo(text)),
-    onUserInfo: (body) => dispatch(userInfo(body))
+    onUserInfo: (body) => dispatch(userInfo(body)),
+    onRestorePassword: (body) => dispatch(restorePassword(body))
   };
 }
 

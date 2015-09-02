@@ -46,4 +46,12 @@ apiRoutes.put('/user', (req, res) => {
   });
 });
 
+apiRoutes.put('/user/email', (req, res) => {
+  api.restorePassword(req.body).then(function(result){
+    res.status(200).send(result);
+  }).catch(function(err){
+    res.status(400).send(err);
+  });
+});
+
 export default apiRoutes;

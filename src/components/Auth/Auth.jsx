@@ -12,13 +12,15 @@ if (process.env.BROWSER) {
 class Auth extends Component {
   static propTypes = {
     onAddHandler: PropTypes.func,
+    onRestorePassword: PropTypes.func,
     user: PropTypes.object.isRequired,
   }
   static contextTypes = {
     router: PropTypes.object
   }
   static defaultProps = {
-    onAddHandler: () => {}
+    onAddHandler: () => {},
+    onRestorePassword: () => {}
   }
 
   _onClickHandler(e) {
@@ -31,6 +33,18 @@ class Auth extends Component {
       password: password
     });
     this.context.router.transitionTo('/');
+  }
+
+  _onClickRestoreHandler(e) {
+    if(!this) return;
+    e.stopPropagation();
+    const email = findDOMNode(this.refs.emailInput).value;
+    if(!email || email == null || !email.length) {
+      return alert('Enter email and click the link');
+    }
+    this.props.onRestorePassword({
+      email: email === null ? '' : email
+    });
   }
   render() {
     return (
@@ -47,7 +61,7 @@ class Auth extends Component {
               <div className="label">{i18n.t('login.password')}</div>
               <input ref="passwordInput" type="password"/>
               <div className="forgotWrapper">
-                <a className="forgot">{i18n.t('login.forgot')}</a>
+                <a onClick={this._onClickRestoreHandler.bind(this)} className="forgot">{i18n.t('login.forgot')}</a>
               </div>
             </div>
             <div>

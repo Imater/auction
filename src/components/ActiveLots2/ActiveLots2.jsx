@@ -75,7 +75,7 @@ class ActiveLots2 extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = utils.sortByLastTime(listData).slice(this.props.index+1,this.props.index+21);
+    var listDataFiltered = utils.sortByLastTime(listData).slice(this.props.index+0,this.props.index+20);
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
