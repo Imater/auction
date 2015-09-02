@@ -44,20 +44,16 @@ class Footer extends Component {
             </p>
           </div>
           <div className="contacts">
-            <h5>
-              {i18n.t('footer.phones')}
-            </h5>
-            <div className='line'>
-              +7 (495) 921 9944
-            </div>
-            <div className='line'>
-              +7 (495) 792 5022
-            </div>
-            <div className='email'>
-              <a href="mailto:mail@forumvostok.ru">
-                mail@forumvostok.ru
-              </a>
-            </div>
+            <h5>Организационный комитет:</h5>
+            <div className='line'>+7 919 761 91 17</div>
+            <div className='email'><a href="mailto:info@helptoprotect.ru">info@helptoprotect.ru</a></div>
+
+            <h5>Техническая поддержка:</h5>
+            <div className='line'>+7 915 001 32 58</div>
+            <div className='email'><a href="mailto:support@helptoprotect.ru">support@helptoprotect.ru</a></div>
+
+
+
             <h5>
               {i18n.t('footer.addressHeader')}
             </h5>
