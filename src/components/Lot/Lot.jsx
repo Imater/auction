@@ -83,7 +83,9 @@ class Lot extends Component {
           lotId: e.target.dataset.id || 1,
           price: newPrice
         });
-        location.reload();
+        setTimeout(function(){
+          location.reload();
+        }, 1000)
       }
     };
   }

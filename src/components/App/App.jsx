@@ -42,7 +42,8 @@ if (process.env.BROWSER) {
           setTimeout(function(){
             self.context.store.dispatch(userInfo({
               email: localStorage.getItem('email'),
-              password: localStorage.getItem('password')
+              password: localStorage.getItem('password'),
+              cb: ()=>{}
             }));
           }, 5)
         }

@@ -62,6 +62,15 @@ export function addBid(body) {
       .send(body)
       .end(function(err, res) {
         if(err){
+          if(err.response.body.error == 'price_too_low'){
+            alert('Ваша ставка должна быть выше, чем '+err.response.body.oldPrice+' руб + 10%');
+          };
+          if(err.response.body.error == 'price_too_high'){
+            alert('Ваша ставка должна быть ниже, чем десятикратный размер '+err.response.body.oldPrice+' руб');
+          };
+          if(err.response.body.error == 'price_bad'){
+            alert('Ваша ставка не распознана');
+          };
           return reject(err);
         }
         resolve({body: res.body});
@@ -79,6 +88,15 @@ export function addBidAdmin(body) {
       .send(body)
       .end(function(err, res) {
         if(err){
+          if(err.response.body.error == 'price_too_low'){
+            alert('Ваша ставка должна быть выше, чем '+err.response.body.oldPrice+' руб + 10%');
+          };
+          if(err.response.body.error == 'price_too_high'){
+            alert('Ваша ставка должна быть ниже, чем десятикратный размер '+err.response.body.oldPrice+' руб');
+          };
+          if(err.response.body.error == 'price_bad'){
+            alert('Ваша ставка не распознана');
+          };
           return reject(err);
         }
         resolve({body: res.body});

@@ -1,6 +1,7 @@
 import async from 'async';
 import db from '../models';
 import nodemailer from 'nodemailer';
+import smtpTransport from 'nodemailer-smtp-transport';
 
 
 var api = {};
@@ -225,7 +226,7 @@ api.sendMail = function(body, cbEmail = ()=>{}) {
   } else if (false) {
     transporter = nodemailer.createTransport();
     from = 'info@helptoprotect.ru';
-  } else {
+  } else if (false){
     transporter = nodemailer.createTransport({
       service: 'Yandex',
       auth: {
@@ -233,6 +234,16 @@ api.sendMail = function(body, cbEmail = ()=>{}) {
         pass: 'See990990you'
       }
     });
+  } else if (false){
+    var options = {
+      host: 'mail.helptoprotect.ru',
+      port: 25,
+      auth: {
+        user: 'info@helptoprotect.ru ',
+        pass: 'pass123'
+      }
+    };
+    transporter = nodemailer.createTransport(smtpTransport(options));
   }
   transporter.sendMail({
     from: from,
@@ -255,12 +266,12 @@ api.soldBid = function(body){
     }).then(
       function(oldLot){
         var status = 'sold';
-        if(oldLot.status === 'sold'){
+        if (oldLot.status === 'sold'){
           status = 'active';
         }
         oldLot.updateAttributes({
           status: status
-        }).then(function(updated){
+        }).then(function(){
           api.getLotById(body.lotId).then(
             function(res){
               request(res);
