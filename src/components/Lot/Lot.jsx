@@ -76,10 +76,7 @@ class Lot extends Component {
             <div className="bid">
               <div className="bidWrap">
                 <div className="text">
-                  {i18n.t('lot.rules')}
-                  <a>
-                    {i18n.t('lot.rulesLink')}
-                  </a>
+                  {i18n.t('lot.rules')} <a href="/conditions" target="_blank">{i18n.t('lot.rulesLink')}</a>
                 </div>
                 <div className="inputWrap">
                   <input type="text" defaultValue={value} ref="todoInput"/>
@@ -102,10 +99,7 @@ class Lot extends Component {
             <div className="bid">
               <div className="bidWrap">
                 <div className="text">
-                  {i18n.t('lot.rules')}
-                  <a>
-                    {i18n.t('lot.rulesLink')}
-                  </a>
+                  {i18n.t('lot.rules')} <a href="/conditions" target="_blank">{i18n.t('lot.rulesLink')}</a>
                 </div>
                 <div className='button'>
                   <Link className="nav-item" to="/auth">
