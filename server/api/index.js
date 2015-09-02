@@ -23,6 +23,9 @@ const addInfoToItems = function(items){
 api.getAllLots = function(id){
   return new Promise((request, reject) => {
     db.models.lot.findAll({
+      where: {
+        visible: 1
+      },
       include: [{
         model: db.models.bid,
         attributes: [
@@ -59,6 +62,7 @@ api.getAllLots = function(id){
 };
 
 api.getLotById = function(id){
+  console.info('searchLot', id);
   return new Promise((request, reject) => {
     db.models.lot.findOne({
       where: {

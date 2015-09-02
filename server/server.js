@@ -69,6 +69,8 @@ if (!isProduction && !isTest) {
 
 app.use((req, res, next) => {
   const location = new Location(req.path, req.query);
+  var needEng = (req.get('host').indexOf('help') !== -1)
+  console.info('location ', needEng);
 
   Router.run(appRoutes, location, (err, routeState) => {
     if (!routeState) {
@@ -78,7 +80,7 @@ app.use((req, res, next) => {
       const store = createAppStore({
         todos: new List(lotsFromDb),
         i18: {
-          language: req.cookies.lang || 'ru'
+          language: needEng ? 'eng' : 'ru'
         }
       });
       console.info('startRender');

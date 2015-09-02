@@ -3,7 +3,6 @@ import i18n from 'i18next-client';
 export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 
 const defaultState = {
-  language: 'ru'
 };
 
 export default function(state = defaultState, action) {

@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import i18n from 'i18next-client';
 
 if (process.env.BROWSER) {
-  require('./_About.scss');
+  require('./_BidHistory.scss');
 }
 
-class About extends Component {
+class BidHistory extends Component {
 
   _onClickHandler() {
     console.log('about clicked');
   }
   render() {
+    console.info(this.props.bids);
     return (
       <div className="About" onClick={this._onClickHandler}>
         <h1>{i18n.t('login.restore')}</h1>
@@ -19,4 +20,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default BidHistory;

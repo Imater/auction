@@ -22,6 +22,7 @@ const resources = {
         regText: 'РЕГИСТРАЦИЯ',
         forgot: 'Забыли пароль?',
         loginToBid: 'Войдите, чтобы сделать ставку',
+        restore: 'Данные по вашему аккаунту высланы к вам на email',
         exit: 'Выход'
       },
       register: {
@@ -63,8 +64,8 @@ const resources = {
         line7: 'Обращаем Ваше внимание, что средства, вырученные от продажи лотов аукциона, будут направлены в АНО «Центр «Амурский тигр» и АНО «Дальневосточные леопарды» для реализации проектов по сохранению этих уникальных видов. Подробнее о проектах вы можете узнать на сайтах:',
         link1: 'www.amur-tiger.ru',
         linkName1: 'www.amur-tiger.ru',
-        link2: 'www.leopard-center.com',
-        linkName2: 'www.leopard-center.com',
+        link2: 'www.save-leopard.ru',
+        linkName2: 'www.save-leopard.ru',
         line8: 'Участие в благотворительном аукционе – лучшее доказательство ведения успешного и социально ответственного бизнеса, рассчитанного на длительную перспективу, пример неравнодушия к делу охраны редких и исчезающих видов животных!',
         from: 'Восточный Экономический Форум 2015'
       },
@@ -97,6 +98,7 @@ const resources = {
         regText: 'REGISTRATION',
         forgot: 'Forgot password?',
         loginToBid: 'Login to place bet',
+        restore: 'Your acount info sended to your email',
         exit: 'Logout'
       },
       register: {

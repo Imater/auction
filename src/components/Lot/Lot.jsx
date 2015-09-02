@@ -7,6 +7,7 @@ import Top from '../Top/Top';
 import Footer from '../Footer/Footer';
 import MainHeader from '../MainHeader/MainHeader';
 import LotItem from '../LotItem/LotItem';
+import LotHistory from '../LotHistory/LotHistory';
 import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
@@ -14,6 +15,24 @@ if (process.env.BROWSER) {
 }
 
 class Lot extends Component {
+  state = {
+     time: '12:52'
+  };
+
+  componentDidMount() {
+    this.interval = setInterval(this.tick.bind(this), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  tick () {
+    var time = new Date(Date.now());
+    var tm = ("0" + time.getMinutes()).slice(-2) + ":" +
+    ("0" + time.getSeconds()).slice(-2);
+    this.setState({time: tm});
+  }
   static propTypes = {
     listData: PropTypes.array.isRequired,
     language: PropTypes.string.isRequired,
@@ -118,34 +137,39 @@ class Lot extends Component {
         <LotImage img={item.cover}/>
         {bid}
         <div className="description">
-          <div className='leftCol'>
-            <div className="id">
-              {i18n.t('lot.lotNumber')}{item.id}
-            </div>
-            <div className="title">
-              {item['title_'+this.props.language]}
-            </div>
-            <div className="from">
-              {item['lotFrom_'+this.props.language]}
-            </div>
-            <div className="text">
-              {item['lotText_'+this.props.language]}
-            </div>
-          </div>
-          <div className="rightCol">
-            <div className="startCost">
-              {item.lastPrice ? utils.rub(item.askPrice) : ''}
-            </div>
-            <div className="nowCost">
-              {utils.rub(item.lastPrice || item.askPrice)}
-            </div>
-            <div className="name">
-              {utils.shortFullName(item.name)}
-            </div>
-            <div className="endTimeWrap">
-              <div className="endTime">
-                {utils.endTime(item.endDateTime)}
+          <div className="row">
+            <div className='leftCol'>
+              <div className="id">
+                {i18n.t('lot.lotNumber')}{item.id}
               </div>
+              <div className="title">
+                {item['title_'+this.props.language]}
+              </div>
+              <div className="from">
+                {item['lotFrom_'+this.props.language]}
+              </div>
+              <div className="text">
+                {item['lotText_'+this.props.language]}
+              </div>
+            </div>
+            <div className="rightCol">
+              <div className="startCost">
+                {item.lastPrice ? utils.rub(item.askPrice) : ''}
+              </div>
+              <div className="nowCost">
+                {utils.rub(item.lastPrice || item.askPrice)}
+              </div>
+              <div className="name">
+                {utils.shortFullName(item.name)}
+              </div>
+              <div className="endTimeWrap">
+                <div className="clock">
+                </div>
+                <a className="endTime" title="Время до окончания торгов">
+                  {utils.endTime(item.endDateTime)}
+                </a>
+              </div>
+              <LotHistory item={item}/>
             </div>
           </div>
         </div>
@@ -194,7 +218,7 @@ class Lot extends Component {
       <div className="Lot">
         <MainHeader mini={true} />
         <Top user={user}  onUserExit={this.props.onUserExit}/>
-        <ul className='items'>
+        <ul className='items' time={this.state.time}>
           {this._renderItem()}
         </ul>
         <div className="social-likes" data-counters="no">

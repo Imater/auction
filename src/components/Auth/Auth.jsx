@@ -45,12 +45,16 @@ class Auth extends Component {
     this.props.onRestorePassword({
       email: email === null ? '' : email
     });
+    this.context.router.transitionTo('/auth/restore');
   }
   render() {
     return (
       <div>
         <MainHeader mini={true} />
         <Top />
+        <div>
+          {this.props.children}
+        </div>
         <div className="auth" onClick={this._onClickHandler}>
           <div className='wrapper'>
             <div>

@@ -34,7 +34,7 @@ class Footer extends Component {
               {i18n.t('footer.line6')}
             </p>
             <p>
-              {i18n.t('footer.line7')} <a href="http://www.leopard-center.com">www.amur-tiger.ru</a> <a href="http://www.leopard-center.com">www.leopard-center.com</a>.
+              {i18n.t('footer.line7')} <a href="http://www.amur-tiger.ru">www.amur-tiger.ru</a> <a href="http://www.save-leopard.ru">www.save-leopard.ru</a>.
 
             </p>
             <p>
