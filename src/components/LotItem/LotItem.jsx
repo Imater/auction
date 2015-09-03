@@ -21,7 +21,7 @@ class LotItem extends Component {
     var button = (<div></div>);
     var name = (
       <div className="name">
-         {utils.shortFullName(item.name)}
+         {utils.shortFullName(item.name, language === 'eng')}
        </div>
     );
     if(item.status === 'active') {
@@ -44,7 +44,7 @@ class LotItem extends Component {
               {i18n.t('header.winner')}
             </div>
             <div>
-              {utils.shortFullName(item.name)}
+              {utils.shortFullName(item.name, language === 'eng')}
             </div>
           </div>
         </div>

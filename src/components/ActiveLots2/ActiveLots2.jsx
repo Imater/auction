@@ -38,18 +38,24 @@ class ActiveLots2 extends Component {
   }
 
   componentDidMount() {
+    this.disableCache=Date.now();
     this.interval = setInterval(this.tick.bind(this), 10000);
-    if (!this.props.location.query || this.props.location.query.time !== "0"){
-      var time = (this.props.location.query && this.props.location.query.time && !isNaN(this.props.location.query.time)) ? parseInt(this.props.location.query.time) : 20000;
-      console.info(time);
-      this.interval2 = setInterval(this.tickSlide.bind(this), time);
-    };
+    console.info(this.props.location.pathname === '/monitor3');
+    if(this.props.location.pathname === '/monitor3'){
+      if (!this.props.location.query || this.props.location.query.time !== "0"){
+        var time = (this.props.location.query && this.props.location.query.time && !isNaN(this.props.location.query.time)) ? parseInt(this.props.location.query.time) : 20000;
+        console.info(time);
+        this.interval2 = setInterval(this.tickSlide.bind(this), time);
+      };
+    }
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
-    if (this.props.location.time !== "0"){
-      clearInterval(this.interval2);
+    if(this.props.location.pathname === '/monitor3'){
+      if (this.props.location.time !== "0"){
+        clearInterval(this.interval2);
+      }
     }
   }
 
@@ -103,7 +109,7 @@ class ActiveLots2 extends Component {
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
-        backgroundImage: 'url(uploads/'+item.cover+')'
+        backgroundImage: 'url(uploads/small/'+item.cover+'?'+this.disableCache+')'
       }
       return (
         <li className='item' key={index}>

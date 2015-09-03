@@ -31,7 +31,7 @@ class Auth extends Component {
     var self = this;
     if(email && email.length && password && password.length) {
       this.props.onUserInfo({
-        email: email,
+        email: email.toLowerCase(),
         password: password,
         cb: function(){
           self.context.router.transitionTo('/');

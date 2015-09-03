@@ -61,6 +61,7 @@ module.exports = function (sequelize, DataTypes) {
   var options = {
     associate: function (models) {
       models.lot.hasMany(models.bid);
+      models.lot.hasMany(models.lotphoto);
     }
   };
 

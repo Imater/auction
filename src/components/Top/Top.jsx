@@ -12,7 +12,7 @@ class Top extends Component {
 
   render() {
     var login = (<div></div>);
-    if(!this.props.user || !this.props.user.lastname) {
+    if( !this.props.user || !(this.props.user.lastname || this.props.user.firstname || this.props.user.middlename) ) {
       login = (
         <div>
           <Link className="nav-item" to="/auth">

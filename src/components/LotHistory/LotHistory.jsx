@@ -30,6 +30,7 @@ class LotHistory extends Component {
   render() {
     var item = this.props.item.toObject ? this.props.item.toObject() : this.props.item;
     var bids = item.bids.toJS ? item.bids.toJS() : item.bids;
+    var language = this.props.language;
     return (
       <div className="LotHistory">
         <div className='table'>
@@ -39,7 +40,7 @@ class LotHistory extends Component {
                 <div className='line' key={i}>
                   <div className="cell">
                     <div className='name'>
-                      {utils.shortFullName(bid.bidUser)}
+                      {utils.shortFullName(bid.bidUser, language === 'eng')}
                     </div>
                   </div>
                   <div className="cell">
@@ -56,7 +57,9 @@ class LotHistory extends Component {
           }
           <div className="line">
             <div className="cell showMore">
-              <a onClick={this._onClick.bind(this)}>Показать все ставки</a>
+              <a onClick={this._onClick.bind(this)}>
+                {i18n.t('lot.showall')}
+              </a>
             </div>
           </div>
         </div>

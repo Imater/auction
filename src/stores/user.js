@@ -17,12 +17,15 @@ export default function(state = defaultState, action) {
       return state;
     case USER_EXIT:
       return Immutable.fromJS(defaultState);
+    case CREATE_USER:
+      console.info('create user++++++++++++++++');
+      return state;
     default:
       return state;
   }
 }
 
-export function createUser(body) {
+export function createUser(body, cb) {
   return {
     type: CREATE_USER,
     payload: new Promise((resolve, reject) => {
@@ -34,10 +37,12 @@ export function createUser(body) {
           return reject(err);
         }
         if (!res.body && alert){
-          alert('Недостаточно данных');
+          return alert('Недостаточно данных');
         }
+        console.info('!!!', res.body);
         saveLocalStorage(res.body);
         resolve({body: res.body});
+        cb();
       });
     })
   };
@@ -65,8 +70,8 @@ export function userInfo(body) {
           return alert('Неверный логин/пароль');
         }
         saveLocalStorage(res.body);
-        body.cb();
         resolve({body: res.body});
+        body.cb();
       });
     })
   };

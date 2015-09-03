@@ -60,7 +60,7 @@ describe('Test', function() {
       done();
     });
   });
-  it.only('lot sold', function(done) {
+  it('lot sold', function(done) {
     request(global.url)
     .put('api/bid')
     .send({
@@ -70,6 +70,15 @@ describe('Test', function() {
       price: 200000
     })
     .end(function(err, res) {
+      res.status.should.equal(200);
+      done();
+    });
+  });
+  it.only('get main page', function(done) {
+    request(global.url)
+    .get('api/bid')
+    .end(function(err, res) {
+      console.info(res.body);
       res.status.should.equal(200);
       done();
     });

@@ -9,15 +9,16 @@ if (process.env.BROWSER) {
 }
 
 @connect(
-  state => ({ i18: state.i18 }),
+  state => ({ language: state.i18.toObject ? state.i18.toObject().language : state.i18.language }),
     dispatch => bindActionCreators({ changeLanguage }, dispatch)
 )
 class LanguageSwitch extends Component {
 
   render() {
+    console.info(this.props);
     var ruClass = 'flag';
     var engClass = 'flag';
-    if(this.props.i18.language === 'eng'){
+    if(this.props.language === 'eng'){
       engClass += ' active';
     } else {
       ruClass += ' active';

@@ -50,6 +50,8 @@ const resources = {
         rules: 'Ставка должна минимум на 10% превышать текущую цену. Делая ставку, вы обязуетесь выкупить лот по указанной цене.',
         rulesLink: 'Условия участия в аукционе',
         other: 'ДРУГИЕ ЛОТЫ',
+        showall: 'Показать все ставки',
+        sold: 'Торги состоялись',
         lotNumber: "Лот №"
       },
       footer: {
@@ -144,6 +146,8 @@ const resources = {
         rules: 'The rate must be at least 10% higher than the current price. By bidding, you agree to redeem the item at a specified price.',
         rulesLink: 'Conditions for participation in the auction',
         other: 'OTHER LOTS',
+        showall: 'Show all',
+        sold: 'Sold',
         lotNumber: "Lot #"
       },
       footer: {

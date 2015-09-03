@@ -8,6 +8,8 @@ import Footer from '../Footer/Footer';
 import MainHeader from '../MainHeader/MainHeader';
 import LotItem from '../LotItem/LotItem';
 import LotHistory from '../LotHistory/LotHistory';
+import LotSlider from '../LotSlider/LotSlider';
+import Timer from '../Timer/Timer';
 import * as utils from '../../utils';
 
 if (process.env.BROWSER) {
@@ -15,24 +17,6 @@ if (process.env.BROWSER) {
 }
 
 class Lot extends Component {
-  state = {
-     time: '12:52'
-  };
-
-  componentDidMount() {
-    this.interval = setInterval(this.tick.bind(this), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  tick () {
-    var time = new Date(Date.now());
-    var tm = ("0" + time.getMinutes()).slice(-2) + ":" +
-    ("0" + time.getSeconds()).slice(-2);
-    this.setState({time: tm});
-  }
   static propTypes = {
     listData: PropTypes.array.isRequired,
     language: PropTypes.string.isRequired,
@@ -117,6 +101,7 @@ class Lot extends Component {
         item = foundItem;
       }
     })
+    this.lotphotos = item.lotphotos.toJS ? item.lotphotos.toJS() : item.lotphotos;
     var bid = (<div></div>);
     var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
     var admin = (<div></div>);
@@ -190,9 +175,20 @@ class Lot extends Component {
         </div>
       );
     };
+    var timerOrSold = (
+      <Timer endDateTime={item.endDateTime} />
+    );
+    if(item.status === 'sold'){
+      timerOrSold = (
+        <div className="endTimeWrap">
+          {i18n.t('lot.sold')}
+        </div>
+      );
+    }
     return (
       <div className="lotDescription">
-        <LotImage img={item.cover}/>
+        <LotSlider item={item} language={this.props.language} lotphotos={this.lotphotos} />
+        {/*<LotImage img={item.cover}/>*/}
         {bid}
         {admin}
         <div className="description">
@@ -219,16 +215,10 @@ class Lot extends Component {
                 {utils.rub(item.lastPrice || item.askPrice)}
               </div>
               <div className="name">
-                {utils.shortFullName(item.name)}
+                {utils.shortFullName(item.name, this.props.language === 'eng')}
               </div>
-              <div className="endTimeWrap">
-                <div className="clock">
-                </div>
-                <a className="endTime" title="Время до окончания торгов">
-                  {utils.endTime(item.endDateTime)}
-                </a>
-              </div>
-              <LotHistory item={item}/>
+              {timerOrSold}
+              <LotHistory language={this.props.language} item={item}/>
             </div>
           </div>
         </div>
@@ -237,47 +227,11 @@ class Lot extends Component {
   }
   render() {
     var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : { body: {}};
-    var slider = (
-        <div className='slider'>
-          <div className='slider-viewport'>
-            <div className='slider-arrow slider-arrow--prev'></div>
-            <div className='slider-arrow slider-arrow--next'></div>
-            <div className='slider-dots'>
-              <div className='slider-dot is-active'></div>
-              <div className='slider-dot'></div>
-              <div className='slider-dot'></div>
-              <div className='slider-dot'></div>
-              <div className='slider-dot'></div>
-              <div className='slider-dot'></div>
-            </div>
-            <div className='slider-area'>
-              <div className='slider-item' style={{backgroundImage: 'url(/uploads/01.jpg)'}}>
-                <div className='slider-overlay'></div>
-                <div className='slider-title'>
-                  Самый крупный и представительный медведь Долины гейзеров, который еще в 90-е годы, подобно российским воротилам бизнеса, приватизировал лучшие участки. На пастбищах Долины этот косолапый «авторитет» держится с большим достоинством, никого не боится, и вынуждает соперников ходить по струнке.
-                </div>
-              </div>
-              <div className='slider-item' style={{backgroundImage: 'url(/uploads/02.jpg)'}}>
-                <div className='slider-overlay'></div>
-                <div className='slider-title'>
-                  Самый крупный и представительный медведь Долины гейзеров, который еще в 90-е годы, подобно российским воротилам бизнеса, приватизировал лучшие участки. На пастбищах Долины этот косолапый «авторитет» держится с большим достоинством, никого не боится, и вынуждает соперников ходить по струнке.
-                </div>
-              </div>
-              <div className='slider-item' style={{backgroundImage: 'url(/uploads/03.jpg)'}}>
-                <div className='slider-overlay'></div>
-                <div className='slider-title'>
-                  Самый крупный и представительный медведь Долины гейзеров, который еще в 90-е годы, подобно российским воротилам бизнеса, приватизировал лучшие участки. На пастбищах Долины этот косолапый «авторитет» держится с большим достоинством, никого не боится, и вынуждает соперников ходить по струнке.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    );
     return (
       <div className="Lot">
         <MainHeader mini={true} />
         <Top user={user}  onUserExit={this.props.onUserExit}/>
-        <ul className='items' time={this.state.time}>
+        <ul className='items'>
           {this._renderItem()}
         </ul>
         <div className="social-likes" data-counters="no">

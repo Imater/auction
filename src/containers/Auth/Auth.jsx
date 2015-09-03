@@ -33,7 +33,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onAddHandler: (text) => dispatch(addTodo(text)),
-    onUserInfo: (body) => dispatch(userInfo(body)),
+    onUserInfo: (body, cb) => dispatch(userInfo(body, cb)),
     onRestorePassword: (body) => dispatch(restorePassword(body))
   };
 }

@@ -12,6 +12,7 @@ if (process.env.BROWSER) {
 class Register extends Component {
   static propTypes = {
     onCreateUser: PropTypes.func,
+    onUserInfo: PropTypes.func
   }
   static contextTypes = {
     router: PropTypes.object
@@ -31,17 +32,26 @@ class Register extends Component {
     const email = findDOMNode(this.refs.email).value;
     const phone = findDOMNode(this.refs.phone).value;
     const password = findDOMNode(this.refs.password).value;
-    this.props.onCreateUser({
-      lastname: lastname,
+    if(!email || !email.length){
+      return alert('Need email field');
+    }
+    var self = this;
+    var body = {
+      lastname: (lastname || firstname || middlename) ? lastname : 'noname',
       firstname: firstname,
       middlename: middlename,
       company: company,
       job: job,
-      email: email,
+      email: email.toLowerCase(),
       phone: phone,
       password: password
+    };
+    this.props.onCreateUser(body, function(){
+      body.cb = function(){
+        self.context.router.transitionTo('/');
+      };
+      self.props.onUserInfo(body);
     });
-    this.context.router.transitionTo('/auth');
   }
   render() {
     return (
@@ -86,7 +96,7 @@ class Register extends Component {
               <button onClick={this._onClickHandler.bind(this)}>{i18n.t('register.proceed')}</button>
             </div>
             <div>
-              <p className="condition">Нажимая на кнопку вы подтверждаете <a href="/conditions" target="_blank">условия проведения аукциона</a>.</p> 
+              <p className="condition">Нажимая на кнопку вы подтверждаете <a href="/conditions" target="_blank">условия проведения аукциона</a>.</p>
             </div>
           </div>
         </div>

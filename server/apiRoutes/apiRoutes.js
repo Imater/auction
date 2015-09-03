@@ -53,7 +53,8 @@ apiRoutes.put('/bid', (req, res) => {
 });
 
 apiRoutes.get('/bid', (req, res) => {
-  api.getLotById(1).then(function(result){
+  console.info('get bid');
+  api.getLotById(2).then(function(result){
     res.status(200).send(result);
   }).catch(function(err){
     res.status(400).send(err);

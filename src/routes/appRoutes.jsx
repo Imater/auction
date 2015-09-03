@@ -23,6 +23,7 @@ export default (
     <Route path="/register" component={Register} />
     <Route path="/monitor" component={Monitor} />
     <Route path="/monitor2" component={Monitor2} />
+    <Route path="/monitor3" component={Monitor2} />
     <Route path="/conditions" component={Conditions} />
     <Route path="/lot" component={Lot} />
   </Route>

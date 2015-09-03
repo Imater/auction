@@ -52,6 +52,8 @@ api.getAllLots = function(id){
           ],
           required: false
         }]
+      }, {
+        model: db.models.lotphoto
       }],
       order: [[{model: db.models.bid}, 'createdAt', 'DESC']]
     }).then(function(lotsFromDb){
@@ -95,6 +97,8 @@ api.getLotById = function(id){
           ],
           required: false
         }]
+      }, {
+        model: db.models.lotphoto
       }],
       order: [[{model: db.models.bid}, 'createdAt', 'DESC']]
     }).then(function(lotsFromDb){
@@ -131,7 +135,7 @@ api.saveBid = function(body){
             oldPrice: oldPrice
           });
         }
-        if (oldPrice*10 < newPrice){
+        if (oldPrice*10000000 < newPrice){
           console.info('BAD old, new', oldPrice, newPrice);
           return reject({
             error: 'price_too_high',
@@ -256,13 +260,6 @@ api.sendMail = function(body, cbEmail = ()=>{}) {
     cbEmail(err, info);
   });
 };
-
-api.sendMail({
-  email: 'eugene.leonar@gmail.com'
-}, function(err, info){
-  console.info(err, info);
-});
-
 
 api.soldBid = function(body){
   return new Promise((request, reject) => {
