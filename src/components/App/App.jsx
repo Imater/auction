@@ -52,9 +52,6 @@ if (process.env.BROWSER) {
     }
 
     render() {
-
-
-      console.info('app props', this.context.store);
       var devtools;
       if(false && process.env.__DEVELOPMENT__){
         devtools = (

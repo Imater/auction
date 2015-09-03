@@ -45,7 +45,9 @@ class Top extends Component {
             </div>
             <div className="title2">
               <span>
-                {i18n.t('header.auction')}
+                <Link className="toMain" to="/">
+                  {i18n.t('header.auction')}
+                </Link>
               </span>
               <a className="info" href="#footer">
                 <img src='/assets/images/info.png' />

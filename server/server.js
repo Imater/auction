@@ -89,7 +89,7 @@ app.use((req, res, next) => {
         {() => <Router {...routeState} />}
         </Provider>
       );
-      console.info('finishRender');
+      console.info('finishRender at ' + new Date());
       var state = store.getState();
       const initialState = JSON.stringify(state);
       let resultHtml = indexHtml
