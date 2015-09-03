@@ -71,6 +71,9 @@ app.use((req, res, next) => {
   const location = new Location(req.path, req.query);
   var needEng = (req.get('host').indexOf('help') !== -1);
   if(req.cookies.lang && req.cookies.lang === 'eng'){
+    if(!req.cookies.lang){
+      res.cookie('lang', 'eng', { maxAge: 900000, httpOnly: false });
+    }
     needEng = true;
   }
   console.info('location ', needEng);

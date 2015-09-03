@@ -14,6 +14,10 @@ import {
   userInfo
 } from '../../stores/user';
 
+import {
+  changeLanguage
+} from '../../stores/i18';
+
 if (process.env.BROWSER) {
   require('../../../assets/styles/normalize.css');
   require('./_App.scss');
@@ -46,6 +50,17 @@ if (process.env.BROWSER) {
               cb: ()=>{}
             }));
           }, 5)
+        }
+        function getCookie(name) {
+          var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+          ))
+          return matches ? decodeURIComponent(matches[1]) : undefined
+        }
+        var lang = getCookie('lang');
+        console.info('lang',lang);
+        if(lang){
+          self.context.store.dispatch(changeLanguage(lang));
         }
       }
 

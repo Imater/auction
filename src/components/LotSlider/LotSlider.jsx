@@ -76,7 +76,7 @@ class LotSlider extends Component {
               {!lotphotos ? '' : lotphotos.map((item, index)=>{
                 var className = this.state.index === index ? 'slider-dot is-active' : 'slider-dot';
                 return (
-                  <div className={className} onClick={this._onClickHandler.bind(this, index)}></div>
+                  <div key={index} className={className} onClick={this._onClickHandler.bind(this, index)}></div>
                 );
               })}
             </div>
