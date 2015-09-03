@@ -33,15 +33,37 @@ if (process.env.BROWSER) {
 
 class ActiveLots2 extends Component {
   state = {
-     time: '12:52'
+    time: '12:52',
+    page: 0
   }
 
   componentDidMount() {
     this.interval = setInterval(this.tick.bind(this), 10000);
+    if (!this.props.location.query || this.props.location.query.time !== "0"){
+      var time = (this.props.location.query && this.props.location.query.time && !isNaN(this.props.location.query.time)) ? parseInt(this.props.location.query.time) : 20000;
+      console.info(time);
+      this.interval2 = setInterval(this.tickSlide.bind(this), time);
+    };
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
+    if (this.props.location.time !== "0"){
+      clearInterval(this.interval2);
+    }
+  }
+
+  tickSlide() {
+    console.info();
+    if((this.state.page+1)*20 <= this.props.listData.length){
+      this.setState({
+        page: this.state.page + 1
+      })
+    } else {
+      this.setState({
+        page: 0
+      })
+    }
   }
 
   tick () {
@@ -75,7 +97,9 @@ class ActiveLots2 extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = utils.sortByLastTime(listData).slice(this.props.index+0,this.props.index+20);
+    var from = this.props.index + this.state.page * 20;
+    var to = this.props.index+ (this.state.page + 1) * 20;
+    var listDataFiltered = utils.sortByLastTime(listData).slice(from,to);
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {

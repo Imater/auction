@@ -67,7 +67,7 @@ export function lastTime(lastTime) {
      return;
   }
   var diff = parseInt((Date.now() - Date.parse(lastTime))/(60*1000));
-  if (diff > 999){
+  if (diff > 999 || isNaN(diff)){
     return '';
   }
   return diff+' мин.назад';
