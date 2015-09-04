@@ -79,7 +79,7 @@ class ActiveLots extends Component {
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
-        backgroundImage: 'url(uploads/'+item.cover+')'
+        backgroundImage: 'url(/uploads/'+item.cover+')'
       }
       return (
         <li className='item' key={index}>

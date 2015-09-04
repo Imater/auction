@@ -1,3 +1,4 @@
+import i18n from 'i18next-client';
 var transliterate = (
   function() {
     var
@@ -78,8 +79,21 @@ export function endTime(endDateTime) {
   var diff = parseInt((Date.parse(endDateTime) - Date.now())/(1000));
   var minutes = Math.floor(diff / 60);
   var seconds = diff - minutes * 60;
-  console.info();
+  if(diff<=0) {
+    return i18n.t('lot.sold');
+  }
   return diff.toString().toHHMMSS();
+}
+
+export function isTimeOver(endDateTime) {
+  if (typeof endDateTime === 'undefined' || endDateTime == null) {
+    return false;
+  }
+  var diff = parseInt((Date.parse(endDateTime) - Date.now())/(1000));
+  if(diff<=0) {
+    return true;
+  }
+  return false;
 }
 
 export function lastTime(lastTime) {

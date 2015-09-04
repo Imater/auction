@@ -189,7 +189,7 @@ class Lot extends Component {
       <div className="lotDescription">
         <LotSlider item={item} language={this.props.language} lotphotos={this.lotphotos} />
         {/*<LotImage img={item.cover}/>*/}
-        {bid}
+        {(utils.isTimeOver(item.endDateTime) && user.userGroup !== 1) ? (<p></p>) : bid}
         {admin}
         <div className="description">
           <div className="row">

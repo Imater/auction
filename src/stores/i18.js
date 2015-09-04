@@ -4,6 +4,7 @@ import { fromJS } from 'immutable';
 export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 
 const defaultState = {
+  language: 'ru'
 };
 
 export default function(state = defaultState, action) {

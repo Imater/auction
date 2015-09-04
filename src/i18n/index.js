@@ -193,6 +193,7 @@ const resources = {
 i18n.init({
   resStore: resources,
   debug: false,
+  lng: (typeof window !== 'undefined' && __LANG__.language) ? __LANG__.language : 'ru',
   fallbackLng: 'ru',
   cookieName: 'lang',
   getAsync: false

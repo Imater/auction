@@ -44,7 +44,6 @@ class ActiveLots2 extends Component {
     if(this.props.location.pathname === '/monitor3'){
       if (!this.props.location.query || this.props.location.query.time !== "0"){
         var time = (this.props.location.query && this.props.location.query.time && !isNaN(this.props.location.query.time)) ? parseInt(this.props.location.query.time) : 20000;
-        console.info(time);
         this.interval2 = setInterval(this.tickSlide.bind(this), time);
       };
     }
@@ -109,7 +108,7 @@ class ActiveLots2 extends Component {
     return listDataFiltered.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       var divStyle = {
-        backgroundImage: 'url(uploads/small/'+item.cover+'?'+this.disableCache+')'
+        backgroundImage: 'url(/uploads/small/'+item.cover+'?'+this.disableCache+')'
       }
       return (
         <li className='item' key={index}>

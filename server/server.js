@@ -98,8 +98,10 @@ app.use((req, res, next) => {
       console.info('finishRender at ' + new Date());
       var state = store.getState();
       const initialState = JSON.stringify(state);
+      const langJson = JSON.stringify({language: needEng ? 'eng' : 'ru'});
       let resultHtml = indexHtml
       .replace('${initialView}', initialView)
+      .replace('${language}', langJson)
       .replace('${initialState}', initialState);
       res.end(resultHtml);
     });

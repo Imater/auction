@@ -24,7 +24,7 @@ class LotItem extends Component {
          {utils.shortFullName(item.name, language === 'eng')}
        </div>
     );
-    if(item.status === 'active') {
+    if(item.status === 'active' && !utils.isTimeOver(item.endDateTime)) {
       button = (
         <div className="accept">
           <Link className="nav-item" to="/lot" query={{index: item.id}}>
@@ -49,12 +49,18 @@ class LotItem extends Component {
           </div>
         </div>
       );
-    } else {
+    } else if (!utils.isTimeOver(item.endDateTime)){
       button = (
         <div className="openTime">
           {utils.timeRest(item.startDateTime, language)}
         </div>
       );
+    } else {
+        button = (
+          <div className="openTime">
+            {i18n.t('lot.sold')}
+          </div>
+        );
     }
     return (
       <li className='LotItem' key={item.id}>
