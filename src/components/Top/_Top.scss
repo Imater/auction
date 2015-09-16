@@ -41,7 +41,7 @@
         font-size: 14px;
         padding: 1px;
         text-decoration: none;
-        color: #AAA;
+        color: #5195CA;
         &.active {
           color: #000;
         }
@@ -67,8 +67,12 @@
         margin-bottom: 7px;
         a {
           text-decoration: none;
-          color: #000 !important;
+          color: #5195CA;
+          .Main & {
+            color: #000;
+          }
         }
+
         .info {
           position: absolute;
           bottom: 8px;

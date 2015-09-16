@@ -54,10 +54,11 @@
     text-decoration: none;
     left: 53px;
     top: 40px;
-    display: none
+    display: none;
   }
   &.mini .toMain {
-    display: block
+    display: block;
+    display: none;
   }
   .tableRow {
     display: table-row;
