@@ -230,23 +230,25 @@ class Lot extends Component {
     return (
       <div className="Lot">
         <MainHeader mini={true} />
-        <Top user={user}  onUserExit={this.props.onUserExit}/>
-        <ul className='items'>
-          {this._renderItem()}
-        </ul>
-        <div className="social-likes" data-counters="no">
-          <div className="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
-          <div className="twitter" title="Поделиться ссылкой в Твиттере">Twitter</div>
-          <div className="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
-          <div className="odnoklassniki" title="Поделиться ссылкой в Одноклассниках">Одноклассники</div>
-          <div className="plusone" title="Поделиться ссылкой в Гугл-плюсе">Google+</div>
+          <div className="constraint">
+          <Top user={user}  onUserExit={this.props.onUserExit}/>
+          <ul className='items'>
+            {this._renderItem()}
+          </ul>
+          <div className="social-likes" data-counters="no">
+            <div className="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
+            <div className="twitter" title="Поделиться ссылкой в Твиттере">Twitter</div>
+            <div className="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
+            <div className="odnoklassniki" title="Поделиться ссылкой в Одноклассниках">Одноклассники</div>
+            <div className="plusone" title="Поделиться ссылкой в Гугл-плюсе">Google+</div>
+          </div>
+          <h4>
+            {i18n.t('lot.other')}
+          </h4>
+          <ul className='items'>
+            {this._renderListItem()}
+          </ul>
         </div>
-        <h4>
-          {i18n.t('lot.other')}
-        </h4>
-        <ul className='items'>
-          {this._renderListItem()}
-        </ul>
         <Footer />
       </div>
     );

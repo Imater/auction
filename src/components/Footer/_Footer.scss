@@ -1,12 +1,14 @@
 .Footer {
   height: 600px;
   background: #F1F6F8;
-  display: table;
-  
+
+  width: 100%
   a {
     color: #348DC9;
   }
-
+  .wrap {
+    display: table;
+  }
   a:hover {
     color: #e52727;
   }

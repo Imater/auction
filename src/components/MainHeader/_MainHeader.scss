@@ -1,8 +1,12 @@
 .MainHeader {
-  background-color: #3F9CF9;
-  display: table;
-  min-height: 166px;
+  background-color: #edeff0;
+
   // position: relative;
+  .wrap {
+    display: table;
+    min-height: 166px;
+    width: 100%;
+  }
   .popup {
     position: fixed;
     left: 0;

@@ -68,21 +68,23 @@ class Main extends Component {
     return (
       <div className="Main">
         <MainHeader/>
-        <Top user={user} onUserExit={this.props.onUserExit} />
-        <div className="ActiveLot">
-          <ActiveLot index={mainIndex} {...this.props}/>
+        <div className="constraint">
+          <Top user={user} onUserExit={this.props.onUserExit} />
+          <div className="ActiveLot">
+            <ActiveLot index={mainIndex} {...this.props}/>
+          </div>
+          <nav className="app-navigation">
+            <Link className={allLinkClass} to="/" activeClassName='act'>
+              {i18n.t('lot.all')}
+            </Link>
+            <Link className='nav-item' to="/active">
+              {i18n.t('lot.active')}
+            </Link>
+          </nav>
+          <ul className='items'>
+            {this._renderListItem()}
+          </ul>
         </div>
-        <nav className="app-navigation">
-          <Link className={allLinkClass} to="/" activeClassName='act'>
-            {i18n.t('lot.all')}
-          </Link>
-          <Link className='nav-item' to="/active">
-            {i18n.t('lot.active')}
-          </Link>
-        </nav>
-        <ul className='items'>
-          {this._renderListItem()}
-        </ul>
         <Footer />
       </div>
     );
