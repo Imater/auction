@@ -17,19 +17,21 @@ body, html {
     min-height: 64px;
     text-align: center;
     .nav-item {
-      border: 2px solid #EEE;
+      font-family: PTSansBold;
+      font-size: 14px;
+      border: 3px solid #EEE;
       display: inline-block;
       color: #888;
       text-decoration: none;
       vertical-align: middle;
-      padding: 5px 40px;
+      padding: 7px 40px;
       &:hover {
         color: #E7A731;
       }
       &:last-child {
         border-left: none;
         &.active {
-          border: 2px solid;
+          border: 3px solid;
           border-color: #5A95BD;
           color: #5A95BD;
         }
@@ -37,7 +39,7 @@ body, html {
       &:first-child {
         border-right: none;
         &.active {
-          border: 2px solid;
+          border: 3px solid;
           border-color: #5A95BD;
           color: #5A95BD;
         }

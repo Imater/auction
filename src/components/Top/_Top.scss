@@ -11,7 +11,7 @@
       width: 30%;
       display: table-cell;
       height: 100%;
-      padding-top: 20px;
+      padding-top: 36px;
       .loginName {
         margin-left: 100px;
         font: PTSansBold;
@@ -34,7 +34,7 @@
         cursor: pointer;
       }
       .nav-item {
-        margin: 20px 0 30px 100px;
+        margin: 0 0 0 100px;
         font: PTSansBold;
         letter-spacing: 1 px;
         display: block;
@@ -53,6 +53,7 @@
       display: table-cell;
       height: 100%;
       text-align: center;
+      padding-top: 17px;
       .title1 {
         margin-top: 20px;
         font-family: PTSansCaptionRegular, 'PT Sans Caption', Verdana;
@@ -65,6 +66,7 @@
         font-size: 48px;
         position: relative;
         margin-bottom: 7px;
+        margin-top: -9px;
         a {
           text-decoration: none;
           color: #5195CA;
@@ -98,7 +100,7 @@
       width: 30%;
       display: table-cell;
       height: 100%;
-      padding-top: 35px;
+      padding-top: 50px;
     }
   }
 }
