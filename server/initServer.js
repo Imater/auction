@@ -1,6 +1,8 @@
 import app from './server.js';
+import config from './config';
 
-const PORT = process.env.PORT || 3000;
+console.info(config.server.port);
+const PORT = process.env.PORT || config.server.port || 3000;
 
 var server = {};
 

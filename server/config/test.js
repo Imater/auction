@@ -5,7 +5,7 @@ module.exports = {
         allFileName: 'all-test.log'
     },
     server: {
-        port: 3000,
+        port: 3001,
         address: '127.0.0.1'
     },
     amqp: {

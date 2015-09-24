@@ -25,7 +25,7 @@ export default function(state = defaultState, action) {
       console.info('bid added by socket', action);
       var body = action.payload.body;
       return state.map(function(item){
-        if(item.toObject().id == body.id){
+        if (item.toObject().id == body.id){
           return Immutable.fromJS(body);
         }
         return item;

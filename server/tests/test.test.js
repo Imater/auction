@@ -78,7 +78,6 @@ describe('Test', function() {
     request(global.url)
     .get('api/bid')
     .end(function(err, res) {
-      console.info(res.body);
       res.status.should.equal(200);
       done();
     });
