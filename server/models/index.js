@@ -52,7 +52,7 @@ Object.keys(db).forEach(function(modelName) {
     }
 });
 
-sequelize.sync().complete(function() {
+sequelize.sync().then(function() {
     logger.trace('sync tables finished');
 });
 

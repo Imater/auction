@@ -11,10 +11,11 @@ describe('Test', function() {
       done();
     });
   });
-  xit('get main page', function(done) {
+  it.only('get main page', function(done) {
     request(global.url)
-    .get('/')
+    .get('')
     .end(function(err, res) {
+      console.info(err);
       res.status.should.equal(200);
       done();
     });
@@ -74,7 +75,7 @@ describe('Test', function() {
       done();
     });
   });
-  it.only('get main page', function(done) {
+  it('get main page', function(done) {
     request(global.url)
     .get('api/bid')
     .end(function(err, res) {

@@ -4,6 +4,7 @@ import fs from 'fs';
 
 // React
 import React from 'react';
+import { renderToString } from 'react-dom/server';
 
 // Express
 import express from 'express';
@@ -12,8 +13,9 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
 // Router
-import Router from 'react-router';
-import Location from 'react-router/lib/Location';
+import { RoutingContext, match, Router } from 'react-router';
+//import Location from 'react-router/lib/Location';
+import createLocation from 'history/lib/createLocation';
 import appRoutes from '../src/routes/appRoutes.jsx';
 import apiRoutes from './apiRoutes/apiRoutes.js';
 
@@ -36,7 +38,7 @@ const app = express();
 console.info('NODE_ENV', process.env.NODE_ENV);
 
 
-if(!isTest){
+if (!isTest){
   process.env.BROWSER = false;
 }
 process.env.__DEVELOPMENT__ = !isProduction;
@@ -67,8 +69,13 @@ if (!isProduction && !isTest) {
   app.use('/build', express.static(path.join(__dirname, '..', 'dist')));
 }
 
+process.on('uncaughtException', function (error) {
+   console.log(error.stack);
+});
+
+
+
 app.use((req, res, next) => {
-  const location = new Location(req.path, req.query);
   var needEng = (req.get('host').indexOf('help') !== -1);
   if (req.cookies.lang && req.cookies.lang === 'eng'){
     if (!req.cookies.lang){
@@ -76,11 +83,10 @@ app.use((req, res, next) => {
     }
     needEng = true;
   }
-
-  Router.run(appRoutes, location, (err, routeState) => {
-    if (!routeState) {
-      return next();
-    }
+  const location = createLocation(req.url);
+  console.info('location = ', appRoutes, location);
+  match({appRoutes, location}, (err, redirectLocation, renderProps) => {
+    console.info("@!", err, redirectLocation, renderProps);
     api.getAllLots().then(function(lotsFromDb){
       const store = createAppStore({
         todos: new List(lotsFromDb),
@@ -88,21 +94,27 @@ app.use((req, res, next) => {
           language: needEng ? 'eng' : 'ru'
         }
       });
-      console.info('startRender');
-      const initialView = React.renderToString(
+      console.info('startRender', Object.keys(store));
+
+      const initialView = renderToString(
         <Provider store={store}>
-        {() => <Router {...routeState} />}
+          <RoutingContext {...renderProps} />
         </Provider>
       );
-      console.info('finishRender at ' + new Date());
+
+      console.info('finishRender at ' + new Date(), initialView);
       var state = store.getState();
+      console.info(1);
       const initialState = JSON.stringify(state);
       const langJson = JSON.stringify({language: needEng ? 'eng' : 'ru'});
       let resultHtml = indexHtml
       .replace('${initialView}', initialView)
       .replace('${language}', langJson)
       .replace('${initialState}', initialState);
+      console.info('resultHtml');
       res.end(resultHtml);
+    }).catch((err)=>{
+      console.error(err.stack);
     });
   });
 });

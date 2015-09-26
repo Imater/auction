@@ -1,9 +1,10 @@
 // React
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 // Router
 import { Router } from 'react-router';
-import { history } from 'react-router/lib/BrowserHistory';
+import { history } from 'history';
 import appRoutes from './routes/appRoutes';
 import createAppStore from './createStore/createStore';
 
@@ -19,11 +20,9 @@ Object.keys(initialState).forEach((key) => {
 
 const store = createAppStore(initialState);
 
-React.render(
+ReactDOM.render(
   <Provider store={store}>
-    {() =>
-      <Router history={history} children={appRoutes}/>
-    }
+    <Router history={history} children={appRoutes}/>
   </Provider>,
   document.getElementById('app')
 );

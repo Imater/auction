@@ -54,7 +54,7 @@ describe('Immutable', function() {
       list.size.should.equal(3);
       list2.size.should.equal(4);
       list3.size.should.equal(3);
-    })
+    });
 
     it('change nested', ()=>{
       var map0 = Immutable.fromJS({

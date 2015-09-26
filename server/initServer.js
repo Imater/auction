@@ -1,7 +1,6 @@
 import app from './server.js';
 import config from './config';
 
-console.info(config.server.port);
 const PORT = process.env.PORT || config.server.port || 3000;
 
 var server = {};
@@ -20,8 +19,10 @@ export default {
 };
 
 process.on('exit', ()=> {
+  console.info('exit');
   server.close();
 });
 process.on('SIGTERM', ()=> {
+  console.info('sigterm');
   server.close();
 });

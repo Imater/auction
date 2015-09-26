@@ -19,7 +19,7 @@ export default function() {
         publicPath: webpackConfig.output.publicPath,
         hot: true,
         quiet: false,
-        noInfo: true,
+        noInfo: false,
         headers: {
             'Access-Control-Allow-Origin': '*'
         },

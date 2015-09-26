@@ -13,7 +13,7 @@ import Conditions from '../components/Conditions/Conditions';
 import Lot from '../containers/Lot/Lot';
 
 export default (
-  <Route component={App}>
+  <Route name="app" component={App}>
     <Route path="/" component={Main} />
     <Route path="/todo" component={Todo} />
     <Route path="/active" component={Main} />
@@ -26,5 +26,6 @@ export default (
     <Route path="/monitor3" component={Monitor2} />
     <Route path="/conditions" component={Conditions} />
     <Route path="/lot" component={Lot} />
+    <Route path="*" component={Main} />
   </Route>
 );

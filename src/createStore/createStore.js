@@ -7,10 +7,9 @@ import * as i18n from '../i18n';
 export default function createAppStore(initialState){
   const finalCreateStore = compose(
     applyMiddleware(promiseMiddleware),
-    devTools(),
+    devTools()
     //persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-    createStore
-  );
+  )(createStore);
 
   const reducer = combineReducers(reducers);
   var store;
