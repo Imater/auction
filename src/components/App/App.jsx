@@ -40,7 +40,6 @@ if (process.env.BROWSER) {
           if(data && data.id){
             self.context.store.dispatch(refreshLot(data));
           }
-          console.info('socket', data);
         });
         if(localStorage && localStorage.getItem('email') && localStorage.getItem('password')){
           setTimeout(function(){
@@ -58,7 +57,6 @@ if (process.env.BROWSER) {
           return matches ? decodeURIComponent(matches[1]) : undefined
         }
         var lang = getCookie('lang');
-        console.info('lang',lang);
         if(lang){
           self.context.store.dispatch(changeLanguage(lang));
         }

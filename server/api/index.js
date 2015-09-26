@@ -65,7 +65,6 @@ api.getAllLots = function(id){
 };
 
 api.getLotById = function(id){
-  console.info('searchLot', id);
   return new Promise((request, reject) => {
     db.models.lot.findOne({
       where: {
@@ -111,39 +110,32 @@ api.getLotById = function(id){
 
 api.saveBid = function(body){
   return new Promise((request, reject) => {
-    console.info('GOI');
     api.getLotById(body.lotId).then(
       function(oldLot){
         var oldPrice = oldLot.lastPrice;
         var askPrice = oldLot.askPrice;
-        console.info(askPrice);
         if(!oldPrice || askPrice > oldPrice){
           oldPrice = askPrice;
         }
         var newPrice = parseInt(body.price);
         if (oldPrice*1.09 > newPrice){
-          console.info('BAD old, new', oldPrice, newPrice);
           return reject({
             error: 'price_too_low',
             oldPrice: oldPrice
           });
         }
         if (isNaN(newPrice)){
-          console.info('BAD value', oldPrice, newPrice);
           return reject({
             error: 'price_bad',
             oldPrice: oldPrice
           });
         }
         if (oldPrice*10000000 < newPrice){
-          console.info('BAD old, new', oldPrice, newPrice);
           return reject({
             error: 'price_too_high',
             oldPrice: oldPrice
           });
         }
-        console.info('was', oldLot.lastPrice);
-        console.info('now', body);
         db.models.bid.create({
           userId: body.userId,
           lotId: body.lotId,

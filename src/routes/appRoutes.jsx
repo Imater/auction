@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 import App from '../components/App/App';
 import Todo from '../containers/Todo/Todo';
@@ -13,8 +13,8 @@ import Conditions from '../components/Conditions/Conditions';
 import Lot from '../containers/Lot/Lot';
 
 export default (
-  <Route name="app" component={App}>
-    <Route path="/" component={Main} />
+  <Route path="/" component={App}>
+    <IndexRoute component={Main} />
     <Route path="/todo" component={Todo} />
     <Route path="/active" component={Main} />
     <Route path="/auth" ro={Route} component={Auth}>
@@ -26,6 +26,5 @@ export default (
     <Route path="/monitor3" component={Monitor2} />
     <Route path="/conditions" component={Conditions} />
     <Route path="/lot" component={Lot} />
-    <Route path="*" component={Main} />
   </Route>
 );

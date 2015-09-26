@@ -38,7 +38,6 @@ class Main extends Component {
     onDeleteHandler(id);
   }
   _renderListItem() {
-    console.info('renderListItem');
     const { listData, language } = this.props;
     var filteredData = [];
     if(this.props.route.path === '/active'){

@@ -40,7 +40,6 @@ class ActiveLots2 extends Component {
   componentDidMount() {
     this.disableCache=Date.now();
     this.interval = setInterval(this.tick.bind(this), 10000);
-    console.info(this.props.location.pathname === '/monitor3');
     if(this.props.location.pathname === '/monitor3'){
       if (!this.props.location.query || this.props.location.query.time !== "0"){
         var time = (this.props.location.query && this.props.location.query.time && !isNaN(this.props.location.query.time)) ? parseInt(this.props.location.query.time) : 20000;
@@ -59,7 +58,6 @@ class ActiveLots2 extends Component {
   }
 
   tickSlide() {
-    console.info();
     if((this.state.page+1)*20 <= this.props.listData.length){
       this.setState({
         page: this.state.page + 1

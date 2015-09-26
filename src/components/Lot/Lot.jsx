@@ -32,7 +32,6 @@ class Lot extends Component {
       onDeleteHandler: () => {},
   }
   _onSold(e) {
-    console.info(this.prod);
     const { onSold } = this.props;
     e.preventDefault();
     if(this.userAdmin === true){
@@ -42,11 +41,9 @@ class Lot extends Component {
     }
   }
   _onAddBid(e) {
-    console.info(this.prod);
     const { onAddBid, onAddBidAdmin } = this.props;
     const newPrice = findDOMNode(this.refs.todoInput).value;
     e.preventDefault();
-    console.info('id = ', e.target.dataset.userId);
     if(this.userAdmin === true){
       const lastname = findDOMNode(this.refs.lastnameInput).value;
       if(!lastname || !lastname.length){

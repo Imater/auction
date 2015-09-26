@@ -22,7 +22,7 @@ export default function(state = defaultState, action) {
     case ADD_BID:
       return state;
     case REFRESH_LOT:
-      console.info('bid added by socket', action);
+      console.log('bid added by socket', action);
       var body = action.payload.body;
       return state.map(function(item){
         if (item.toObject().id == body.id){

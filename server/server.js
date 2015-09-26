@@ -13,10 +13,10 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
 // Router
-import { RoutingContext, match, Router } from 'react-router';
+import { RoutingContext, match } from 'react-router';
 //import Location from 'react-router/lib/Location';
 import createLocation from 'history/lib/createLocation';
-import appRoutes from '../src/routes/appRoutes.jsx';
+import routes from '../src/routes/appRoutes.jsx';
 import apiRoutes from './apiRoutes/apiRoutes.js';
 
 // Webpack
@@ -35,7 +35,6 @@ const proxy = httpProxy.createProxyServer();
 const isProduction = process.env.NODE_ENV === 'production';
 const isTest = process.env.NODE_ENV === 'test';
 const app = express();
-console.info('NODE_ENV', process.env.NODE_ENV);
 
 
 if (!isTest){
@@ -69,12 +68,6 @@ if (!isProduction && !isTest) {
   app.use('/build', express.static(path.join(__dirname, '..', 'dist')));
 }
 
-process.on('uncaughtException', function (error) {
-   console.log(error.stack);
-});
-
-
-
 app.use((req, res, next) => {
   var needEng = (req.get('host').indexOf('help') !== -1);
   if (req.cookies.lang && req.cookies.lang === 'eng'){
@@ -84,38 +77,40 @@ app.use((req, res, next) => {
     needEng = true;
   }
   const location = createLocation(req.url);
-  console.info('location = ', appRoutes, location);
-  match({appRoutes, location}, (err, redirectLocation, renderProps) => {
-    console.info("@!", err, redirectLocation, renderProps);
-    api.getAllLots().then(function(lotsFromDb){
-      const store = createAppStore({
-        todos: new List(lotsFromDb),
-        i18: {
-          language: needEng ? 'eng' : 'ru'
-        }
+  match({routes, location}, (err, redirectLocation, renderProps) => {
+    if (redirectLocation) {
+      res.redirect(301, redirectLocation.pathname + redirectLocation.search);
+    } else if (err) {
+      res.send(500, err.message);
+    } else if (renderProps == null) {
+      res.send(404, 'Not found');
+    } else {
+      api.getAllLots().then(function(lotsFromDb){
+        const store = createAppStore({
+          todos: new List(lotsFromDb),
+          i18: {
+            language: needEng ? 'eng' : 'ru'
+          }
+        });
+
+        const initialView = renderToString(
+          <Provider store={store}>
+          {() => <RoutingContext {...renderProps} />}
+          </Provider>
+        );
+
+        var state = store.getState();
+        const initialState = JSON.stringify(state);
+        const langJson = JSON.stringify({language: needEng ? 'eng' : 'ru'});
+        let resultHtml = indexHtml
+        .replace('${initialView}', initialView)
+        .replace('${language}', langJson)
+        .replace('${initialState}', initialState);
+        res.end(resultHtml);
+      }).catch((error)=>{
+        console.error(error.stack);
       });
-      console.info('startRender', Object.keys(store));
-
-      const initialView = renderToString(
-        <Provider store={store}>
-          <RoutingContext {...renderProps} />
-        </Provider>
-      );
-
-      console.info('finishRender at ' + new Date(), initialView);
-      var state = store.getState();
-      console.info(1);
-      const initialState = JSON.stringify(state);
-      const langJson = JSON.stringify({language: needEng ? 'eng' : 'ru'});
-      let resultHtml = indexHtml
-      .replace('${initialView}', initialView)
-      .replace('${language}', langJson)
-      .replace('${initialState}', initialState);
-      console.info('resultHtml');
-      res.end(resultHtml);
-    }).catch((err)=>{
-      console.error(err.stack);
-    });
+    }
   });
 });
 

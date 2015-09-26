@@ -53,7 +53,6 @@ class Monitor extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    console.info(listData);
     return listData.map((itemMap, index) => {
       var item = itemMap.toObject ? itemMap.toObject() : itemMap;
       return (

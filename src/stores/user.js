@@ -18,7 +18,6 @@ export default function(state = defaultState, action) {
     case USER_EXIT:
       return Immutable.fromJS(defaultState);
     case CREATE_USER:
-      console.info('create user++++++++++++++++');
       return state;
     default:
       return state;
@@ -39,7 +38,6 @@ export function createUser(body, cb) {
         if (!res.body && alert){
           return alert('Недостаточно данных');
         }
-        console.info('!!!', res.body);
         saveLocalStorage(res.body);
         resolve({body: res.body});
         cb();
@@ -108,23 +106,3 @@ export function userExit(body) {
     }
   };
 }
-
-//export function addBid(body) {
-//  console.info('save bid = ', body);
-//  return {
-//    type: ADD_BID,
-//    payload: new Promise((resolve, reject) => {
-//      request
-//      .post('api/bid')
-//      .send(body)
-//      .end(function(err, res) {
-//        if(err){
-//          return reject(err);
-//        }
-//        console.info('resolve', {body: res.body});
-//        resolve({body: res.body});
-//      });
-//    })
-//  };
-//}
-

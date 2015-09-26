@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 // Router
 import { Router } from 'react-router';
-import { history } from 'history';
+import { createHistory, useBasename } from 'history';
 import appRoutes from './routes/appRoutes';
 import createAppStore from './createStore/createStore';
 
@@ -17,6 +17,7 @@ Object.keys(initialState).forEach((key) => {
   initialState[key] = fromJS(initialState[key]);
 });
 
+const history = createHistory();
 
 const store = createAppStore(initialState);
 

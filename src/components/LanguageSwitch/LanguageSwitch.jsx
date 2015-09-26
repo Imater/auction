@@ -15,7 +15,6 @@ if (process.env.BROWSER) {
 class LanguageSwitch extends Component {
 
   render() {
-    console.info(this.props);
     var ruClass = 'flag';
     var engClass = 'flag';
     if(this.props.language === 'eng'){
