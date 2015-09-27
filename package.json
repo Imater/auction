@@ -68,6 +68,18 @@
     "webpack-dev-server": "^1.10.1",
     "where": "^0.1.2"
   },
+  "dependencies": {
+    "css-loader": {
+      "version": "0.19.0",
+      "from": "css-loader@0.19.0",
+      "dependencies": {
+        "postcss": {
+          "version": "5.0.8",
+          "from": "postcss@5.0.8"
+        }
+      }
+    }
+  },
   "scripts": {
     "start": "./node_modules/.bin/babel-node --stage 0 -- ./index.js",
     "dev": "npm run start & webpack-dev-server --progress --color",

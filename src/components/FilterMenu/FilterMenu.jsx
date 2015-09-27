@@ -38,8 +38,8 @@ class FilterMenu extends Component {
           <Link className='nav-item middle' activeClassName='active' to="/active" >
             {i18n.t('lot.active')}
           </Link>
-          <Link className='nav-item' activeClassName='active' to="/favorite" >
-            {i18n.t('lot.favorite')}
+          <Link className='favorite' title={i18n.t('lot.favorite')} activeClassName='active' to="/favorite" >
+            ★
           </Link>
         </span>
         <label className="sortSelect">

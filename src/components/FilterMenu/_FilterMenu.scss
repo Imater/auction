@@ -1,9 +1,25 @@
+@import '../settings.scss';
 .FilterMenu {
   margin-top: 10px;
   box-sizing: border-box;
   padding: 24px;
   min-height: 64px;
   text-align: left;
+  @media screen and (max-width: $screen-small){
+    padding: 10px 10px;
+    text-align: center;
+  }
+  .favorite {
+    color: #888;
+    text-decoration: none;
+    padding: 7px 15px;
+    &:hover {
+      color: #E7A731;
+    }
+    &.active {
+      color: #5A95BD;
+    }
+  }
   .nav-item {
     font-family: PTSansBold;
     font-size: 14px;
@@ -40,6 +56,14 @@
   }
   .sortSelect {
     float: right;
+    @media screen and (max-width: $screen-small){
+      display: block;
+      padding: 10px 0;
+      float: none;
+      text-align: center;
+    }
+    @media screen and (min-width: $screen-small) and (max-width: $screen-middle){
+    }
     span {
       font-family: PTSansBold;
       text-transform: uppercase;

@@ -1,5 +1,6 @@
+@import '../settings.scss';
 .Footer {
-  height: 600px;
+  min-height: 600px;
   background: #F1F6F8;
 
   width: 100%;
@@ -11,20 +12,31 @@
     padding-left: 70px;
     position: relative;
     margin-top: 25px;
+    a:before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 33px;
+      background: url(/assets/images/looi.svg);
+      background-size: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+    @media screen and (max-width: $screen-small){
+      display: block;
+      padding-top: 20px;
+      text-align: center;
+      padding: 20px;
+      padding-left: 80px;
+      a:before {
+        left: 20px;
+        top: auto;
+        bottom: 20px;
+      }
+    }
   }
-  .about a:before {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 33px;
-    background: url(/assets/images/looi.svg);
-    background-size: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-  }
-
   a {
     color: #348DC9;
   }
@@ -61,6 +73,10 @@
       width: auto;
       color: #AAA;
       padding: 20px 55px;
+      @media screen and (max-width: $screen-small){
+        display: block;
+        padding-top: 0px;
+      }
       p {
         font-size: 12px;
         &.from {
@@ -72,6 +88,15 @@
     .contacts {
       display: table-cell;
       width: 400px;
+      @media screen and (max-width: $screen-small){
+        display: block;
+        width: 100%;
+        padding-top: 0px;
+        text-align: center;
+      }
+      @media screen and (min-width: $screen-small) and (max-width: $screen-middle){
+        width: 300px;
+      }
       .line {
       }
       .email {

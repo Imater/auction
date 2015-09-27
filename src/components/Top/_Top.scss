@@ -1,3 +1,4 @@
+@import '../settings.scss';
 .Top {
   background-color: #FFF;
   min-height: 166px;
@@ -7,12 +8,21 @@
   .rowWrap {
     display: table-row;
     height: 100%;
+    @media screen and (max-width: $screen-small){
+      display: block;
+    }
     .loginWrap {
       vertical-align: top;
       width: 30%;
       display: table-cell;
       height: 100%;
       padding-top: 36px;
+      @media screen and (max-width: $screen-small){
+        display: block;
+        width: 100%;
+        padding-top: 10px;
+        text-align: center;
+      }
       .loginName {
         margin-left: 100px;
         font: PTSansBold;
@@ -46,6 +56,9 @@
         &.active {
           color: #000;
         }
+        @media screen and (max-width: $screen-small){
+          margin: 0;
+        }
       }
     }
     .headerWrap {
@@ -55,6 +68,12 @@
       height: 100%;
       text-align: center;
       padding-top: 17px;
+      @media screen and (max-width: $screen-small){
+        display: block;
+        width: 100%;
+        padding-top: 0px;
+        text-align: center;
+      }
       .title1 {
         margin-top: 20px;
         font-family: PTSansCaptionRegular, 'PT Sans Caption', Verdana;
@@ -102,6 +121,12 @@
       display: table-cell;
       height: 100%;
       padding-top: 50px;
+      @media screen and (max-width: $screen-small){
+        display: block;
+        width: 100%;
+        padding-top: 15px;
+        text-align: center;
+      }
     }
   }
 }

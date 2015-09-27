@@ -1,3 +1,4 @@
+@import '../settings.scss';
 .ActiveLot {
   background-color: #000;
   height: 470px;
@@ -59,15 +60,28 @@
       letter-spacing: 2px;
       margin: 15px 0;
       font-family: PTSansBold, 'PT Sans Caption', Verdana;
+      margin-right: 180px;
+      @media screen and (max-width: $screen-small){
+        font-size: 12px;
+      }
+      @media screen and (min-width: $screen-small) and (max-width: $screen-middle){
+        font-size: 20px;
+      }
     }
     .startCost {
       position: absolute;
       right: 50px;
       bottom: 15px;
-      // font-size: 20px;
-      // font-family: PTSansRegular, 'PT Sans Caption', Verdana;
-      // text-decoration: line-through;
-      // color: #a3b8c3;
+      font-size: 20px;
+      font-family: PTSansRegular, 'PT Sans Caption', Verdana;
+      text-decoration: line-through;
+      color: #a3b8c3;
+      @media screen and (max-width: $screen-small){
+        font-size: 12px;
+      }
+      @media screen and (min-width: $screen-small) and (max-width: $screen-middle){
+        font-size: 20px;
+      }
 
       font-size: 36px;
       font-family: PTSansBold, 'PT Sans Caption', Verdana;
@@ -75,9 +89,17 @@
     .cost{
       position: absolute;
       right: 50px;
-      bottom: 20px;
+      bottom: 60px;
       font-size: 44px;
       font-family: PTSansBold, 'PT Sans Caption', Verdana;
+      @media screen and (max-width: $screen-small){
+        font-size: 18px;
+        bottom: 40px;
+      }
+      @media screen and (min-width: $screen-small) and (max-width: $screen-middle){
+        font-size: 25px;
+        bottom: 40px;
+      }
     }
   }
 }
