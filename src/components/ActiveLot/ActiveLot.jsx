@@ -11,37 +11,32 @@ class ActiveLot extends Component {
 
   render() {
     var index = this.props.index || 0;
-    var filteredData = this.props.listData.filter(function(item){
-      var theItem = item.toJS ? item.toJS() : item;
-      return theItem.status === 'active';
-    });
-    var item = this.props.listData[index].toObject ? this.props.listData[index].toObject() : this.props.listData[index];
-    if (filteredData.length){
-      item = filteredData[index].toObject ? filteredData[index].toObject() : filteredData;
-    }
-    var divStyle = {
-      backgroundImage: 'url(/uploads/'+(item.cover || '')+')'
-    };
+    var item = this.props.listData.filter(function(el){
+      return el.get('status') === 'active';
+    }).get(index);
+    var divStyle = item ? {
+      backgroundImage: 'url(/uploads/' + (item.get('cover') || '') + ')'
+    } : {};
     return (
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
         <div className='invite'>
-          <Link className="nav-item" to="/lot" query={{index: item.id}}>
+          <Link className="nav-item" to={`/lot/${item.get('id')}`}>
             {i18n.t('header.accept')}
           </Link>
         </div>
         <div className='textWrap'>
           <h5>
-            {i18n.t('lot.lotNumber')}{item.id}
+            {i18n.t('lot.lotNumber')}{item.get('id')}
           </h5>
           <h2>
-            {item['title_'+this.props.language]}
+            {item.get('title_' + this.props.language)}
           </h2>
           <div className='startCost'>
-            {utils.rub(item.askPrice)}
+            {utils.rub(item.get('askPrice'))}
           </div>
           <div className='cost'>
-            {utils.rub(item.lastPrice)}
+            {utils.rub(item.get('lastPrice'))}
           </div>
         </div>
       </div>

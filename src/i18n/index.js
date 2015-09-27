@@ -52,6 +52,10 @@ const resources = {
         other: 'ДРУГИЕ ЛОТЫ',
         showall: 'Показать все ставки',
         sold: 'Торги состоялись',
+        favorite: 'Избранные',
+        sort: 'Сортировать',
+        sortPrice: 'по цене',
+        sortDate: 'по дате',
         lotNumber: "Лот №"
       },
       footer: {
@@ -148,6 +152,10 @@ const resources = {
         other: 'OTHER LOTS',
         showall: 'Show all',
         sold: 'Sold',
+        favorite: 'Favorite',
+        sort: 'Sort',
+        sortPrice: 'by Price',
+        sortDate: 'by Date',
         lotNumber: "Lot #"
       },
       footer: {

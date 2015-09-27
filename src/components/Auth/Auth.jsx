@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, findDOMNode } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import i18n from 'i18next-client';
 import MainHeader from '../MainHeader/MainHeader';
 import Footer from '../Footer/Footer';
@@ -16,7 +17,7 @@ class Auth extends Component {
     user: PropTypes.object.isRequired,
   }
   static contextTypes = {
-    router: PropTypes.object
+    history: PropTypes.object
   }
   static defaultProps = {
     onAddHandler: () => {},
@@ -34,7 +35,7 @@ class Auth extends Component {
         email: email.toLowerCase(),
         password: password,
         cb: function(){
-          self.context.router.transitionTo('/');
+          self.context.history.pushState(null, '/');
         }
       });
     } else {
@@ -52,7 +53,7 @@ class Auth extends Component {
     this.props.onRestorePassword({
       email: email === null ? '' : email
     });
-    this.context.router.transitionTo('/auth/restore');
+    this.context.history.pushState(null, '/auth/restore');
   }
   render() {
     return (

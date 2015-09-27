@@ -29,7 +29,7 @@ export function createUser(body, cb) {
     type: CREATE_USER,
     payload: new Promise((resolve, reject) => {
       request
-      .post('api/user')
+      .post('/api/user')
       .send(body)
       .end(function(err, res) {
         if (err){
@@ -58,7 +58,7 @@ export function userInfo(body) {
     type: USER_INFO,
     payload: new Promise((resolve, reject) => {
       request
-      .put('api/user')
+      .put('/api/user')
       .send(body)
       .end(function(err, res) {
         if (err){
@@ -80,7 +80,7 @@ export function restorePassword(body) {
     type: USER_INFO,
     payload: new Promise((resolve, reject) => {
       request
-      .put('api/user/email')
+      .put('/api/user/email')
       .send(body)
       .end(function(err, res) {
         if (err){

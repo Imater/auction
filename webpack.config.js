@@ -10,6 +10,7 @@ var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
 var config = {
   devtool: 'eval',
   watch: true,
+  cache: true,
   entry: {
     app: [
       'webpack/hot/only-dev-server',

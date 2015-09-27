@@ -1,0 +1,64 @@
+.FilterMenu {
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 24px;
+  min-height: 64px;
+  text-align: left;
+  .nav-item {
+    font-family: PTSansBold;
+    font-size: 14px;
+    border: 3px solid #EEE;
+    display: inline-block;
+    color: #888;
+    text-decoration: none;
+    vertical-align: middle;
+    text-transform: uppercase;
+    padding: 7px 40px;
+    &:hover {
+      color: #E7A731;
+    }
+    &:last-child {
+      border-left: none;
+      &.active {
+        border: 3px solid;
+        border-color: #5A95BD;
+        color: #5A95BD;
+      }
+    }
+    &:first-child {
+      border-right: none;
+      &.active {
+        border: 3px solid;
+        border-color: #5A95BD;
+        color: #5A95BD;
+      }
+    }
+    &.active {
+      border-color: #5A95BD;
+      color: #5A95BD;
+    }
+  }
+  .sortSelect {
+    float: right;
+    span {
+      font-family: PTSansBold;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+    select {
+      height: 38px;
+      border-color: #5A95BD;
+      color: #5A95BD;
+      border-radius: 0;
+      font-family: PTSansBold;
+      font-size: 14px;
+      background-color: #FFF;
+      border: 3px solid;
+      display: inline-block;
+      text-decoration: none;
+      vertical-align: middle;
+      padding: 7px 40px;
+      text-transform: uppercase;
+    }
+  }
+}

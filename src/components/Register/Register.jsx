@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, findDOMNode  } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import i18n from 'i18next-client';
 import MainHeader from '../MainHeader/MainHeader';
 import Footer from '../Footer/Footer';
@@ -48,7 +49,7 @@ class Register extends Component {
     };
     this.props.onCreateUser(body, function(){
       body.cb = function(){
-        self.context.router.transitionTo('/');
+        self.context.history.pushState(null, '/');
       };
       self.props.onUserInfo(body);
     });

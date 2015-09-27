@@ -11,21 +11,18 @@ class MainHeader extends Component {
   componentWillMount() {
     if (typeof window !== 'undefined') {
       setTimeout(function(){
-        var $header = $(".MainHeader"),
-            $quote = $header.find(".textColumn"),
-            $popup = $header.find(".popup"),
-            $popupClose = $header.find(".popup-close");
+        var $header = $('.MainHeader');
+        var $quote = $header.find('.textColumn');
+        var $popup = $header.find('.popup');
+        var $popupClose = $header.find('.popup-close');
+        $quote.on('click', function(){
+          $popup.removeClass('is-hidden');
+        });
 
-            console.log(this);
-        $quote.on("click", function(){
-          console.log("asdfasdf");
-          $popup.removeClass("is-hidden");
-        })
-
-        $popupClose.on("click", function(){
-          $popup.addClass("is-hidden");
-        })
-      }, 500)
+        $popupClose.on('click', function(){
+          $popup.addClass('is-hidden');
+        });
+      }, 500);
 
     }
   }
@@ -53,25 +50,25 @@ class MainHeader extends Component {
                 <div className="textColumn">
                   <div className="text">
                     {i18n.t('header.introText')}
+                    </div>
+                    <div className="author">
+                      {i18n.t('header.introAuthor')}
+                      </div>
+                    </div>
                   </div>
-                  <div className="author">
-                    {i18n.t('header.introAuthor')}
-                  </div>
-                </div>
-              </div>
-              <div className="logosWrapper">
-                <Link className="toMain" to="/">{i18n.t('header.home')}</Link>
-                <div className="nav-item">
-                  <a href="http://www.forumvostok.ru" className="logo1"></a>
-                  <a href="http://www.mnr.gov.ru" className="logo2"></a>
-                  <a href="http://www.naturefund.ru" className="logo3"></a>
-                </div>
+                  <div className="logosWrapper">
+                    <Link className="toMain" to="/">{i18n.t('header.home')}</Link>
+                    <div className="nav-item">
+                      <a href="http://www.forumvostok.ru" className="logo1"></a>
+                      <a href="http://www.mnr.gov.ru" className="logo2"></a>
+                      <a href="http://www.naturefund.ru" className="logo3"></a>
+                    </div>
 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
     );
   }
 }

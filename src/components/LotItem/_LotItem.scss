@@ -1,3 +1,5 @@
+@import '../settings.scss';
+
 .LotItem {
   .nav-item {
     text-decoration: none;
@@ -7,9 +9,19 @@
   width: 33%;
   vertical-align: top;
   margin-bottom: 30px;
+  @media screen and (max-width: $screen-small){
+    width: 100%;
+  }
+  @media screen and (min-width: $screen-small) and (max-width: $screen-middle){
+    width: 50%;
+  }
+  @media screen and (min-width: $screen-middle) and (max-width: $screen-large){
+    width: 33%;
+  }
   .itemWrap {
     position: relative;
-    max-width: 300px;
+    max-width: 100%;
+    padding: 0px 10px;
     .imageWrap {
       // margin: 0 5px;
       height: 400px;
@@ -49,6 +61,7 @@
   }
   .accept {
     margin: 20px 0;
+    padding: 0 10px;
     .nav-item {
       font-family: PTSansBold;
       letter-spacing: 1px;

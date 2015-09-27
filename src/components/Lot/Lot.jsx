@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, findDOMNode } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 import ActiveLot from '../ActiveLot/ActiveLot';
 import LotImage from '../LotImage/LotImage';
@@ -18,7 +19,7 @@ if (process.env.BROWSER) {
 
 class Lot extends Component {
   static propTypes = {
-    listData: PropTypes.array.isRequired,
+    listData: PropTypes.object.isRequired,
     language: PropTypes.string.isRequired,
     user: PropTypes.object.isRequired,
     onAddHandler: PropTypes.func,
@@ -78,11 +79,10 @@ class Lot extends Component {
   }
   _renderListItem() {
     const { listData } = this.props;
-    var listDataFiltered = listData.slice(1,4);
-    return listDataFiltered.map((itemMap, index) => {
-      var item = itemMap.toObject ? itemMap.toObject() : itemMap;
+    var listDataFiltered = listData.skip(1).take(3);
+    return listDataFiltered.map((item, index) => {
       var divStyle = {
-        backgroundImage: 'url('+item.image+')'
+        backgroundImage: 'url(' + item.get('image') + ')'
       }
       return (
         <LotItem key={index} item={item} {...this.props} />
@@ -90,21 +90,18 @@ class Lot extends Component {
     });
   }
   _renderItem() {
-    const { listData, location: { query: {index}} } = this.props;
-    var item = {};
-    listData.filter(function(itemList){
-      var foundItem = itemList.toObject ? itemList.toObject() : itemList;
-      if(foundItem.id == index){
-        item = foundItem;
-      }
+    const { listData, params: { index } } = this.props;
+    var item = listData.find(function(el){
+      return el.get('id') == index
     })
-    this.lotphotos = item.lotphotos.toJS ? item.lotphotos.toJS() : item.lotphotos;
+    this.lotphotos = item.get('lotphotos');
     var bid = (<div></div>);
     var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
     var admin = (<div></div>);
-    if(item.status === 'active'){
-      var value = parseInt(parseInt(item.lastPrice || item.askPrice)*1.1);
-      if(typeof localStorage !== 'undefined' && localStorage.getItem('email')){
+    if(item.get('status') === 'active'){
+      var canShowMakeBid = typeof localStorage !== 'undefined' && localStorage.getItem('email');
+      if(canShowMakeBid){
+        var value = parseInt(parseInt(item.get('lastPrice') || item.get('askPrice'))*1.1);
         bid = (
           <div>
             <div className="bidMain">
@@ -120,7 +117,7 @@ class Lot extends Component {
                     ₽
                   </div>
                   <div className='button'>
-                    <a data-id={item.id} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
+                    <a data-id={item.get('id')} data-user-id={user.id} onClick={this._onAddBid.bind(this)}>
                       {i18n.t('lot.bid')}
                     </a>
                   </div>
@@ -163,8 +160,8 @@ class Lot extends Component {
                 <input type="text" placeholder="Имя участника" ref="lastnameInput"/>
               </div>
               <div className='button'>
-                <a data-id={item.id} data-user-id={user.id} onClick={this._onSold.bind(this)}>
-                  {item.status !== 'sold' ? 'Продать досрочно' : 'Запустить торги'}
+                <a data-id={item.get('id')} data-user-id={user.id} onClick={this._onSold.bind(this)}>
+                  {item.get('status')!== 'sold' ? 'Продать досрочно' : 'Запустить торги'}
                 </a>
               </div>
             </div>
@@ -173,9 +170,9 @@ class Lot extends Component {
       );
     };
     var timerOrSold = (
-      <Timer endDateTime={item.endDateTime} />
+      <Timer endDateTime={item.get('endDateTime')} />
     );
-    if(item.status === 'sold'){
+    if(item.get('status') === 'sold'){
       timerOrSold = (
         <div className="endTimeWrap">
           {i18n.t('lot.sold')}
@@ -185,34 +182,33 @@ class Lot extends Component {
     return (
       <div className="lotDescription">
         <LotSlider item={item} language={this.props.language} lotphotos={this.lotphotos} />
-        {/*<LotImage img={item.cover}/>*/}
-        {(utils.isTimeOver(item.endDateTime) && user.userGroup !== 1) ? (<p></p>) : bid}
+        {(utils.isTimeOver(item.get('endDateTime')) && user.userGroup !== 1) ? (<p></p>) : bid}
         {admin}
         <div className="description">
           <div className="row">
             <div className='leftCol'>
               <div className="id">
-                {i18n.t('lot.lotNumber')}{item.id}
+                {i18n.t('lot.lotNumber')}{item.get('id')}
               </div>
               <div className="title">
-                {item['title_'+this.props.language]}
+                {item.get('title_'+this.props.language)}
               </div>
               <div className="from">
-                {item['lotFrom_'+this.props.language]}
+                {item.get('lotFrom_'+this.props.language)}
               </div>
               <div className="text">
-                {item['lotText_'+this.props.language]}
+                {item.get('lotText_'+this.props.language)}
               </div>
             </div>
             <div className="rightCol">
               <div className="startCost">
-                {item.lastPrice ? utils.rub(item.askPrice) : ''}
+                {item.get('lastPrice') ? utils.rub(item.get('askPrice')) : ''}
               </div>
               <div className="nowCost">
-                {utils.rub(item.lastPrice || item.askPrice)}
+                {utils.rub(item.get('lastPrice') || item.get('askPrice'))}
               </div>
               <div className="name">
-                {utils.shortFullName(item.name, this.props.language === 'eng')}
+                {utils.shortFullName(item.get('name'), this.props.language === 'eng')}
               </div>
               {timerOrSold}
               <LotHistory language={this.props.language} item={item}/>

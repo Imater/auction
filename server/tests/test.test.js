@@ -13,7 +13,7 @@ describe('Test', function() {
   });
   it.only('get main page', function(done) {
     request(global.url)
-    .get('')
+    .get("lot/11")
     .end(function(err, res) {
       console.info(err);
       res.status.should.equal(200);

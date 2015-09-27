@@ -10,5 +10,8 @@ gulp.task('mocha', ['env-test'], function () {
           compilers: {
             js: babel
           }
-        }));
+        })).on('error', function(err){
+          console.log(err.toString());
+          this.emit('end');
+        });
 });

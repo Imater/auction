@@ -32,11 +32,11 @@ class LotSlider extends Component {
   }
   render() {
     var lotphotos = this.props.lotphotos;
-    this.lotphotosCount = this.props.lotphotos.length;
+    this.lotphotosCount = this.props.lotphotos.size;
     var slide;
     if(this.state.index === -1) {
       slide = (
-        <div className='slider-item' style={{backgroundImage: 'url(/uploads/'+this.props.item.cover+')'}}>
+        <div className='slider-item' style={{backgroundImage: 'url(/uploads/'+this.props.item.get('cover')+')'}}>
           <div className='slider-overlay'></div>
           <div className='slider-title'>
           </div>
@@ -45,15 +45,15 @@ class LotSlider extends Component {
         </div>
       );
     } else {
-      var item = lotphotos[this.state.index];
+      var item = lotphotos.get(this.state.index);
       slide = (
-        <div className='slider-item' style={{backgroundImage: 'url(/uploads/gallery/'+item.url+')'}}>
+        <div className='slider-item' style={{backgroundImage: `url(/uploads/gallery/${item.get('url')})`}}>
           <div className='slider-overlay'></div>
           <div className='slider-title'>
-            {item['title_'+this.props.language]}
+            {item.get('title_'+this.props.language)}
           </div>
           <div className='slider-description'>
-            {item['description_'+this.props.language]}
+            {item.get('description_'+this.props.language)}
           </div>
         </div>
       );

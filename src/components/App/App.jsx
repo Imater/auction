@@ -66,7 +66,7 @@ if (process.env.BROWSER) {
 
     render() {
       var devtools;
-      if(false && process.env.__DEVELOPMENT__){
+      if(true && process.env.__DEVELOPMENT__){
         devtools = (
           <DebugPanel top right bottom>
             <DevTools store={this.context.store} monitor={LogMonitor} />

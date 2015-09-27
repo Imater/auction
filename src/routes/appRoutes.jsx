@@ -12,11 +12,16 @@ import Monitor2 from '../containers/Monitor2/Monitor2';
 import Conditions from '../components/Conditions/Conditions';
 import Lot from '../containers/Lot/Lot';
 
+const auth = (nextState, transition, callback) => {
+  callback();
+};
+
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Main} />
     <Route path="/todo" component={Todo} />
     <Route path="/active" component={Main} />
+    <Route path="/favorite" component={Main} />
     <Route path="/auth" ro={Route} component={Auth}>
       <Route path="restore" component={About} />
     </Route>
@@ -25,6 +30,6 @@ export default (
     <Route path="/monitor2" component={Monitor2} />
     <Route path="/monitor3" component={Monitor2} />
     <Route path="/conditions" component={Conditions} />
-    <Route path="/lot" component={Lot} />
+    <Route path="/lot/:index" component={Lot} onEnter={auth}/>
   </Route>
 );

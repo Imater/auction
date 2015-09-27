@@ -11,6 +11,7 @@ const addInfoToItem = function(item){
     item.name = item.bids[0].bidUser;
     item.lastPrice = item.bids[0].price;
     item.lastTime = item.bids[0].createdAt;
+    item.favorite = item.bids[0].price > 200000;
   }
   return item;
 };

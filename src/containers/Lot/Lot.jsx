@@ -17,7 +17,7 @@ import {
 
 function mapStateToProps(state) {
   return {
-    listData: state.todos.toArray(),
+    listData: state.todos,
     language: state.i18.toObject ? state.i18.toObject().language : state.i18.language,
     user: state.user.toObject ? state.user.toObject() : state.user
   };

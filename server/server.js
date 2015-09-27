@@ -26,7 +26,7 @@ import webpackDevServer from './webpackDevServer.js';
 // Redux
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import { List } from 'immutable';
+import { List, fromJS } from 'immutable';
 import * as reducers from '../src/stores';
 import createAppStore from '../src/createStore/createStore';
 import api from './api';
@@ -87,15 +87,18 @@ app.use((req, res, next) => {
     } else {
       api.getAllLots().then(function(lotsFromDb){
         const store = createAppStore({
-          todos: new List(lotsFromDb),
+          todos: fromJS(lotsFromDb),
           i18: {
             language: needEng ? 'eng' : 'ru'
-          }
+          },
+          options: fromJS({
+            sort: 'date'
+          })
         });
 
         const initialView = renderToString(
           <Provider store={store}>
-          {() => <RoutingContext {...renderProps} />}
+            <RoutingContext {...renderProps} />
           </Provider>
         );
 

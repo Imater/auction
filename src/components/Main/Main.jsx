@@ -1,10 +1,12 @@
-import React, { Component, PropTypes, findDOMNode } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 import ActiveLot from '../ActiveLot/ActiveLot';
 import i18n from 'i18next-client';
 import Top from '../Top/Top';
 import Footer from '../Footer/Footer';
 import MainHeader from '../MainHeader/MainHeader';
+import FilterMenu from '../FilterMenu/FilterMenu';
 import LotItem from '../LotItem/LotItem';
 import * as utils from '../../utils';
 
@@ -14,9 +16,10 @@ if (process.env.BROWSER) {
 
 class Main extends Component {
   static propTypes = {
-    listData: PropTypes.array.isRequired,
+    listData: PropTypes.object.isRequired,
     language: PropTypes.string.isRequired,
     user: PropTypes.object.isRequired,
+    options: PropTypes.object.isRequired,
     onAddHandler: PropTypes.func,
     onDeleteHandler: PropTypes.func
   }
@@ -37,21 +40,42 @@ class Main extends Component {
     e.preventDefault();
     onDeleteHandler(id);
   }
-  _renderListItem() {
+  _renderListItems() {
     const { listData, language } = this.props;
-    var filteredData = [];
+    var filteredData;
     if(this.props.route.path === '/active'){
       filteredData = listData.filter(function(item){
-        var theItem = item.toJS ? item.toJS() : item;
-        return theItem.status === 'active';
+        return item.get('status') === 'active';
+      });
+    } else if(this.props.route.path === '/favorite'){
+      filteredData = listData.filter(function(item){
+        return item.get('favorite') === true;
       });
     } else {
       filteredData = listData;
     }
-    return utils.sortByNumber(filteredData).map((itemMap, index) => {
-      var item = itemMap.toObject ? itemMap.toObject() : itemMap;
+    var sortType = this.props.options.get('sort');
+    filteredData = filteredData.sort((a, b) => {
+      var aValue, bValue;
+      if(sortType === 'date') {
+        aValue = a.get('lastTime');
+        bValue = b.get('lastTime');
+      } else if (sortType === 'price') {
+        aValue = a.get('lastPrice') || a.get('askPrice');
+        bValue = b.get('lastPrice') || b.get('askPrice');
+      }
+      if (aValue > bValue) {
+        return -1;
+      } else if (aValue < bValue) {
+        return 1;
+      } else {
+        return 0;
+      };
+    });
+    return filteredData.map((itemMap, index) => {
+      var item = itemMap;
       var divStyle = {
-        backgroundImage: 'url(/uploads/'+item.cover+')'
+        backgroundImage: 'url(/uploads/'+item.get('cover')+')'
       }
       return (
         <LotItem key={index} item={item} {...this.props} />
@@ -62,7 +86,8 @@ class Main extends Component {
     var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
     var mainIndex = 0;
     var allLinkClass = 'nav-item';
-    if(this.props.route.path === '/'){
+    console.info(this.props.route)
+    if(this.props.route.path === undefined){
       var allLinkClass = 'nav-item active';
     }
     return (
@@ -73,16 +98,9 @@ class Main extends Component {
           <div className="ActiveLot">
             <ActiveLot index={mainIndex} {...this.props}/>
           </div>
-          <nav className="app-navigation">
-            <Link className={allLinkClass} to="/" activeClassName='act'>
-              {i18n.t('lot.all')}
-            </Link>
-            <Link className='nav-item' to="/active">
-              {i18n.t('lot.active')}
-            </Link>
-          </nav>
+          <FilterMenu route={this.props.route} onChangeSort={this.props.onChangeSort} options={this.props.options}/>
           <ul className='items'>
-            {this._renderListItem()}
+            {this._renderListItems()}
           </ul>
         </div>
         <Footer />

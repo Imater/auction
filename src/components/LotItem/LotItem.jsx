@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, findDOMNode } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 import i18n from 'i18next-client';
 import * as utils from '../../utils';
@@ -9,34 +10,34 @@ if (process.env.BROWSER) {
 
 class LotItem extends Component {
   static propTypes = {
-    listData: PropTypes.array.isRequired,
+    listData: PropTypes.object.isRequired,
     language: PropTypes.string.isRequired,
     item: PropTypes.object.isRequired
   }
   render() {
     const { item, listData, language } = this.props;
     var divStyle = {
-      backgroundImage: 'url(/uploads/small/'+item.cover+')'
+      backgroundImage: 'url(/uploads/small/'+item.get('cover')+')'
     };
     var button = (<div></div>);
     var name = (
       <div className="name">
-         {utils.shortFullName(item.name, language === 'eng')}
+         {utils.shortFullName(item.get('name'), language === 'eng')}
        </div>
     );
-    if(item.status === 'active' && !utils.isTimeOver(item.endDateTime)) {
+    if(item.get('status') === 'active' && !utils.isTimeOver(item.get('endDateTime'))) {
       button = (
         <div className="accept">
-          <Link className="nav-item" to="/lot" query={{index: item.id}}>
+          <Link className="nav-item" to={`/lot/${item.get('id')}`}>
             {i18n.t('header.accept')}
           </Link>
         </div>
       );
-    } else if(item.status === 'sold') {
+    } else if(item.get('status') === 'sold') {
       name = (<div></div>);
       button = (
         <div className="sold">
-          <Link className="nav-item" to="/lot" query={{index: item.id}}>
+          <Link className="nav-item" to={`/lot/${item.get('id')}`}>
             {i18n.t('header.sold')}
           </Link>
           <div className="winner">
@@ -44,15 +45,15 @@ class LotItem extends Component {
               {i18n.t('header.winner')}
             </div>
             <div>
-              {utils.shortFullName(item.name, language === 'eng')}
+              {utils.shortFullName(item.get('name'), language === 'eng')}
             </div>
           </div>
         </div>
       );
-    } else if (!utils.isTimeOver(item.endDateTime)){
+    } else if (!utils.isTimeOver(item.get('endDateTime'))){
       button = (
         <div className="openTime">
-          {utils.timeRest(item.startDateTime, language)}
+          {utils.timeRest(item.get('startDateTime'), language)}
         </div>
       );
     } else {
@@ -63,25 +64,25 @@ class LotItem extends Component {
         );
     }
     return (
-      <li className='LotItem' key={item.id}>
-        <Link className="nav-item" to="/lot" query={{index: item.id}}>
+      <li className='LotItem' key={item.get('id')}>
+        <Link className="nav-item" to={`/lot/${item.get('id')}`}>
           <div className='itemWrap'>
             <div className='imageWrap' style={divStyle}>
             </div>
             <div className="id">
-              {i18n.t('lot.lotNumber')}{item.id}
+              {i18n.t('lot.lotNumber')}{item.get('id')}
             </div>
             <div className="title">
-              {item['title_'+language]}
+              {item.get('title_'+language)}
             </div>
             <div className="from">
-              {item['lotFrom_'+language]}
+              {item.get('lotFrom_'+language)}
             </div>
             <div className="startCost">
-              {item.lastPrice ? utils.rub(item.askPrice) : ''}
+              {item.get('lastPrice') ? utils.rub(item.get('askPrice')) : ''}
             </div>
             <div className="nowCost">
-              {utils.rub(item.lastPrice || item.askPrice)}
+              {utils.rub(item.get('lastPrice') || item.get('askPrice'))}
             </div>
             {name}
           </div>

@@ -58,10 +58,11 @@ export function addBid(body) {
     type: ADD_BID,
     payload: new Promise((resolve, reject) => {
       request
-      .post('api/bid')
+      .post('/api/bid')
       .send(body)
       .end(function(err, res) {
         if(err){
+          console.info('addBidError', err);
           if(err.response.body.error == 'price_too_low'){
             alert('Ваша ставка должна быть выше, чем '+err.response.body.oldPrice+' руб + 10%');
           };
@@ -84,7 +85,7 @@ export function addBidAdmin(body) {
     type: ADD_BID,
     payload: new Promise((resolve, reject) => {
       request
-      .put('api/bid')
+      .put('/api/bid')
       .send(body)
       .end(function(err, res) {
         if(err){
@@ -110,7 +111,7 @@ export function sold(body) {
     type: ADD_BID,
     payload: new Promise((resolve, reject) => {
       request
-      .put('api/bid/sold')
+      .put('/api/bid/sold')
       .send(body)
       .end(function(err, res) {
         if(err){
