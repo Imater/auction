@@ -1,13 +1,58 @@
 @import '../settings.scss';
+
 .Lot {
-  // min-width: 800px;
-  // max-width: 1240px;
-  // margin: 0 auto;
   font-family: PTSansRegular, 'PT Sans', Verdana;
   h4 {
     text-transform: uppercase;
     font-family: PTSansBold, 'PT Sans', Verdana;
     margin: 5px 55px;
+  }
+  .sold {
+    margin: 10px 0;
+    position: relative;
+    .winner {
+      display: inline-block;
+      font-family: PTSansBold;
+      margin-left: 30px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    .nav-item {
+      margin-left: 10px;
+      display: inline-block;
+      background-image: url(/assets/images/sale_center.jpg);
+      background-repeat: repeat-x;
+      background-position: top;
+      height: 36px;
+      font-family: PTSansBold;
+      letter-spacing: 1px;
+      font-size: 14px;
+      padding: 10px 20px;
+      color: #000;
+      text-transform: uppercase;
+      position: relative;
+      text-decoration: none;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: -10px;
+        height: 36px;
+        width: 10px;
+        display: block;
+        background-image: url(/assets/images/sale_left.jpg);
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: -12px;
+        height: 36px;
+        width: 12px;
+        display: block;
+        background-image: url(/assets/images/sale_right.jpg);
+      }
+    }
   }
   ul.items {
     margin: 0 50px;

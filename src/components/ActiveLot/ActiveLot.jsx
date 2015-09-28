@@ -17,6 +17,7 @@ class ActiveLot extends Component {
     var divStyle = item ? {
       backgroundImage: 'url(/uploads/' + (item.get('cover') || '') + ')'
     } : {};
+    var lastPrice = item.get('lastPrice') === undefined ? item.get('askPrice') : item.get('lastPrice');
     return (
       <div className="ActiveLot" style={divStyle}>
         <div className='bg'></div>
@@ -32,11 +33,8 @@ class ActiveLot extends Component {
           <h2>
             {item.get('title_' + this.props.language)}
           </h2>
-          <div className='startCost'>
-            {utils.rub(item.get('askPrice'))}
-          </div>
           <div className='cost'>
-            {utils.rub(item.get('lastPrice'))}
+            {utils.rub(lastPrice)}
           </div>
         </div>
       </div>

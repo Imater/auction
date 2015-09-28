@@ -6,6 +6,7 @@ import Todo from '../containers/Todo/Todo';
 import About from '../containers/About/About';
 import Auth from '../containers/Auth/Auth';
 import Register from '../containers/Register/Register';
+import Profile from '../containers/Profile/Profile';
 import Main from '../containers/Main/Main';
 import Monitor from '../containers/Monitor/Monitor';
 import Monitor2 from '../containers/Monitor2/Monitor2';
@@ -22,6 +23,7 @@ export default (
     <Route path="/todo" component={Todo} />
     <Route path="/active" component={Main} />
     <Route path="/favorite" component={Main} />
+    <Route path="/profile" component={Profile} />
     <Route path="/auth" ro={Route} component={Auth}>
       <Route path="restore" component={About} />
     </Route>

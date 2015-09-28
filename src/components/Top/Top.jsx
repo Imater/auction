@@ -11,6 +11,7 @@ if (process.env.BROWSER) {
 class Top extends Component {
 
   render() {
+    console.info(this.props.user);
     var login = (<div></div>);
     if( !this.props.user || !(this.props.user.lastname || this.props.user.firstname || this.props.user.middlename) ) {
       login = (
@@ -26,7 +27,9 @@ class Top extends Component {
     } else {
       login = (
         <div className="loginName">
-          {utils.shortFullName(this.props.user)}
+          <Link className="profile-link" to="/profile">
+            {utils.shortFullName(this.props.user)}
+          </Link>
           <a className="exit" onClick={this.props.onUserExit.bind(this)}>
             {i18n.t('login.exit')}
           </a>

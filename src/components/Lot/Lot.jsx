@@ -172,10 +172,27 @@ class Lot extends Component {
     var timerOrSold = (
       <Timer endDateTime={item.get('endDateTime')} />
     );
+    var soldButton = (
+      <div></div>
+    );
     if(item.get('status') === 'sold'){
       timerOrSold = (
         <div className="endTimeWrap">
-          {i18n.t('lot.sold')}
+        </div>
+      );
+      soldButton = (
+        <div className="sold">
+          <Link className="nav-item" to={`/lot/${item.get('id')}`}>
+            {i18n.t('header.sold')}
+          </Link>
+          <div className="winner">
+            <div>
+              {i18n.t('header.winner')}
+            </div>
+            <div>
+              {utils.shortFullName(item.get('name'), this.props.language === 'eng')}
+            </div>
+          </div>
         </div>
       );
     }
@@ -212,6 +229,7 @@ class Lot extends Component {
               </div>
               {timerOrSold}
               <LotHistory language={this.props.language} item={item}/>
+              {soldButton}
             </div>
           </div>
         </div>

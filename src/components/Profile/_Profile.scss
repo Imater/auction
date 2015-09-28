@@ -1,0 +1,47 @@
+.Profile {
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 50px;
+  .wrapper {
+    display: inline-block;
+    font-family: PTSansRegular;
+    .label {
+      text-transform: uppercase;
+      text-align: left;
+      width: 400px;
+      color: #A4B7C5;
+      margin-top: 20px;
+      margin-left: 5px;
+      font-size: 17px;
+    }
+    input {
+      padding: 10px;
+      width: 400px;
+      border: 2px solid #A4B7C5;
+      margin: 5px;
+    }
+    .forgotWrapper {
+      text-align: right;
+      color: #439ADD;
+      margin-right: 5px;
+    }
+    button {
+      margin: 15px;
+      font: PTSansBold;
+      letter-spacing: 1 px;
+      background: #FFF;
+      padding: 5px 35px;
+      width: 270px;
+      color: #419CDB;
+      border: 3px solid #419CDB;
+      text-transform: uppercase;
+    }
+  }
+
+}
+.condition {
+  width: 400px;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+}

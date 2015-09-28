@@ -28,7 +28,6 @@ class FilterMenu extends Component {
 
   render() {
     var allLinkClass = this.props.route.path === undefined ? 'nav-item active' : 'nav-item';
-    console.info('props', this.props);
     return (
       <nav className="FilterMenu">
         <span>

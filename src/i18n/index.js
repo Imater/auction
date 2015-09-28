@@ -43,6 +43,10 @@ const resources = {
         firstname: 'Имя',
         middlename: 'Отчество'
       },
+      profileRoom: 'ЛИЧНЫЙ КАБИНЕТ',
+      profile: {
+        saveChanges: 'СОХРАНИТЬ ИЗМЕНЕНИЯ'
+      },
       lot: {
         all: 'ВСЕ ЛОТЫ',
         active: 'ТОЛЬКО АКТИВНЫЕ',
@@ -142,6 +146,10 @@ const resources = {
         lastname: 'Lastname',
         firstname: 'Firstname',
         middlename: 'Middlename'
+      },
+      profileRoom: 'PERSONAL PROFILE',
+      profile: {
+        saveChanges: 'SAVE CHANGES'
       },
       lot: {
         all: 'ALL LOTS',

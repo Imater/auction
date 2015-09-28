@@ -86,7 +86,6 @@ class Main extends Component {
     var user = (this.props.user && this.props.user.body && this.props.user.body.toObject) ? this.props.user.body.toObject() : this.props.user.body;
     var mainIndex = 0;
     var allLinkClass = 'nav-item';
-    console.info(this.props.route)
     if(this.props.route.path === undefined){
       var allLinkClass = 'nav-item active';
     }
